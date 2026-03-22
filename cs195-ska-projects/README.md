@@ -1,4 +1,4 @@
-CS195: Spectral Koopman Attention -- Student Projects
+CS195: Spectral Koopman Attention - Student Projects
 
 This repository contains learning materials and 10 independent research
 projects exploring Spectral Koopman Attention (SKA) and related
