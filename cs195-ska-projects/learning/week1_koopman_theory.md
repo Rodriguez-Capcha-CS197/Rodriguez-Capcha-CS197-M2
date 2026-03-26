@@ -36,50 +36,51 @@ The Koopman operator is a trick for turning nonlinear dynamics into linear dynam
 An observable is just any function $g(x)$ that measures something about the state.
 
 If you pick the right set of observables, the dynamics become linear in observable space:
+
 $$
 g(x_{t+1}) = K g(x_t)
 $$
 
-where K is a matrix called the Koopman operator. This is exact (not
-an approximation) if you use infinitely many observables. In practice
-we use a finite set and get a good approximation.
+where $K$ is a matrix called the Koopman operator.
+This is exact (not an approximation) if you use infinitely many observables.
+In practice we use a finite set and get a good approximation.
 
-Why does this help? Because linear dynamics are easy. If you know K,
-you can predict the state at any future time by matrix multiplication:
-
-    g(x_{t+n}) = K^n g(x_t)
+Why does this help? Because linear dynamics are easy.
+If you know $K$, you can predict the state at any future time by matrix multiplication:
+$$
+g(x_{t+n}) = K^n g(x_t)
+$$
 
 No need to simulate step by step.
 
+## 3. From Dynamical Systems to Attention
 
-3. From Dynamical Systems to Attention
-
-Now think of the token sequence in a language model as a dynamical
-system. The "state" at position t is the residual stream h_t (the
-hidden representation at that position). The "dynamics" are whatever
-transformation moves information from one position to the next.
+Now think of the token sequence in a language model as a dynamical system.
+The "state" at position $t$ is the residual stream $h_t$ (the hidden representation at that position).
+The "dynamics" are whatever transformation moves information from one position to the next.
 
 In this framing:
     - The "observables" are learned projections of the residual stream
       (analogous to keys in attention)
-    - The Koopman operator K captures how information flows across
+    - The Koopman operator $K$ captures how information flows across
       positions
     - "Querying" the operator is like doing attention: you project
-      your query into observable space, apply K, and read out values
+      your query into observable space, apply $K$, and read out values
 
-The key insight: once K is estimated, applying it to a query is O(r^2)
-where r is the rank of the observable space. This doesn't depend on T
-at all. You pay O(T) once to estimate K from the sequence, then every
-query is O(r^2) regardless of how long the context was.
+**The key insight:** once $K$ is estimated, applying it to a query is $O(r^2)$ where $r$ is the rank of the observable space.
+This doesn't depend on $T$ at all.
+You pay $O(T)$ once to estimate $K$ from the sequence, then every query is $O(r^2)$ regardless of how long the context was.
 
+## 4. How SKA Estimates the Operator
 
-4. How SKA Estimates the Operator
+Given a sequence of hidden states $h_1, \dots, h_T$, SKA does the following:
 
-Given a sequence of hidden states h_1, ..., h_T, SKA does the following:
+**Step 1:** Project into observable space.
 
-Step 1: Project into observable space.
+$$
     z_t = W_key h_t       (key projection, d_model -> r)
     v_t = W_val h_t       (value projection, d_model -> P)
+$$
 
 Step 2: Build the Gram matrix (sufficient statistics).
     G = sum_t z_t z_t^T   (r x r matrix, measures "how much data we have")
