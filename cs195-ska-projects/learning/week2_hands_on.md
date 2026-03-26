@@ -1,4 +1,4 @@
-Week 2: Hands-On with SKA and Koopman MLP
+# Week 2: Hands-On with SKA and Koopman MLP
 
 This week you run code, break things, and build intuition for how
 the modules work in practice. By the end of this week you should be
@@ -7,30 +7,29 @@ able to explain every line in ska.py and koopman_mlp.py.
 All exercises run on CPU. No GPU needed.
 
 
-Part A: SKA from Scratch
+## Part A: SKA from Scratch
 
-Exercise 1: Build a minimal SKA by hand.
+**Exercise 1:** Build a minimal SKA by hand.
 
-    Open a Python REPL or notebook. Do not import SKAModule.
-    Using only torch and torch.linalg, implement the following
-    for a single head (H=1) with rank r=4 and d_model=8:
+Open a Python REPL or notebook.
+Do **not** import SKAModule.
+Using only `torch` and `torch.linalg`, implement the following for a single head (`H=1`) with rank `r=4` and `d_model=8`:
 
-    a. Create random W_key (8, 4), W_query (8, 4), W_value (8, 6)
-    b. Create a random input sequence x of shape (1, 20, 8)
-    c. Project: z = x @ W_key.T, v = x @ W_value.T
-    d. Compute G = z^T z (sum of outer products over time)
-    e. Compute M = z[1:]^T z[:-1]
-    f. Compute C_v = v^T z
-    g. Add ridge: G_tilde = G + 0.001 * I
-    h. Cholesky: L = torch.linalg.cholesky(G_tilde)
-    i. Solve for A_w: A_w = M @ (G_tilde)^{-1}
-       Hint: use torch.cholesky_solve
-    j. Solve for B_v: B_v = C_v @ (G_tilde)^{-1}
-    k. For a query token z_q, compute: output = B_v @ A_w @ z_q
+a. Create random `W_key` (8, 4), `W_query` (8, 4), `W_value` (8, 6)
+b. Create a random input sequence `x` of shape `(1, 20, 8)`
+c. Project: `z = x @ W_key.T`, `v = x @ W_value.T`
+d. Compute `G = z.T z` (sum of outer products over time)
+e. Compute `M = z[1:]^T z[:-1]`
+f. Compute `C_v = v.T z`
+g. Add ridge: `G_tilde = G + 0.001 * I`
+h. Cholesky: `L = torch.linalg.cholesky(G_tilde)`
+i. Solve for `A_w`: `A_w = M @ (G_tilde)^{-1}` Hint: use `torch.cholesky_solve`
+j. Solve for `B_v`: `B_v = C_v @ (G_tilde)^{-1}`
+k. For a query token `z_q`, compute: `output = B_v @ A_w @ z_q`
 
-    Print the output shape. It should be (6,) -- the value dimension.
+Print the output shape. It should be `(6,)` -- the value dimension.
 
-Exercise 2: Compare your manual implementation to SKAModule.
+**Exercise 2:** Compare your manual implementation to SKAModule.
 
     Now import SKAModule from shared/ska.py. Create one with the same
     dimensions (d_model=8, n_heads=1, rank=4, head_dim=6). Copy your
