@@ -177,6 +177,7 @@ This looks at every key $k_j$ for every query $q_i$.
 Cost: $O(T)$ per query.
 
 SKA:
+
 $$
 \text{output}_i = B_v A_w^K L^{-1} W_{\text{query}} h_i
 $$
