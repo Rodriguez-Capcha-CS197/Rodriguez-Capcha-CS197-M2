@@ -59,7 +59,7 @@ Now think of the token sequence in a language model as a dynamical system.
 The "state" at position $t$ is the residual stream $h_t$ (the hidden representation at that position).
 The "dynamics" are whatever transformation moves information from one position to the next.
 
-In this framing:
+**In this framing:**
     - The "observables" are learned projections of the residual stream
       (analogous to keys in attention)
     - The Koopman operator $K$ captures how information flows across
@@ -85,28 +85,41 @@ v_t & = W_{\text{val}} h_t \quad (\text{value projection}, d_{model} \rightarrow
 $$
 
 **Step 2:** Build the Gram matrix (sufficient statistics).
-    G = sum_t z_t z_t^T   (r x r matrix, measures "how much data we have")
+$$
+G = \sum_t z_t z_t^T \quad (r \times r \text{matrix, measures "how much data we have"})
+$$
 
 **Step 3:** Build the transition covariance.
-    M = sum_t z_{t+1} z_t^T  (r x r, measures "how states evolve")
+$$
+M = \sum_t z_{t+1} z_t^T  (r \times r, \text{measures "how states evolve"})
+$$
 
 **Step 4:** Build the value readout.
-    C_v = sum_t v_t z_t^T     (P x r, maps from key space to value space)
+$$
+C_v = sum_t v_t z_t^T     (P \times r, \text{maps from key space to value space})
+$$
 
 **Step 5:** Solve for the operator via ridge regression.
-    A_w = M (G + lambda I)^{-1}   (the Koopman transition operator)
-    B_v = C_v (G + lambda I)^{-1} (the value readout operator)
+$$
+\begin{split}
+A_w & = M (G + \lambda I)^{-1} \quad (\text{the Koopman transition operator})\\
+B_v & = C_v (G + \lambda I)^{-1} \quad (\text{the value readout operator})
+\end{split}
+$$
 
-The ridge regularization (lambda I) prevents overfitting when G is
-ill-conditioned (when some directions in key space have little data).
+The ridge regularization ($\lambda I$) prevents overfitting when $G$ is ill-conditioned (when some directions in key space have little data).
 
 **Step 6:** Apply to queries.
-    z_q = W_query h_query          (project query into observable space)
-    output = B_v A_w^K z_q         (apply operator K times, read out values)
+$$
+\begin{split}
+z_q & = W_query h_query \quad (\text{project query into observable space})
+output & = B_v A_w^K z_q \quad (\text{apply operator K times, read out values})
+\end{split}
+$$
 
 The power $K$ in $A_w^K$ is a hyperparameter.
 $K=1$ is a simple one-step prediction.
-K=2 amplifies the dominant modes.
+$K=2$ amplifies the dominant modes.
 Think of it as asking "what would happen if we ran the dynamics forward $K$ steps?"
 
 ## 5. Why Ridge Regression (not Gradient Descent)?
@@ -115,53 +128,55 @@ If you squint, this looks a lot like linear regression.
 We have input-output pairs ($z_t, z_{t+1}$) and we want to find the matrix $A$ that best predicts $z_{t+1}$ from $z_t$.
 Ridge regression gives the exact closed-form solution:
 
-    A = (sum z_{t+1} z_t^T) (sum z_t z_t^T + lambda I)^{-1}
+$$
+A = (sum z_{t+1} z_t^T) (sum z_t z_t^T + lambda I)^{-1}
+$$
 
-This is the same as what you'd get if you ran gradient descent on
-the squared error loss ||A z_t - z_{t+1}||^2 for infinitely many
-steps with the right learning rate. But ridge regression gets there
-in one step.
+This is the same as what you'd get if you ran gradient descent on the squared error loss $\|A z_t - z_{t+1}\|^2$ for infinitely many steps with the right learning rate.
+But ridge regression gets there in one step.
 
-This is exactly the connection to Test-Time Training (TTT). TTT-Linear
-approximates this same solution via gradient descent. SKA computes
-it directly. Same destination, different paths.
+This is exactly the connection to Test-Time Training (TTT).
+TTT-Linear approximates this same solution via gradient descent.
+SKA computes it directly.
+Same destination, different paths.
 
+## 6. Spectral Normalization: Keeping Things Stable
 
-6. Spectral Normalization: Keeping Things Stable
+The operator $A_w$ might have eigenvalues with magnitude > 1, which would make $A_w^K$ explode.
+SKA prevents this with spectral normalization:
+estimate the largest singular value of $A_w$ using power iteration, then divide by it so all eigenvalues have magnitude <= 1.
 
-The operator A_w might have eigenvalues with magnitude > 1, which
-would make A_w^K explode. SKA prevents this with spectral
-normalization: estimate the largest singular value of A_w using
-power iteration, then divide by it so all eigenvalues have
-magnitude <= 1.
+This is the same idea as spectral normalization in GANs, applied to the Koopman operator instead of a discriminator weight matrix.
 
-This is the same idea as spectral normalization in GANs, applied to
-the Koopman operator instead of a discriminator weight matrix.
+## 7. The Cholesky Factorization
 
+Instead of directly computing $(G + lambda I)^{-1}$, SKA uses the Cholesky decomposition: $G + lambda I = L L^T$ where $L$ is lower triangular.
+Then:
 
-7. The Cholesky Factorization
+$$
+(G + lambda I)^{-1} x = L^{-T} L^{-1} x
+$$
 
-Instead of directly computing (G + lambda I)^{-1}, SKA uses the
-Cholesky decomposition: G + lambda I = L L^T where L is lower
-triangular. Then:
+Solving triangular systems is $O(r^2)$ instead of $O(r^3)$ for general matrix inversion.
+This matters when you have many queries.
 
-    (G + lambda I)^{-1} x = L^{-T} L^{-1} x
-
-Solving triangular systems is O(r^2) instead of O(r^3) for general
-matrix inversion. This matters when you have many queries.
-
-
-8. Connection to Attention
+$$ 8. Connection to Attention
 
 Standard attention:
-    output_i = sum_j softmax(q_i . k_j / sqrt(d)) v_j
+$$
+    \text{output}_i = \text{sum}_j \text{softmax}(q_i . k_j / \text{sqrt}(d)) v_j
+$$
 
-This looks at every key k_j for every query q_i. Cost: O(T) per query.
+This looks at every key $k_j$ for every query $q_i$.
+Cost: $O(T)$ per query.
 
 SKA:
-    output_i = B_v A_w^K L^{-1} W_query h_i
+$$
+\text{output}_i = B_v A_w^K L^{-1} W_{\text{query}} h_i
+$$
 
-This applies a fixed operator to the query. Cost: O(r^2) per query.
+This applies a fixed operator to the query.
+Cost: $O(r^2)$ per query.
 
 The operator (B_v, A_w, L) encodes everything the model learned from
 the context. It's a compressed representation of the key-value store.
