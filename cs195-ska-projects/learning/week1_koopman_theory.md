@@ -9,9 +9,11 @@ attention mechanism).
 ## 1. The Problem: Why Attention is Expensive
 
 In a transformer, self-attention computes:
+
 $$
-    Attention(Q, K, V) = softmax(Q K^T / sqrt(d)) V
+\text{Attention}(Q, K, V) = \text{softmax}(Q K^T / sqrt(d)) V
 $$
+
 For a sequence of T tokens, Q K^T is a (T x T) matrix. Computing it
 costs O(T^2) FLOPs, and storing the KV cache for generation costs
 O(T) memory per layer. At 128K tokens, this becomes the bottleneck.
