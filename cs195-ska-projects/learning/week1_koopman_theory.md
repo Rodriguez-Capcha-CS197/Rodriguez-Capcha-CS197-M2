@@ -190,39 +190,40 @@ It's a compressed representation of the key-value store.
 ## 9. State Size Comparison
 
 Attention KV cache at 128K context, 32 heads, head_dim=128:
-    2 * 128K * 32 * 128 * 2 bytes = ~2GB per layer
+> 2 * 128K * 32 * 128 * 2 bytes = ~2GB per layer
 
 SKA state with rank=64, 32 heads:
-    32 * (3 * 64^2 + 128 * 64) * 2 bytes = ~2.6MB per layer
+> 32 * (3 * 64^2 + 128 * 64) * 2 bytes = ~2.6MB per layer
 
 _That's roughly 800x smaller._
 
 ## 10. Exercises
 
 **Exercise 1:**
-    Take two vectors z_1 = [1, 0] and z_2 = [0, 1]. Compute G, M, and
-    A_w by hand (with lambda=0). What does the operator do? What happens
-    when you apply A_w to z_1?
+* z_1 = [1, 0] and z_2 = [0, 1].
+* Compute G, M, and A_w by hand (with lambda=0).
+* What does the operator do?
+* What happens when you apply A_w to z_1?
 
 **Exercise 2:**
-    If z_1 = [1, 0], z_2 = [1, 1], z_3 = [1, 2], compute G, M, A_w.
-    What dynamics does this capture? What does A_w^2 z_1 predict?
+* `z_1 = [1, 0]`, `z_2 = [1, 1]`, `z_3 = [1, 2]`
+* compute $G, M, A_w$.
+* What dynamics does this capture? What does $A_w^2 z_1$ predict?
 
 **Exercise 3:**
-    Open shared/ska.py. Trace through the forward method line by line.
-    For each line, write a comment explaining what it computes and
-    what shape the tensor has. Check your understanding by adding
-    assert statements for shapes and running on a dummy input.
+* Open `shared/ska.py`.
+* Trace through the forward method line by line.
+* For each line, write a comment explaining what it computes and what shape the tensor has.
+* Check your understanding by adding assert statements for shapes and running on a dummy input.
 
 **Exercise 4:**
-    Modify SKAModule.forward to return the eigenvalues of A_w alongside
-    the output. Run it on a random input and print the eigenvalues.
-    Are they all inside the unit circle? What happens if you remove
-    the spectral normalization?
+* Modify `SKAModule`.
+* forward to return the eigenvalues of A_w alongside the output.
+* Run it on a random input and print the eigenvalues.
+* Are they all inside the unit circle? What happens if you remove the spectral normalization?
 
 **Exercise 5:**
-    Take the MQAR dataset from shared/eval_tasks.py. Generate one
-    example with M=4 key-value pairs. Manually trace what the "ideal"
-    Koopman operator should look like for this example: if the keys
-    are the inputs and the values are the outputs, what matrix A_w
-    would perfectly retrieve all values?
+* Take the MQAR dataset `from shared/eval_tasks.py`.
+* Generate one example with M=4 key-value pairs.
+* Manually trace what the "ideal" Koopman operator should look like for this example:
+* if the keys are the inputs and the values are the outputs, what matrix A_w would perfectly retrieve all values?
