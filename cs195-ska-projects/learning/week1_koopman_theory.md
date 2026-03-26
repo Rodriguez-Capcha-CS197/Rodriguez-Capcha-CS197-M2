@@ -1,5 +1,4 @@
-Week 1: Koopman Operator Theory for Sequence Modeling
-
+# Week 1: Koopman Operator Theory for Sequence Modeling
 This document teaches you the math behind Spectral Koopman Attention
 from scratch. No prior knowledge of dynamical systems is assumed.
 You should be comfortable with linear algebra (matrix multiplication,
@@ -7,12 +6,12 @@ eigenvalues, least squares) and basic machine learning (neural networks,
 attention mechanism).
 
 
-1. The Problem: Why Attention is Expensive
+## 1. The Problem: Why Attention is Expensive
 
 In a transformer, self-attention computes:
-
+$$
     Attention(Q, K, V) = softmax(Q K^T / sqrt(d)) V
-
+$$
 For a sequence of T tokens, Q K^T is a (T x T) matrix. Computing it
 costs O(T^2) FLOPs, and storing the KV cache for generation costs
 O(T) memory per layer. At 128K tokens, this becomes the bottleneck.
