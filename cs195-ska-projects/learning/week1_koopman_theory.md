@@ -219,7 +219,7 @@ _That's roughly 800x smaller._
 
 **Exercise 4:**
 * Modify `SKAModule`.
-* forward to return the eigenvalues of A_w alongside the output.
+* forward to return the eigenvalues of $A_w$ alongside the output.
 * Run it on a random input and print the eigenvalues.
 * Are they all inside the unit circle? What happens if you remove the spectral normalization?
 
