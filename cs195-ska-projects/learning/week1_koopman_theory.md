@@ -78,10 +78,10 @@ Given a sequence of hidden states $h_1, \dots, h_T$, SKA does the following:
 **Step 1:** Project into observable space.
 
 $$
-    z_t = W_key h_t       (key projection, d_model -> r)
+    z_t = W_{\text{key}} h_t       (\text{key projection}, d_{model} -> r)
 $$
 $$
-    v_t = W_val h_t       (value projection, d_model -> P)
+    v_t = W_{\text{val}} h_t       (\text{value projection}, d_{model} -> P)
 $$
 
 Step 2: Build the Gram matrix (sufficient statistics).
