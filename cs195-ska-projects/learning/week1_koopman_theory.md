@@ -79,6 +79,8 @@ Given a sequence of hidden states $h_1, \dots, h_T$, SKA does the following:
 
 $$
     z_t = W_key h_t       (key projection, d_model -> r)
+$$
+$$
     v_t = W_val h_t       (value projection, d_model -> P)
 $$
 
