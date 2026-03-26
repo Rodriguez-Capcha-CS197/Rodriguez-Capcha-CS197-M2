@@ -134,7 +134,7 @@ We have input-output pairs ($z_t, z_{t+1}$) and we want to find the matrix $A$ t
 Ridge regression gives the exact closed-form solution:
 
 $$
-A = (sum z_{t+1} z_t^T) (sum z_t z_t^T + lambda I)^{-1}
+A = (\sum z_{t+1} z_t^T) (\sum z_t z_t^T + \lambda I)^{-1}
 $$
 
 This is the same as what you'd get if you ran gradient descent on the squared error loss $\|A z_t - z_{t+1}\|^2$ for infinitely many steps with the right learning rate.
@@ -155,11 +155,11 @@ This is the same idea as spectral normalization in GANs, applied to the Koopman 
 
 ## 7. The Cholesky Factorization
 
-Instead of directly computing $(G + lambda I)^{-1}$, SKA uses the Cholesky decomposition: $G + lambda I = L L^T$ where $L$ is lower triangular.
+Instead of directly computing $(G + \lambda I)^{-1}$, SKA uses the Cholesky decomposition: $G + \lambda I = L L^T$ where $L$ is lower triangular.
 Then:
 
 $$
-(G + lambda I)^{-1} x = L^{-T} L^{-1} x
+(G + \lambda I)^{-1} x = L^{-T} L^{-1} x
 $$
 
 Solving triangular systems is $O(r^2)$ instead of $O(r^3)$ for general matrix inversion.
