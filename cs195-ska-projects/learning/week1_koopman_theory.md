@@ -14,35 +14,31 @@ $$
 \text{Attention}(Q, K, V) = \text{softmax}(Q K^T / sqrt(d)) V
 $$
 
-For a sequence of T tokens, Q K^T is a (T x T) matrix. Computing it
-costs O(T^2) FLOPs, and storing the KV cache for generation costs
-O(T) memory per layer. At 128K tokens, this becomes the bottleneck.
+For a sequence of T tokens, $Q K^T$ is a ($T \times T$) matrix.
+Computing it costs $O(T^2)$ FLOPs, and storing the KV cache for generation costs $O(T)$ memory per layer.
+At 128K tokens, this becomes the bottleneck.
 
-The question: can we compute something that behaves like attention
-(retrieve relevant values given a query) without the O(T) per-token
-cost?
+**The question:** can we compute something that behaves like attention (retrieve relevant values given a query) without the $O(T)$ per-token cost?
 
 
 ## 2. What is a Koopman Operator?
 
-Imagine you have a dynamical system. A ball bouncing, a pendulum
-swinging, or tokens flowing through a neural network. At each timestep,
-the system has a state x_t, and there's some (possibly nonlinear)
-function f that takes you to the next state:
+Imagine you have a dynamical system.
+A ball bouncing, a pendulum swinging, or tokens flowing through a neural network.
+At each timestep, the system has a state $x_t$, and there's some (possibly nonlinear) function $f$ that takes you to the next state:
 
 $$
 x_{t+1} = f(x_t)
 $$
 
-The Koopman operator is a trick for turning nonlinear dynamics into
-linear dynamics. The idea: instead of tracking x_t directly, track
-"observable functions" of x_t. An observable is just any function
-g(x) that measures something about the state.
+The Koopman operator is a trick for turning nonlinear dynamics into linear dynamics.
+**The idea:** instead of tracking $x_t$ directly, track "observable functions" of $x_t$.
+An observable is just any function $g(x)$ that measures something about the state.
 
-If you pick the right set of observables, the dynamics become linear
-in observable space:
-
-    g(x_{t+1}) = K g(x_t)
+If you pick the right set of observables, the dynamics become linear in observable space:
+$$
+g(x_{t+1}) = K g(x_t)
+$$
 
 where K is a matrix called the Koopman operator. This is exact (not
 an approximation) if you use infinitely many observables. In practice
