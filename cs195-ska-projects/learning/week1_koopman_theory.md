@@ -76,41 +76,43 @@ You pay $O(T)$ once to estimate $K$ from the sequence, then every query is $O(r^
 Given a sequence of hidden states $h_1, \dots, h_T$, SKA does the following:
 
 **Step 1:** Project into observable space.
+$$
+\begin{aligned}
+z_t &= W_{\text{key}} h_t       (\text{key projection}, d_{model} -> r)\\
+v_t &= W_{\text{val}} h_t       (\text{value projection}, d_{model} -> P)
+\end{aligned}
+$$
 
-    $z_t = W_{\text{key}} h_t       (\text{key projection}, d_{model} -> r)$
-    $v_t = W_{\text{val}} h_t       (\text{value projection}, d_{model} -> P)$
-
-Step 2: Build the Gram matrix (sufficient statistics).
+**Step 2:** Build the Gram matrix (sufficient statistics).
     G = sum_t z_t z_t^T   (r x r matrix, measures "how much data we have")
 
-Step 3: Build the transition covariance.
+**Step 3:** Build the transition covariance.
     M = sum_t z_{t+1} z_t^T  (r x r, measures "how states evolve")
 
-Step 4: Build the value readout.
+**Step 4:** Build the value readout.
     C_v = sum_t v_t z_t^T     (P x r, maps from key space to value space)
 
-Step 5: Solve for the operator via ridge regression.
+**Step 5:** Solve for the operator via ridge regression.
     A_w = M (G + lambda I)^{-1}   (the Koopman transition operator)
     B_v = C_v (G + lambda I)^{-1} (the value readout operator)
 
 The ridge regularization (lambda I) prevents overfitting when G is
 ill-conditioned (when some directions in key space have little data).
 
-Step 6: Apply to queries.
+**Step 6:** Apply to queries.
     z_q = W_query h_query          (project query into observable space)
     output = B_v A_w^K z_q         (apply operator K times, read out values)
 
-The power K in A_w^K is a hyperparameter. K=1 is a simple one-step
-prediction. K=2 amplifies the dominant modes. Think of it as asking
-"what would happen if we ran the dynamics forward K steps?"
+The power $K$ in $A_w^K$ is a hyperparameter.
+$K=1$ is a simple one-step prediction.
+K=2 amplifies the dominant modes.
+Think of it as asking "what would happen if we ran the dynamics forward $K$ steps?"
 
+## 5. Why Ridge Regression (not Gradient Descent)?
 
-5. Why Ridge Regression (not Gradient Descent)?
-
-If you squint, this looks a lot like linear regression. We have
-input-output pairs (z_t, z_{t+1}) and we want to find the matrix A
-that best predicts z_{t+1} from z_t. Ridge regression gives the
-exact closed-form solution:
+If you squint, this looks a lot like linear regression.
+We have input-output pairs ($z_t, z_{t+1}$) and we want to find the matrix $A$ that best predicts $z_{t+1}$ from $z_t$.
+Ridge regression gives the exact closed-form solution:
 
     A = (sum z_{t+1} z_t^T) (sum z_t z_t^T + lambda I)^{-1}
 
