@@ -76,12 +76,9 @@ You pay $O(T)$ once to estimate $K$ from the sequence, then every query is $O(r^
 Given a sequence of hidden states $h_1, \dots, h_T$, SKA does the following:
 
 **Step 1:** Project into observable space.
-$$
-\begin{aligned}
-z_t &= W_{\text{key}} h_t       (\text{key projection}, d_{model} -> r)\\\\
-v_t &= W_{\text{val}} h_t       (\text{value projection}, d_{model} -> P)
-\end{aligned}
-$$
+
+|    $z_t = W_{\text{key}} h_t       (\text{key projection}, d_{model} -> r)$
+|    $v_t = W_{\text{val}} h_t       (\text{value projection}, d_{model} -> P)$
 
 **Step 2:** Build the Gram matrix (sufficient statistics).
     G = sum_t z_t z_t^T   (r x r matrix, measures "how much data we have")
