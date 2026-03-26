@@ -14,13 +14,6 @@ $$
 \text{Attention}(Q, K, V) = \text{softmax}(Q K^T / sqrt(d)) V
 $$
 
-$$
-\begin{split}
-x & = \int_{\tau_0}^{\tau_n}\tau^{-\alpha}\; d\tau \\
-  & = \frac{\tau_0^{1-\alpha}-\tau_n^{1-\alpha}}{a-1}
-\end{split}
-$$
-
 For a sequence of T tokens, $Q K^T$ is a ($T \times T$) matrix.
 Computing it costs $O(T^2)$ FLOPs, and storing the KV cache for generation costs $O(T)$ memory per layer.
 At 128K tokens, this becomes the bottleneck.
@@ -84,8 +77,12 @@ Given a sequence of hidden states $h_1, \dots, h_T$, SKA does the following:
 
 **Step 1:** Project into observable space.
 
-|    $z_t = W_{\text{key}} h_t       (\text{key projection}, d_{model} -> r)$
-|    $v_t = W_{\text{val}} h_t       (\text{value projection}, d_{model} -> P)$
+$$
+\begin{split}
+z_t & = W_{\text{key}} h_t \;\;(\text{key projection}, d_{model} \rightarrow r) \\
+v_t = W_{\text{val}} h_t \;\;(\text{value projection}, d_{model} \rightarrow P)
+\end{split}
+$$
 
 **Step 2:** Build the Gram matrix (sufficient statistics).
     G = sum_t z_t z_t^T   (r x r matrix, measures "how much data we have")
