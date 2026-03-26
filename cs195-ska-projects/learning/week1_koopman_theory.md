@@ -20,7 +20,6 @@ At 128K tokens, this becomes the bottleneck.
 
 **The question:** can we compute something that behaves like attention (retrieve relevant values given a query) without the $O(T)$ per-token cost?
 
-
 ## 2. What is a Koopman Operator?
 
 Imagine you have a dynamical system.
@@ -47,6 +46,7 @@ In practice we use a finite set and get a good approximation.
 
 Why does this help? Because linear dynamics are easy.
 If you know $K$, you can predict the state at any future time by matrix multiplication:
+
 $$
 g(x_{t+n}) = K^n g(x_t)
 $$
@@ -85,21 +85,25 @@ v_t & = W_{\text{val}} h_t \quad (\text{value projection}, d_{model} \rightarrow
 $$
 
 **Step 2:** Build the Gram matrix (sufficient statistics).
+
 $$
 G = \sum_t z_t z_t^T \quad (r \times r \text{matrix, measures "how much data we have"})
 $$
 
 **Step 3:** Build the transition covariance.
+
 $$
 M = \sum_t z_{t+1} z_t^T  (r \times r, \text{measures "how states evolve"})
 $$
 
 **Step 4:** Build the value readout.
+
 $$
 C_v = sum_t v_t z_t^T     (P \times r, \text{maps from key space to value space})
 $$
 
 **Step 5:** Solve for the operator via ridge regression.
+
 $$
 \begin{split}
 A_w & = M (G + \lambda I)^{-1} \quad (\text{the Koopman transition operator})\\
@@ -110,9 +114,10 @@ $$
 The ridge regularization ($\lambda I$) prevents overfitting when $G$ is ill-conditioned (when some directions in key space have little data).
 
 **Step 6:** Apply to queries.
+
 $$
 \begin{split}
-z_q & = W_query h_query \quad (\text{project query into observable space})
+z_q & = W_query h_query \quad (\text{project query into observable space})\\
 output & = B_v A_w^K z_q \quad (\text{apply operator K times, read out values})
 \end{split}
 $$
@@ -160,11 +165,12 @@ $$
 Solving triangular systems is $O(r^2)$ instead of $O(r^3)$ for general matrix inversion.
 This matters when you have many queries.
 
-$$ 8. Connection to Attention
+## 8. Connection to Attention
 
-Standard attention:
+**Standard attention:**
+
 $$
-    \text{output}_i = \text{sum}_j \text{softmax}(q_i . k_j / \text{sqrt}(d)) v_j
+\text{output}_i = \text{sum}_j \text{softmax}(q_i . k_j / \text{sqrt}(d)) v_j
 $$
 
 This looks at every key $k_j$ for every query $q_i$.
@@ -178,11 +184,10 @@ $$
 This applies a fixed operator to the query.
 Cost: $O(r^2)$ per query.
 
-The operator (B_v, A_w, L) encodes everything the model learned from
-the context. It's a compressed representation of the key-value store.
+The operator $(B_v, A_w, L)$ encodes everything the model learned from the context.
+It's a compressed representation of the key-value store.
 
-
-9. State Size Comparison
+## 9. State Size Comparison
 
 Attention KV cache at 128K context, 32 heads, head_dim=128:
     2 * 128K * 32 * 128 * 2 bytes = ~2GB per layer
@@ -190,33 +195,32 @@ Attention KV cache at 128K context, 32 heads, head_dim=128:
 SKA state with rank=64, 32 heads:
     32 * (3 * 64^2 + 128 * 64) * 2 bytes = ~2.6MB per layer
 
-That's roughly 800x smaller.
+_That's roughly 800x smaller._
 
+## 10. Exercises
 
-10. Exercises
-
-Exercise 1:
+**Exercise 1:**
     Take two vectors z_1 = [1, 0] and z_2 = [0, 1]. Compute G, M, and
     A_w by hand (with lambda=0). What does the operator do? What happens
     when you apply A_w to z_1?
 
-Exercise 2:
+**Exercise 2:**
     If z_1 = [1, 0], z_2 = [1, 1], z_3 = [1, 2], compute G, M, A_w.
     What dynamics does this capture? What does A_w^2 z_1 predict?
 
-Exercise 3:
+**Exercise 3:**
     Open shared/ska.py. Trace through the forward method line by line.
     For each line, write a comment explaining what it computes and
     what shape the tensor has. Check your understanding by adding
     assert statements for shapes and running on a dummy input.
 
-Exercise 4:
+**Exercise 4:**
     Modify SKAModule.forward to return the eigenvalues of A_w alongside
     the output. Run it on a random input and print the eigenvalues.
     Are they all inside the unit circle? What happens if you remove
     the spectral normalization?
 
-Exercise 5:
+**Exercise 5:**
     Take the MQAR dataset from shared/eval_tasks.py. Generate one
     example with M=4 key-value pairs. Manually trace what the "ideal"
     Koopman operator should look like for this example: if the keys
