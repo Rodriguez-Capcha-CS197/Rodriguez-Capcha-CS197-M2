@@ -23,14 +23,16 @@ The question: can we compute something that behaves like attention
 cost?
 
 
-2. What is a Koopman Operator?
+## 2. What is a Koopman Operator?
 
 Imagine you have a dynamical system. A ball bouncing, a pendulum
 swinging, or tokens flowing through a neural network. At each timestep,
 the system has a state x_t, and there's some (possibly nonlinear)
 function f that takes you to the next state:
 
-    x_{t+1} = f(x_t)
+$$
+x_{t+1} = f(x_t)
+$$
 
 The Koopman operator is a trick for turning nonlinear dynamics into
 linear dynamics. The idea: instead of tracking x_t directly, track
