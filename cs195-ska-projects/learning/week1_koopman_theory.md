@@ -202,7 +202,7 @@ _That's roughly 800x smaller._
 
 **Exercise 1:**
 * z_1 = [1, 0] and z_2 = [0, 1].
-* Compute G, M, and A_w by hand (with lambda=0).
+* Compute $G$, $M$, and $A_w$ by hand (with `lambda=0`).
 * What does the operator do?
 * What happens when you apply A_w to z_1?
 
