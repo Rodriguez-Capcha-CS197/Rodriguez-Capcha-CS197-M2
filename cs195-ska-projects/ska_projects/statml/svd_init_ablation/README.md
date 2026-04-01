@@ -1,3 +1,4 @@
+
 # M1: SVD Initialization Ablation for SKA Surgery — Full Project Guide
 
 ## Project Classification: Math/Theory-Heavy
@@ -6,10 +7,21 @@
 
 **Dependencies:** None
 
+---
 
 ## Project Summary
 
-You are running an empirical study comparing 7 different weight initialization strategies for the SKA surgery — the process of replacing standard attention layers with Spectral Koopman Attention (SKA) modules. You extract real attention weights, initialize SKA modules with each strategy, analyze their mathematical properties, and measure how each affects training convergence. The final deliverable is a data-backed recommendation for the default initialization strategy. 
+You are running an empirical study comparing 7 different weight initialization strategies for the SKA surgery — the process of replacing standard attention layers with Spectral Koopman Attention (SKA) modules. You extract real attention weights, initialize SKA modules with each strategy, analyze their mathematical properties, and measure how each affects training convergence. The final deliverable is a data-backed recommendation for the default initialization strategy.
+
+---
+
+## Motivation: Why This Matters for SKA-Agent
+
+The core innovation of SKA-Agent is replacing standard attention layers with Koopman operators — small r×r matrices that compress an arbitrarily long prefix into a fixed-size spectral memory. This is what gives the system O(r²) memory per layer instead of O(T·d), and it's what makes the shared spectral memory protocol possible: agents communicate by exchanging 64×64 operators instead of thousands of tokens of text. But this only works if the Koopman operator is well-conditioned. The operator is built from key projections (W_K), and those key projections are initialized by extracting structure from the original attention weights via SVD — a process we call "SKA surgery." If the initialization is poor, the resulting Gram matrix is ill-conditioned, the Cholesky factorization amplifies numerical errors, and the power spectral filter (the A_w^K step that separates signal from noise) becomes unstable. In other words, a bad init doesn't just slow down training — it undermines the mathematical foundation of the entire system.
+
+SKA-Agent routes queries to functionally distinct specialists — a retriever, a coder, a reasoner — that share state through spectral operators. The SKA surgery that converts a pretrained model into a retrieval specialist must preserve the model's learned representations while fitting them into the Koopman framework, and the initialization strategy is the first and most critical step in that process. Your ablation study directly determines whether SKA surgery produces a capable specialist or a degraded one.
+
+---
 
 ## Starting Requirements
 
@@ -38,6 +50,7 @@ You will interact with a small number of files:
 - `ska_agent/core/structures.py` — `SKAConfig` for rank, n_heads, head_dim parameters
 - `ska_agent/utils/math_utils.py` — `SpectralUtils` for Gram matrix construction and condition number computation
 
+---
 
 ## Prep Phase (Weeks 1–3)
 
@@ -78,6 +91,8 @@ The prep phase builds your mathematical and practical foundations. No project co
 4. Set up your project directory structure: scripts for weight extraction, initialization, analysis, training, and plotting. Write skeleton code for each.
 
 **Deliverable:** A written experimental plan (1–2 pages) listing hypotheses, metrics, number of runs, and expected outcomes. Plus a project directory with skeleton scripts.
+
+---
 
 ## Build Phase (Weeks 4–10)
 
@@ -144,6 +159,7 @@ The prep phase builds your mathematical and practical foundations. No project co
 
 **Expected output:** A complete written report with a clear recommendation backed by data. The recommendation should specify which strategy to use as default, and under what conditions (rank, model size) alternatives might be preferred.
 
+---
 
 ## What "Done" Looks Like
 
