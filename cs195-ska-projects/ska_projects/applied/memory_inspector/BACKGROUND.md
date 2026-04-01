@@ -1,5 +1,7 @@
 # Background: Shared Spectral Memory (Plain English)
 
+> Unfamiliar term? See the [Glossary](../../../GLOSSARY.md).
+
 ## What It Is
 
 Imagine a shared whiteboard between agents. One agent writes notes, another

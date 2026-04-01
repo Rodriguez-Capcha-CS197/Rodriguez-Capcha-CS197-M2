@@ -1,5 +1,7 @@
 # Background: The SKA Router (No Math Required)
 
+> Unfamiliar term? See the [Glossary](../../../GLOSSARY.md).
+
 This document explains what the router does at a conceptual level.
 You do NOT need to understand Koopman operators or spectral theory.
 

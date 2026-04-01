@@ -1,5 +1,7 @@
 # Background: Matrix Factorization for Weight Initialization
 
+> Unfamiliar term? See the [Glossary](../../../GLOSSARY.md).
+
 ## 1. Why Initialization Matters
 
 When replacing an attention layer with an SKA module, the initial weights

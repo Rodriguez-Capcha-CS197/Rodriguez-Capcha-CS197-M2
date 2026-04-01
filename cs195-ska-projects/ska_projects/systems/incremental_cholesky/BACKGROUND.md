@@ -1,5 +1,7 @@
 # Background: Incremental Cholesky and Operator Updates
 
+> Unfamiliar term? See the [Glossary](../../../GLOSSARY.md).
+
 This document is self-contained. Read it before touching the codebase.
 
 ## 1. The Cholesky Factorization

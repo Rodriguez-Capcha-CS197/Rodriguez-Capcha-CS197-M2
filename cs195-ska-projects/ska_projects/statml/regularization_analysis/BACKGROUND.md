@@ -1,5 +1,7 @@
 # Background: Regularization in Spectral Operator Learning
 
+> Unfamiliar term? See the [Glossary](../../../GLOSSARY.md).
+
 ## 1. The Training Objective
 
 The total loss for SKA training is:

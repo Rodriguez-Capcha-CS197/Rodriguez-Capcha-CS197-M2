@@ -1,5 +1,7 @@
 # Background: Training the Router Components
 
+> Unfamiliar term? See the [Glossary](../../../GLOSSARY.md).
+
 ## 1. The Router's Decision Pipeline
 
 The router makes two decisions per query:

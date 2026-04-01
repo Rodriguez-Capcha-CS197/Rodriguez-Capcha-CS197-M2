@@ -1,5 +1,7 @@
 # Background: Streaming Dynamic Programming for Segmentation
 
+> Unfamiliar term? See the [Glossary](../../../GLOSSARY.md).
+
 ## 1. The Batch Segmentation Algorithm
 
 The `GeometryLearner` solves a 1D segmentation problem via dynamic

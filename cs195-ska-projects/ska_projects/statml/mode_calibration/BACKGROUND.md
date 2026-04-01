@@ -1,5 +1,7 @@
 # Background: Neural Network Calibration
 
+> Unfamiliar term? See the [Glossary](../../../GLOSSARY.md).
+
 ## 1. Calibration Defined
 
 A probabilistic classifier outputs p̂(y|x). It is calibrated if:

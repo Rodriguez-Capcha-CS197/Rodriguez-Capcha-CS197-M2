@@ -1,5 +1,7 @@
 # Background: Human Feedback for Retrieval Systems
 
+> Unfamiliar term? See the [Glossary](../../../GLOSSARY.md).
+
 ## 1. Explicit vs Implicit Feedback
 
 **Explicit:** User clicks thumbs up/down, gives star rating.

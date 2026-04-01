@@ -1,5 +1,7 @@
 # Background: Amortized Optimization and Lagrange Multipliers
 
+> Unfamiliar term? See the [Glossary](../../../GLOSSARY.md).
+
 ## 1. The Lagrangian View
 
 The retrieval problem is: min_V φ_recon(V) subject to |V| ≤ k.

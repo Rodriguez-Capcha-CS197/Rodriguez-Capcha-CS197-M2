@@ -1,5 +1,7 @@
 # Background: Task DAG Orchestration
 
+> Unfamiliar term? See the [Glossary](../../../GLOSSARY.md).
+
 ## 1. Directed Acyclic Graphs (DAGs) for Task Scheduling
 
 A task DAG G = (V, E) has:

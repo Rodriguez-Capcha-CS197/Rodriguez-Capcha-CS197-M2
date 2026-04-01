@@ -1,5 +1,7 @@
 # Background: The SKA Document QA Pipeline
 
+> Unfamiliar term? See the [Glossary](../../../GLOSSARY.md).
+
 ## The Two Stages
 
 **Stage I (Offline): Structure Learning**

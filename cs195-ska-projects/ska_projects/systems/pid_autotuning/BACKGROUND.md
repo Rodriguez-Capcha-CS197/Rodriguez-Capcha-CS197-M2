@@ -1,5 +1,7 @@
 # Background: PID Control and Auto-Tuning
 
+> Unfamiliar term? See the [Glossary](../../../GLOSSARY.md).
+
 ## 1. PID Controllers
 
 A PID controller computes a control signal u(t) from an error signal e(t):
