@@ -1,4 +1,5 @@
-# CS195: Spectral Koopman Attention — Student Projects
+# CS197/CS197C: Spectral Koopman Attention — Student Projects
+**PLEASE DO NOT SHARE OUTSIDE OF CS197/CS197C WITHOUT PERMISSION FROM ALEXANDER JOHANSEN**
 
 This repository contains learning materials and 13 independent research projects exploring **Spectral Koopman Attention (SKA)** — a method that replaces standard transformer attention with Koopman operators. Instead of storing a key-value pair for every token (O(T²) compute, O(T·d) memory), SKA compresses the entire input into a small, fixed-size matrix (typically 64×64, ~32KB) that captures the same temporal dynamics **independent of context length**. At 256K tokens, standard attention needs ~256MB of KV cache per layer; SKA needs 32KB — an 8,000× reduction.
 
