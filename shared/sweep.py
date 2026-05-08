@@ -96,7 +96,7 @@ def generate_lambda_sweep_records(segments, questions, relevant_by_qid, embed_fn
                     best_index = len(records_for_this_query) - 1
                     best_num_segments = num_segments
                     best_lambda = lam
-                elif num_segments == best_num_segments and best_lambda is not None and lam > best_lambda:
+                elif num_segments == best_num_segments and best_lambda is not None and lam < best_lambda:
                     best_score = final_score
                     best_index = len(records_for_this_query) - 1
                     best_num_segments = num_segments

@@ -5629,9 +5629,9 @@
     {
       "qid": "lookup_4_p0",
       "mode": "LOOKUP",
-      "lambda": 0.16291979859268432,
+      "lambda": 0.04350566620112389,
       "num_segments": 1,
-      "total_reduced_cost": -0.5084992782362657,
+      "total_reduced_cost": -0.6279134106278262,
       "selected_texts": [
         "[NODE: lookup_4_record] type=row | Year: 2003 | Agency: Cash Management Office | Program: Technology Modernization | Appropriations: $5,548 | The reported appropriations for Technology Modernization under Cash Management Office in 2003 were $5,548."
       ],
@@ -5649,9 +5649,9 @@
     {
       "qid": "lookup_4_p1",
       "mode": "LOOKUP",
-      "lambda": 0.28112886577972,
+      "lambda": 0.040647617457112234,
       "num_segments": 1,
-      "total_reduced_cost": -0.46155940280510394,
+      "total_reduced_cost": -0.7020406511277117,
       "selected_texts": [
         "[NODE: lookup_4_record] type=row | Year: 2003 | Agency: Cash Management Office | Program: Technology Modernization | Appropriations: $5,548 | The reported appropriations for Technology Modernization under Cash Management Office in 2003 were $5,548."
       ],
@@ -5669,9 +5669,9 @@
     {
       "qid": "lookup_4_p2",
       "mode": "LOOKUP",
-      "lambda": 0.13555404889851938,
+      "lambda": 0.04250682654209315,
       "num_segments": 1,
-      "total_reduced_cost": -0.4743838150445773,
+      "total_reduced_cost": -0.5674310374010035,
       "selected_texts": [
         "[NODE: lookup_4_record] type=row | Year: 2003 | Agency: Cash Management Office | Program: Technology Modernization | Appropriations: $5,548 | The reported appropriations for Technology Modernization under Cash Management Office in 2003 were $5,548."
       ],
@@ -5689,9 +5689,9 @@
     {
       "qid": "lookup_4_p3",
       "mode": "LOOKUP",
-      "lambda": 0.15790103390089055,
+      "lambda": 0.04803339073762763,
       "num_segments": 1,
-      "total_reduced_cost": -0.4933022536548484,
+      "total_reduced_cost": -0.6031698968181114,
       "selected_texts": [
         "[NODE: lookup_4_record] type=row | Year: 2003 | Agency: Cash Management Office | Program: Technology Modernization | Appropriations: $5,548 | The reported appropriations for Technology Modernization under Cash Management Office in 2003 were $5,548."
       ],
@@ -5709,9 +5709,9 @@
     {
       "qid": "lookup_4_p4",
       "mode": "LOOKUP",
-      "lambda": 0.19935392406652797,
+      "lambda": 0.05085934795331409,
       "num_segments": 1,
-      "total_reduced_cost": -0.49251067469605403,
+      "total_reduced_cost": -0.641005250809268,
       "selected_texts": [
         "[NODE: lookup_4_record] type=row | Year: 2003 | Agency: Cash Management Office | Program: Technology Modernization | Appropriations: $5,548 | The reported appropriations for Technology Modernization under Cash Management Office in 2003 were $5,548."
       ],
@@ -5729,9 +5729,9 @@
     {
       "qid": "lookup_4_p5",
       "mode": "LOOKUP",
-      "lambda": 0.12667486519548682,
+      "lambda": 0.04314111306161062,
       "num_segments": 1,
-      "total_reduced_cost": -0.38885903972476693,
+      "total_reduced_cost": -0.47239279185864314,
       "selected_texts": [
         "[NODE: lookup_4_record] type=row | Year: 2003 | Agency: Cash Management Office | Program: Technology Modernization | Appropriations: $5,548 | The reported appropriations for Technology Modernization under Cash Management Office in 2003 were $5,548."
       ],
@@ -5749,9 +5749,9 @@
     {
       "qid": "lookup_4_p6",
       "mode": "LOOKUP",
-      "lambda": 0.25833068485207417,
+      "lambda": 0.026746409023522856,
       "num_segments": 1,
-      "total_reduced_cost": -0.4745723011080423,
+      "total_reduced_cost": -0.7061565769365936,
       "selected_texts": [
         "[NODE: lookup_4_record] type=row | Year: 2003 | Agency: Cash Management Office | Program: Technology Modernization | Appropriations: $5,548 | The reported appropriations for Technology Modernization under Cash Management Office in 2003 were $5,548."
       ],
@@ -5769,9 +5769,9 @@
     {
       "qid": "lookup_10_p0",
       "mode": "LOOKUP",
-      "lambda": 0.40655978231038176,
+      "lambda": 0.04344140384244514,
       "num_segments": 1,
-      "total_reduced_cost": -0.34608144443070127,
+      "total_reduced_cost": -0.7091998228986379,
       "selected_texts": [
         "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
       ],
@@ -5789,9 +5789,9 @@
     {
       "qid": "lookup_10_p1",
       "mode": "LOOKUP",
-      "lambda": 0.4072624144748245,
+      "lambda": 0.043091051049886704,
       "num_segments": 1,
-      "total_reduced_cost": -0.26541935212586487,
+      "total_reduced_cost": -0.6295907155508026,
       "selected_texts": [
         "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
       ],
@@ -5809,9 +5809,9 @@
     {
       "qid": "lookup_10_p2",
       "mode": "LOOKUP",
-      "lambda": 0.41577853943326043,
+      "lambda": 0.039631026232887265,
       "num_segments": 1,
-      "total_reduced_cost": -0.36754797282732493,
+      "total_reduced_cost": -0.7436954860276981,
       "selected_texts": [
         "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
       ],
@@ -5829,9 +5829,9 @@
     {
       "qid": "lookup_10_p3",
       "mode": "LOOKUP",
-      "lambda": 0.447847837985749,
+      "lambda": 0.04589138452665935,
       "num_segments": 1,
-      "total_reduced_cost": -0.20426687803150578,
+      "total_reduced_cost": -0.6062233314905955,
       "selected_texts": [
         "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
       ],
@@ -5849,9 +5849,9 @@
     {
       "qid": "lookup_10_p4",
       "mode": "LOOKUP",
-      "lambda": 0.47652213795977133,
+      "lambda": 0.02753111499945138,
       "num_segments": 1,
-      "total_reduced_cost": -0.32922670175374597,
+      "total_reduced_cost": -0.7782177247140659,
       "selected_texts": [
         "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
       ],
@@ -5869,9 +5869,9 @@
     {
       "qid": "lookup_10_p5",
       "mode": "LOOKUP",
-      "lambda": 0.43552192635515086,
+      "lambda": 0.04440181145564818,
       "num_segments": 1,
-      "total_reduced_cost": -0.31839009442962574,
+      "total_reduced_cost": -0.7095102093291284,
       "selected_texts": [
         "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
       ],
@@ -5889,9 +5889,9 @@
     {
       "qid": "lookup_10_p6",
       "mode": "LOOKUP",
-      "lambda": 0.44328458119875075,
+      "lambda": 0.03775480370350183,
       "num_segments": 1,
-      "total_reduced_cost": -0.34567139422749565,
+      "total_reduced_cost": -0.7512011717227446,
       "selected_texts": [
         "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
       ],
@@ -5909,9 +5909,9 @@
     {
       "qid": "lookup_11_p0",
       "mode": "LOOKUP",
-      "lambda": 0.43459484962540984,
+      "lambda": 0.027910820461231646,
       "num_segments": 1,
-      "total_reduced_cost": -0.3034926074814541,
+      "total_reduced_cost": -0.7101766366456324,
       "selected_texts": [
         "[NODE: lookup_11_record] type=row | Year: 2010 | Agency: National Revenue Collections Office | Program: Judicial Operations Funding | Deficits: $6,507 | The reported deficits for Judicial Operations Funding under National Revenue Collections Office in 2010 were $6,507."
       ],
@@ -5929,9 +5929,9 @@
     {
       "qid": "lookup_11_p1",
       "mode": "LOOKUP",
-      "lambda": 0.3687199972044881,
+      "lambda": 0.03207391211415418,
       "num_segments": 1,
-      "total_reduced_cost": -0.2862932120687496,
+      "total_reduced_cost": -0.6229392971590835,
       "selected_texts": [
         "[NODE: lookup_11_record] type=row | Year: 2010 | Agency: National Revenue Collections Office | Program: Judicial Operations Funding | Deficits: $6,507 | The reported deficits for Judicial Operations Funding under National Revenue Collections Office in 2010 were $6,507."
       ],
@@ -5949,9 +5949,9 @@
     {
       "qid": "lookup_11_p2",
       "mode": "LOOKUP",
-      "lambda": 0.433403121111339,
+      "lambda": 0.029740006275959126,
       "num_segments": 1,
-      "total_reduced_cost": -0.29952411149357067,
+      "total_reduced_cost": -0.7031872263289506,
       "selected_texts": [
         "[NODE: lookup_11_record] type=row | Year: 2010 | Agency: National Revenue Collections Office | Program: Judicial Operations Funding | Deficits: $6,507 | The reported deficits for Judicial Operations Funding under National Revenue Collections Office in 2010 were $6,507."
       ],
@@ -5969,9 +5969,9 @@
     {
       "qid": "lookup_11_p3",
       "mode": "LOOKUP",
-      "lambda": 0.3111728300865937,
+      "lambda": 0.02893469512558848,
       "num_segments": 1,
-      "total_reduced_cost": -0.308781334981148,
+      "total_reduced_cost": -0.5910194699421533,
       "selected_texts": [
         "[NODE: lookup_11_record] type=row | Year: 2010 | Agency: National Revenue Collections Office | Program: Judicial Operations Funding | Deficits: $6,507 | The reported deficits for Judicial Operations Funding under National Revenue Collections Office in 2010 were $6,507."
       ],
@@ -5989,9 +5989,9 @@
     {
       "qid": "lookup_11_p4",
       "mode": "LOOKUP",
-      "lambda": 0.39945123982894915,
+      "lambda": 0.02798739835457978,
       "num_segments": 1,
-      "total_reduced_cost": -0.32940879473748963,
+      "total_reduced_cost": -0.700872636211859,
       "selected_texts": [
         "[NODE: lookup_11_record] type=row | Year: 2010 | Agency: National Revenue Collections Office | Program: Judicial Operations Funding | Deficits: $6,507 | The reported deficits for Judicial Operations Funding under National Revenue Collections Office in 2010 were $6,507."
       ],
@@ -6009,9 +6009,9 @@
     {
       "qid": "lookup_11_p5",
       "mode": "LOOKUP",
-      "lambda": 0.5074621443503687,
+      "lambda": 0.02766876222751801,
       "num_segments": 1,
-      "total_reduced_cost": -0.26111049736572156,
+      "total_reduced_cost": -0.7409038794885723,
       "selected_texts": [
         "[NODE: lookup_11_record] type=row | Year: 2010 | Agency: National Revenue Collections Office | Program: Judicial Operations Funding | Deficits: $6,507 | The reported deficits for Judicial Operations Funding under National Revenue Collections Office in 2010 were $6,507."
       ],
@@ -6029,9 +6029,9 @@
     {
       "qid": "lookup_11_p6",
       "mode": "LOOKUP",
-      "lambda": 0.4850922455008197,
+      "lambda": 0.021502654917039964,
       "num_segments": 1,
-      "total_reduced_cost": -0.2665578696613467,
+      "total_reduced_cost": -0.7301474602451264,
       "selected_texts": [
         "[NODE: lookup_11_record] type=row | Year: 2010 | Agency: National Revenue Collections Office | Program: Judicial Operations Funding | Deficits: $6,507 | The reported deficits for Judicial Operations Funding under National Revenue Collections Office in 2010 were $6,507."
       ],
@@ -6049,9 +6049,9 @@
     {
       "qid": "lookup_19_p0",
       "mode": "LOOKUP",
-      "lambda": 0.5045141469381175,
+      "lambda": 0.024687241527914138,
       "num_segments": 1,
-      "total_reduced_cost": -0.29911928882572214,
+      "total_reduced_cost": -0.7789461942359255,
       "selected_texts": [
         "[NODE: lookup_19_record] type=row | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Social Safety Net Disbursements | Administrative costs: $7,603 | The reported administrative costs for Social Safety Net Disbursements under Congressional Appropriations Liaison in 2018 were $7,603."
       ],
@@ -6069,9 +6069,9 @@
     {
       "qid": "lookup_19_p1",
       "mode": "LOOKUP",
-      "lambda": 0.4512162010299203,
+      "lambda": 0.024264927180985413,
       "num_segments": 1,
-      "total_reduced_cost": -0.34860338328426177,
+      "total_reduced_cost": -0.7755546571331967,
       "selected_texts": [
         "[NODE: lookup_19_record] type=row | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Social Safety Net Disbursements | Administrative costs: $7,603 | The reported administrative costs for Social Safety Net Disbursements under Congressional Appropriations Liaison in 2018 were $7,603."
       ],
@@ -6089,9 +6089,9 @@
     {
       "qid": "lookup_19_p2",
       "mode": "LOOKUP",
-      "lambda": 0.485689653106882,
+      "lambda": 0.023070466315259483,
       "num_segments": 1,
-      "total_reduced_cost": -0.2267869197845846,
+      "total_reduced_cost": -0.6894061065762072,
       "selected_texts": [
         "[NODE: lookup_19_record] type=row | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Social Safety Net Disbursements | Administrative costs: $7,603 | The reported administrative costs for Social Safety Net Disbursements under Congressional Appropriations Liaison in 2018 were $7,603."
       ],
@@ -6109,9 +6109,9 @@
     {
       "qid": "lookup_19_p3",
       "mode": "LOOKUP",
-      "lambda": 0.465887573458748,
+      "lambda": 0.018525225221843675,
       "num_segments": 1,
-      "total_reduced_cost": -0.32076459227575116,
+      "total_reduced_cost": -0.7681269405126555,
       "selected_texts": [
         "[NODE: lookup_19_record] type=row | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Social Safety Net Disbursements | Administrative costs: $7,603 | The reported administrative costs for Social Safety Net Disbursements under Congressional Appropriations Liaison in 2018 were $7,603."
       ],
@@ -6129,9 +6129,9 @@
     {
       "qid": "lookup_19_p4",
       "mode": "LOOKUP",
-      "lambda": 0.41203160910426484,
+      "lambda": 0.02295732583205478,
       "num_segments": 1,
-      "total_reduced_cost": -0.33795692640003194,
+      "total_reduced_cost": -0.727031209672242,
       "selected_texts": [
         "[NODE: lookup_19_record] type=row | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Social Safety Net Disbursements | Administrative costs: $7,603 | The reported administrative costs for Social Safety Net Disbursements under Congressional Appropriations Liaison in 2018 were $7,603."
       ],
@@ -6149,89 +6149,93 @@
     {
       "qid": "lookup_19_p5",
       "mode": "LOOKUP",
-      "lambda": 0.3392388413908244,
-      "num_segments": 1,
-      "total_reduced_cost": -0.3476333068957418,
+      "lambda": 0.020055704011636255,
+      "num_segments": 2,
+      "total_reduced_cost": -0.6707789725805788,
       "selected_texts": [
-        "[NODE: lookup_19_record] type=row | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Social Safety Net Disbursements | Administrative costs: $7,603 | The reported administrative costs for Social Safety Net Disbursements under Congressional Appropriations Liaison in 2018 were $7,603."
+        "[NODE: lookup_19_record] type=row | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Social Safety Net Disbursements | Administrative costs: $7,603 | The reported administrative costs for Social Safety Net Disbursements under Congressional Appropriations Liaison in 2018 were $7,603.",
+        "[NODE: multistep_19_classification] type=metadata | Year: 2018 | Agency: Macroeconomic Policy Analysis Unit | Priority programs: Education Finance Transfers; Veterans Benefits Processing."
       ],
-      "precision": 1.0,
+      "precision": 0.5,
       "recall": 1.0,
-      "f1": 1.0,
+      "f1": 0.6666666666666666,
       "target_k": 1,
-      "num_selected": 1,
+      "num_selected": 2,
       "num_relevant_retrieved": 1,
       "missing_evidence": 0,
-      "extra_segments": 0,
+      "extra_segments": 1,
       "evidence_coverage": 1.0,
-      "score": 1.0
+      "score": 0.94
     },
     {
       "qid": "lookup_19_p6",
       "mode": "LOOKUP",
-      "lambda": 0.4237371091296438,
-      "num_segments": 1,
-      "total_reduced_cost": -0.35166773839655807,
+      "lambda": 0.022198306921433587,
+      "num_segments": 2,
+      "total_reduced_cost": -0.7533806291260651,
       "selected_texts": [
-        "[NODE: lookup_19_record] type=row | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Social Safety Net Disbursements | Administrative costs: $7,603 | The reported administrative costs for Social Safety Net Disbursements under Congressional Appropriations Liaison in 2018 were $7,603."
+        "[NODE: lookup_19_record] type=row | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Social Safety Net Disbursements | Administrative costs: $7,603 | The reported administrative costs for Social Safety Net Disbursements under Congressional Appropriations Liaison in 2018 were $7,603.",
+        "[NODE: distractor_7] type=note | Year: 2006 | Agency: Economic Stabilization Fund | Program: Social Safety Net Disbursements | Administrative note value: $4,477 | This note is background context and is not the final answer for the training questions."
       ],
-      "precision": 1.0,
+      "precision": 0.5,
       "recall": 1.0,
-      "f1": 1.0,
+      "f1": 0.6666666666666666,
       "target_k": 1,
-      "num_selected": 1,
+      "num_selected": 2,
       "num_relevant_retrieved": 1,
       "missing_evidence": 0,
-      "extra_segments": 0,
+      "extra_segments": 1,
       "evidence_coverage": 1.0,
-      "score": 1.0
+      "score": 0.94
     },
     {
       "qid": "lookup_24_p0",
       "mode": "LOOKUP",
-      "lambda": 0.2915001112824416,
-      "num_segments": 1,
-      "total_reduced_cost": -0.4816898095014637,
+      "lambda": 0.024749646032252628,
+      "num_segments": 2,
+      "total_reduced_cost": -0.7524816732861103,
       "selected_texts": [
-        "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288."
+        "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288.",
+        "[NODE: compute_0_year_b] type=row | Year: 2000 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $10,250."
       ],
-      "precision": 1.0,
+      "precision": 0.5,
       "recall": 1.0,
-      "f1": 1.0,
+      "f1": 0.6666666666666666,
       "target_k": 1,
-      "num_selected": 1,
+      "num_selected": 2,
       "num_relevant_retrieved": 1,
       "missing_evidence": 0,
-      "extra_segments": 0,
+      "extra_segments": 1,
       "evidence_coverage": 1.0,
-      "score": 1.0
+      "score": 0.94
     },
     {
       "qid": "lookup_24_p1",
       "mode": "LOOKUP",
-      "lambda": 0.24903858178666716,
-      "num_segments": 1,
-      "total_reduced_cost": -0.5106846701930823,
+      "lambda": 0.02061301022830953,
+      "num_segments": 2,
+      "total_reduced_cost": -0.7458178043806967,
       "selected_texts": [
-        "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288."
+        "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288.",
+        "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274."
       ],
-      "precision": 1.0,
+      "precision": 0.5,
       "recall": 1.0,
-      "f1": 1.0,
+      "f1": 0.6666666666666666,
       "target_k": 1,
-      "num_selected": 1,
+      "num_selected": 2,
       "num_relevant_retrieved": 1,
       "missing_evidence": 0,
-      "extra_segments": 0,
+      "extra_segments": 1,
       "evidence_coverage": 1.0,
-      "score": 1.0
+      "score": 0.94
     },
     {
       "qid": "lookup_24_p2",
       "mode": "LOOKUP",
-      "lambda": 0.302810155448203,
+      "lambda": 0.016161506212932185,
       "num_segments": 1,
-      "total_reduced_cost": -0.5136729527396904,
+      "total_reduced_cost": -0.8003216019749612,
       "selected_texts": [
         "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288."
       ],
@@ -6249,69 +6253,72 @@
     {
       "qid": "lookup_24_p3",
       "mode": "LOOKUP",
-      "lambda": 0.2410569128610376,
-      "num_segments": 1,
-      "total_reduced_cost": -0.5332563581346926,
+      "lambda": 0.02519911035360696,
+      "num_segments": 2,
+      "total_reduced_cost": -0.7491782805787188,
       "selected_texts": [
-        "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288."
+        "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288.",
+        "[NODE: multistep_24_program_b] type=row | Year: 2023 | Agency: Cash Management Office | Program: Agency Payroll | Priority Outlays: $10,348."
       ],
-      "precision": 1.0,
+      "precision": 0.5,
       "recall": 1.0,
-      "f1": 1.0,
+      "f1": 0.6666666666666666,
       "target_k": 1,
-      "num_selected": 1,
+      "num_selected": 2,
       "num_relevant_retrieved": 1,
       "missing_evidence": 0,
-      "extra_segments": 0,
+      "extra_segments": 1,
       "evidence_coverage": 1.0,
-      "score": 1.0
+      "score": 0.94
     },
     {
       "qid": "lookup_24_p4",
       "mode": "LOOKUP",
-      "lambda": 0.2697137550900365,
-      "num_segments": 1,
-      "total_reduced_cost": -0.4481287501052318,
+      "lambda": 0.024300393267871558,
+      "num_segments": 2,
+      "total_reduced_cost": -0.709357623305925,
       "selected_texts": [
-        "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288."
+        "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288.",
+        "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274."
       ],
-      "precision": 1.0,
+      "precision": 0.5,
       "recall": 1.0,
-      "f1": 1.0,
+      "f1": 0.6666666666666666,
       "target_k": 1,
-      "num_selected": 1,
+      "num_selected": 2,
       "num_relevant_retrieved": 1,
       "missing_evidence": 0,
-      "extra_segments": 0,
+      "extra_segments": 1,
       "evidence_coverage": 1.0,
-      "score": 1.0
+      "score": 0.94
     },
     {
       "qid": "lookup_24_p5",
       "mode": "LOOKUP",
-      "lambda": 0.2549148832815921,
-      "num_segments": 1,
-      "total_reduced_cost": -0.5212420428138,
+      "lambda": 0.02484183399105198,
+      "num_segments": 2,
+      "total_reduced_cost": -0.7601737542885233,
       "selected_texts": [
-        "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288."
+        "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288.",
+        "[NODE: compute_0_year_b] type=row | Year: 2000 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $10,250."
       ],
-      "precision": 1.0,
+      "precision": 0.5,
       "recall": 1.0,
-      "f1": 1.0,
+      "f1": 0.6666666666666666,
       "target_k": 1,
-      "num_selected": 1,
+      "num_selected": 2,
       "num_relevant_retrieved": 1,
       "missing_evidence": 0,
-      "extra_segments": 0,
+      "extra_segments": 1,
       "evidence_coverage": 1.0,
-      "score": 1.0
+      "score": 0.94
     },
     {
       "qid": "lookup_24_p6",
       "mode": "LOOKUP",
-      "lambda": 0.2381484207298875,
+      "lambda": 0.02206776141379315,
       "num_segments": 1,
-      "total_reduced_cost": -0.5320815740534836,
+      "total_reduced_cost": -0.7481622333695779,
       "selected_texts": [
         "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288."
       ],
@@ -6329,29 +6336,30 @@
     {
       "qid": "multidoc_2_p0",
       "mode": "MULTI_DOC",
-      "lambda": 0.3362189674614173,
-      "num_segments": 1,
-      "total_reduced_cost": -0.07696100119090471,
+      "lambda": 0.03715646274459277,
+      "num_segments": 2,
+      "total_reduced_cost": -0.40937508985976445,
       "selected_texts": [
-        "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274."
+        "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274.",
+        "[NODE: lookup_7_distractor] type=note | Year: 2005 | Agency: Economic Stabilization Fund | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting."
       ],
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
       "target_k": 2,
-      "num_selected": 1,
+      "num_selected": 2,
       "num_relevant_retrieved": 0,
       "missing_evidence": 2,
       "extra_segments": 0,
       "evidence_coverage": 0.0,
-      "score": -0.52
+      "score": -0.54
     },
     {
       "qid": "multidoc_2_p1",
       "mode": "MULTI_DOC",
-      "lambda": 0.38710206868086533,
+      "lambda": 0.05336989931590545,
       "num_segments": 1,
-      "total_reduced_cost": -0.004397887260902733,
+      "total_reduced_cost": -0.3381300566258626,
       "selected_texts": [
         "[NODE: multidoc_2_doc_a] type=row | Source: Bulletin A | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Tax Refund Processing | Expenditures: $7,182."
       ],
@@ -6369,49 +6377,99 @@
     {
       "qid": "multidoc_2_p2",
       "mode": "MULTI_DOC",
-      "lambda": 0.32919041959060846,
-      "num_segments": 1,
-      "total_reduced_cost": -0.10706123948686719,
+      "lambda": 0.027173032165948272,
+      "num_segments": 4,
+      "total_reduced_cost": -0.47959773430898966,
       "selected_texts": [
-        "[NODE: multidoc_2_doc_a] type=row | Source: Bulletin A | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Tax Refund Processing | Expenditures: $7,182."
+        "[NODE: multidoc_2_doc_a] type=row | Source: Bulletin A | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Tax Refund Processing | Expenditures: $7,182.",
+        "[NODE: lookup_10_distractor] type=note | Year: 2008 | Agency: Fiscal Policy Oversight Bureau | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: multidoc_20_doc_b] type=row | Source: Bulletin B | Year: 2019 | Agency: Sovereign Debt Operations Center | Program: Border Security Allocations | Capital expenditures: $8,160.",
+        "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274."
       ],
-      "precision": 1.0,
+      "precision": 0.25,
       "recall": 0.5,
-      "f1": 0.6666666666666666,
+      "f1": 0.3333333333333333,
       "target_k": 2,
-      "num_selected": 1,
+      "num_selected": 4,
       "num_relevant_retrieved": 1,
       "missing_evidence": 1,
-      "extra_segments": 0,
+      "extra_segments": 2,
       "evidence_coverage": 0.5,
-      "score": 0.25
+      "score": 0.10999999999999999
     },
     {
       "qid": "multidoc_2_p3",
       "mode": "MULTI_DOC",
-      "lambda": 0.36440390503626513,
-      "num_segments": 1,
-      "total_reduced_cost": -0.03642739011414986,
+      "lambda": 0.03804362507311201,
+      "num_segments": 2,
+      "total_reduced_cost": -0.39680407652650246,
       "selected_texts": [
-        "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274."
+        "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274.",
+        "[NODE: lookup_5_distractor] type=note | Year: 2003 | Agency: Budget Review Unit | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting."
       ],
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
       "target_k": 2,
-      "num_selected": 1,
+      "num_selected": 2,
       "num_relevant_retrieved": 0,
       "missing_evidence": 2,
       "extra_segments": 0,
       "evidence_coverage": 0.0,
-      "score": -0.52
+      "score": -0.54
     },
     {
       "qid": "multidoc_2_p4",
       "mode": "MULTI_DOC",
-      "lambda": 0.34595661625024604,
+      "lambda": 0.03026917681843312,
+      "num_segments": 4,
+      "total_reduced_cost": -0.45273388930533526,
+      "selected_texts": [
+        "[NODE: multidoc_2_doc_a] type=row | Source: Bulletin A | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Tax Refund Processing | Expenditures: $7,182.",
+        "[NODE: lookup_10_distractor] type=note | Year: 2008 | Agency: Fiscal Policy Oversight Bureau | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: multidoc_20_doc_b] type=row | Source: Bulletin B | Year: 2019 | Agency: Sovereign Debt Operations Center | Program: Border Security Allocations | Capital expenditures: $8,160.",
+        "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274."
+      ],
+      "precision": 0.25,
+      "recall": 0.5,
+      "f1": 0.3333333333333333,
+      "target_k": 2,
+      "num_selected": 4,
+      "num_relevant_retrieved": 1,
+      "missing_evidence": 1,
+      "extra_segments": 2,
+      "evidence_coverage": 0.5,
+      "score": 0.10999999999999999
+    },
+    {
+      "qid": "multidoc_2_p5",
+      "mode": "MULTI_DOC",
+      "lambda": 0.03911044660186436,
+      "num_segments": 4,
+      "total_reduced_cost": -0.40537621790652034,
+      "selected_texts": [
+        "[NODE: multidoc_2_doc_a] type=row | Source: Bulletin A | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Tax Refund Processing | Expenditures: $7,182.",
+        "[NODE: lookup_10_distractor] type=note | Year: 2008 | Agency: Fiscal Policy Oversight Bureau | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: multidoc_16_doc_a] type=row | Source: Bulletin A | Year: 2015 | Agency: Interagency Coordination Office | Program: Export Credit Assistance | Loan guarantees: $8,456.",
+        "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274."
+      ],
+      "precision": 0.25,
+      "recall": 0.5,
+      "f1": 0.3333333333333333,
+      "target_k": 2,
+      "num_selected": 4,
+      "num_relevant_retrieved": 1,
+      "missing_evidence": 1,
+      "extra_segments": 2,
+      "evidence_coverage": 0.5,
+      "score": 0.10999999999999999
+    },
+    {
+      "qid": "multidoc_2_p6",
+      "mode": "MULTI_DOC",
+      "lambda": 0.03511871997899482,
       "num_segments": 1,
-      "total_reduced_cost": -0.09786679559820083,
+      "total_reduced_cost": -0.40398535215998566,
       "selected_texts": [
         "[NODE: multidoc_2_doc_a] type=row | Source: Bulletin A | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Tax Refund Processing | Expenditures: $7,182."
       ],
@@ -6427,47 +6485,11 @@
       "score": 0.25
     },
     {
-      "qid": "multidoc_2_p5",
-      "mode": "MULTI_DOC",
-      "lambda": 0.46005651860258834,
-      "num_segments": 0,
-      "total_reduced_cost": 0.0,
-      "selected_texts": [],
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "target_k": 2,
-      "num_selected": 0,
-      "num_relevant_retrieved": 0,
-      "missing_evidence": 2,
-      "extra_segments": 0,
-      "evidence_coverage": 0.0,
-      "score": -0.5
-    },
-    {
-      "qid": "multidoc_2_p6",
-      "mode": "MULTI_DOC",
-      "lambda": 0.4410765841436245,
-      "num_segments": 0,
-      "total_reduced_cost": 0.0,
-      "selected_texts": [],
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "target_k": 2,
-      "num_selected": 0,
-      "num_relevant_retrieved": 0,
-      "missing_evidence": 2,
-      "extra_segments": 0,
-      "evidence_coverage": 0.0,
-      "score": -0.5
-    },
-    {
       "qid": "multidoc_4_p0",
       "mode": "MULTI_DOC",
-      "lambda": 0.3779026700230233,
+      "lambda": 0.06381578147084979,
       "num_segments": 1,
-      "total_reduced_cost": -0.05820522923200627,
+      "total_reduced_cost": -0.3722921177841798,
       "selected_texts": [
         "[NODE: multidoc_4_doc_b] type=row | Source: Bulletin B | Year: 2003 | Agency: Economic Stabilization Fund | Program: Treasury Securities | Disbursements: $6,832."
       ],
@@ -6485,9 +6507,9 @@
     {
       "qid": "multidoc_4_p1",
       "mode": "MULTI_DOC",
-      "lambda": 0.39916601286550785,
+      "lambda": 0.04536228156630375,
       "num_segments": 1,
-      "total_reduced_cost": -0.09465164106122237,
+      "total_reduced_cost": -0.4484553723604265,
       "selected_texts": [
         "[NODE: multidoc_4_doc_b] type=row | Source: Bulletin B | Year: 2003 | Agency: Economic Stabilization Fund | Program: Treasury Securities | Disbursements: $6,832."
       ],
@@ -6505,27 +6527,29 @@
     {
       "qid": "multidoc_4_p2",
       "mode": "MULTI_DOC",
-      "lambda": 0.4833574937600838,
-      "num_segments": 0,
-      "total_reduced_cost": 0.0,
-      "selected_texts": [],
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
+      "lambda": 0.06582228478121414,
+      "num_segments": 1,
+      "total_reduced_cost": -0.3690249333076047,
+      "selected_texts": [
+        "[NODE: multidoc_4_doc_b] type=row | Source: Bulletin B | Year: 2003 | Agency: Economic Stabilization Fund | Program: Treasury Securities | Disbursements: $6,832."
+      ],
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
       "target_k": 2,
-      "num_selected": 0,
-      "num_relevant_retrieved": 0,
-      "missing_evidence": 2,
+      "num_selected": 1,
+      "num_relevant_retrieved": 1,
+      "missing_evidence": 1,
       "extra_segments": 0,
-      "evidence_coverage": 0.0,
-      "score": -0.5
+      "evidence_coverage": 0.5,
+      "score": 0.25
     },
     {
       "qid": "multidoc_4_p3",
       "mode": "MULTI_DOC",
-      "lambda": 0.33113440538243094,
+      "lambda": 0.0690728623686252,
       "num_segments": 1,
-      "total_reduced_cost": -0.016878793896107525,
+      "total_reduced_cost": -0.27894033690991327,
       "selected_texts": [
         "[NODE: lookup_0_record] type=row | Year: 1999 | Agency: Treasury Operations Office | Program: Debt Servicing | Outlays: $5,000 | The reported outlays for Debt Servicing under Treasury Operations Office in 1999 were $5,000."
       ],
@@ -6543,9 +6567,9 @@
     {
       "qid": "multidoc_4_p4",
       "mode": "MULTI_DOC",
-      "lambda": 0.3826061722517426,
+      "lambda": 0.05982972257761679,
       "num_segments": 1,
-      "total_reduced_cost": -0.05951314609534403,
+      "total_reduced_cost": -0.38228959576946986,
       "selected_texts": [
         "[NODE: multidoc_4_doc_b] type=row | Source: Bulletin B | Year: 2003 | Agency: Economic Stabilization Fund | Program: Treasury Securities | Disbursements: $6,832."
       ],
@@ -6563,9 +6587,9 @@
     {
       "qid": "multidoc_4_p5",
       "mode": "MULTI_DOC",
-      "lambda": 0.48988374806182466,
+      "lambda": 0.047133571818139,
       "num_segments": 1,
-      "total_reduced_cost": -0.02529618720954485,
+      "total_reduced_cost": -0.46804636345323053,
       "selected_texts": [
         "[NODE: multidoc_4_doc_b] type=row | Source: Bulletin B | Year: 2003 | Agency: Economic Stabilization Fund | Program: Treasury Securities | Disbursements: $6,832."
       ],
@@ -6583,9 +6607,9 @@
     {
       "qid": "multidoc_4_p6",
       "mode": "MULTI_DOC",
-      "lambda": 0.41398438908280877,
+      "lambda": 0.04700339668793471,
       "num_segments": 1,
-      "total_reduced_cost": -0.10735442213993285,
+      "total_reduced_cost": -0.4743354145348069,
       "selected_texts": [
         "[NODE: multidoc_4_doc_b] type=row | Source: Bulletin B | Year: 2003 | Agency: Economic Stabilization Fund | Program: Treasury Securities | Disbursements: $6,832."
       ],
@@ -6603,49 +6627,53 @@
     {
       "qid": "multidoc_14_p0",
       "mode": "MULTI_DOC",
-      "lambda": 0.21091988333222594,
-      "num_segments": 1,
-      "total_reduced_cost": -0.1784254912049279,
+      "lambda": 0.044153036205922196,
+      "num_segments": 3,
+      "total_reduced_cost": -0.37207685639497107,
       "selected_texts": [
-        "[NODE: multidoc_14_doc_a] type=row | Source: Bulletin A | Year: 2013 | Agency: Strategic Reserve Management Office | Program: Defense Procurement Transfers | Payments: $8,274."
+        "[NODE: multidoc_14_doc_a] type=row | Source: Bulletin A | Year: 2013 | Agency: Strategic Reserve Management Office | Program: Defense Procurement Transfers | Payments: $8,274.",
+        "[NODE: lookup_17_distractor] type=note | Year: 2015 | Agency: Financial Stability Monitoring Unit | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: multidoc_2_doc_a] type=row | Source: Bulletin A | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Tax Refund Processing | Expenditures: $7,182."
       ],
-      "precision": 1.0,
+      "precision": 0.3333333333333333,
       "recall": 0.5,
-      "f1": 0.6666666666666666,
+      "f1": 0.4,
       "target_k": 2,
-      "num_selected": 1,
+      "num_selected": 3,
       "num_relevant_retrieved": 1,
       "missing_evidence": 1,
-      "extra_segments": 0,
+      "extra_segments": 1,
       "evidence_coverage": 0.5,
-      "score": 0.25
+      "score": 0.16999999999999998
     },
     {
       "qid": "multidoc_14_p1",
       "mode": "MULTI_DOC",
-      "lambda": 0.21118987205785125,
-      "num_segments": 1,
-      "total_reduced_cost": -0.26628247583939424,
+      "lambda": 0.027074219932104675,
+      "num_segments": 3,
+      "total_reduced_cost": -0.4846454532916338,
       "selected_texts": [
-        "[NODE: multidoc_14_doc_a] type=row | Source: Bulletin A | Year: 2013 | Agency: Strategic Reserve Management Office | Program: Defense Procurement Transfers | Payments: $8,274."
+        "[NODE: multidoc_14_doc_a] type=row | Source: Bulletin A | Year: 2013 | Agency: Strategic Reserve Management Office | Program: Defense Procurement Transfers | Payments: $8,274.",
+        "[NODE: multidoc_2_doc_a] type=row | Source: Bulletin A | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Tax Refund Processing | Expenditures: $7,182.",
+        "[NODE: lookup_17_distractor] type=note | Year: 2015 | Agency: Financial Stability Monitoring Unit | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting."
       ],
-      "precision": 1.0,
+      "precision": 0.3333333333333333,
       "recall": 0.5,
-      "f1": 0.6666666666666666,
+      "f1": 0.4,
       "target_k": 2,
-      "num_selected": 1,
+      "num_selected": 3,
       "num_relevant_retrieved": 1,
       "missing_evidence": 1,
-      "extra_segments": 0,
+      "extra_segments": 1,
       "evidence_coverage": 0.5,
-      "score": 0.25
+      "score": 0.16999999999999998
     },
     {
       "qid": "multidoc_14_p2",
       "mode": "MULTI_DOC",
-      "lambda": 0.10236940260511729,
+      "lambda": 0.028884806342161215,
       "num_segments": 1,
-      "total_reduced_cost": -0.24685453369547394,
+      "total_reduced_cost": -0.32033912995843,
       "selected_texts": [
         "[NODE: multidoc_14_doc_a] type=row | Source: Bulletin A | Year: 2013 | Agency: Strategic Reserve Management Office | Program: Defense Procurement Transfers | Payments: $8,274."
       ],
@@ -6663,29 +6691,31 @@
     {
       "qid": "multidoc_14_p3",
       "mode": "MULTI_DOC",
-      "lambda": 0.18782245725556523,
-      "num_segments": 1,
-      "total_reduced_cost": -0.22433816866818657,
+      "lambda": 0.03546191048776723,
+      "num_segments": 3,
+      "total_reduced_cost": -0.4221605320812777,
       "selected_texts": [
-        "[NODE: multidoc_14_doc_a] type=row | Source: Bulletin A | Year: 2013 | Agency: Strategic Reserve Management Office | Program: Defense Procurement Transfers | Payments: $8,274."
+        "[NODE: multidoc_14_doc_a] type=row | Source: Bulletin A | Year: 2013 | Agency: Strategic Reserve Management Office | Program: Defense Procurement Transfers | Payments: $8,274.",
+        "[NODE: lookup_17_distractor] type=note | Year: 2015 | Agency: Financial Stability Monitoring Unit | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: multidoc_2_doc_a] type=row | Source: Bulletin A | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Tax Refund Processing | Expenditures: $7,182."
       ],
-      "precision": 1.0,
+      "precision": 0.3333333333333333,
       "recall": 0.5,
-      "f1": 0.6666666666666666,
+      "f1": 0.4,
       "target_k": 2,
-      "num_selected": 1,
+      "num_selected": 3,
       "num_relevant_retrieved": 1,
       "missing_evidence": 1,
-      "extra_segments": 0,
+      "extra_segments": 1,
       "evidence_coverage": 0.5,
-      "score": 0.25
+      "score": 0.16999999999999998
     },
     {
       "qid": "multidoc_14_p4",
       "mode": "MULTI_DOC",
-      "lambda": 0.25349407542037183,
+      "lambda": 0.0389574771437184,
       "num_segments": 1,
-      "total_reduced_cost": -0.17771786799934663,
+      "total_reduced_cost": -0.3922544662760001,
       "selected_texts": [
         "[NODE: multidoc_14_doc_a] type=row | Source: Bulletin A | Year: 2013 | Agency: Strategic Reserve Management Office | Program: Defense Procurement Transfers | Payments: $8,274."
       ],
@@ -6703,9 +6733,9 @@
     {
       "qid": "multidoc_14_p5",
       "mode": "MULTI_DOC",
-      "lambda": 0.24862958382641936,
+      "lambda": 0.033103513182077875,
       "num_segments": 1,
-      "total_reduced_cost": -0.2876225901844302,
+      "total_reduced_cost": -0.5031486608287717,
       "selected_texts": [
         "[NODE: multidoc_14_doc_a] type=row | Source: Bulletin A | Year: 2013 | Agency: Strategic Reserve Management Office | Program: Defense Procurement Transfers | Payments: $8,274."
       ],
@@ -6723,9 +6753,9 @@
     {
       "qid": "multidoc_14_p6",
       "mode": "MULTI_DOC",
-      "lambda": 0.20675396704943694,
+      "lambda": 0.027409936647903303,
       "num_segments": 1,
-      "total_reduced_cost": -0.29589005282428493,
+      "total_reduced_cost": -0.47523408322581856,
       "selected_texts": [
         "[NODE: multidoc_14_doc_a] type=row | Source: Bulletin A | Year: 2013 | Agency: Strategic Reserve Management Office | Program: Defense Procurement Transfers | Payments: $8,274."
       ],
@@ -6743,29 +6773,30 @@
     {
       "qid": "multidoc_19_p0",
       "mode": "MULTI_DOC",
-      "lambda": 0.12421115782907928,
-      "num_segments": 1,
-      "total_reduced_cost": -0.34920485271766133,
+      "lambda": 0.0356823494074846,
+      "num_segments": 2,
+      "total_reduced_cost": -0.4522480438375783,
       "selected_texts": [
-        "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
+        "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370.",
+        "[NODE: lookup_22_distractor] type=note | Year: 2020 | Agency: Risk and Compliance Analytics Bureau | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting."
       ],
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
       "target_k": 2,
-      "num_selected": 1,
+      "num_selected": 2,
       "num_relevant_retrieved": 0,
       "missing_evidence": 2,
       "extra_segments": 0,
       "evidence_coverage": 0.0,
-      "score": -0.52
+      "score": -0.54
     },
     {
       "qid": "multidoc_19_p1",
       "mode": "MULTI_DOC",
-      "lambda": 0.20030291938288222,
+      "lambda": 0.05554177965853294,
       "num_segments": 1,
-      "total_reduced_cost": -0.1927895309915378,
+      "total_reduced_cost": -0.33755067071588707,
       "selected_texts": [
         "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
       ],
@@ -6783,29 +6814,31 @@
     {
       "qid": "multidoc_19_p2",
       "mode": "MULTI_DOC",
-      "lambda": 0.1427397434679976,
-      "num_segments": 1,
-      "total_reduced_cost": -0.3249825592089065,
+      "lambda": 0.034344370912094545,
+      "num_segments": 3,
+      "total_reduced_cost": -0.4588059078401299,
       "selected_texts": [
-        "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
+        "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370.",
+        "[NODE: lookup_22_distractor] type=note | Year: 2020 | Agency: Risk and Compliance Analytics Bureau | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: compute_9_year_a] type=row | Year: 2008 | Agency: National Revenue Collections Office | Program: Social Safety Net Disbursements | Deficits: $10,999."
       ],
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
       "target_k": 2,
-      "num_selected": 1,
+      "num_selected": 3,
       "num_relevant_retrieved": 0,
       "missing_evidence": 2,
-      "extra_segments": 0,
+      "extra_segments": 1,
       "evidence_coverage": 0.0,
-      "score": -0.52
+      "score": -0.6000000000000001
     },
     {
       "qid": "multidoc_19_p3",
       "mode": "MULTI_DOC",
-      "lambda": 0.20151520432082617,
+      "lambda": 0.03653821772006494,
       "num_segments": 1,
-      "total_reduced_cost": -0.3221636209724421,
+      "total_reduced_cost": -0.4871406075732033,
       "selected_texts": [
         "[NODE: multidoc_19_doc_a] type=row | Source: Bulletin A | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Cybersecurity Infrastructure | Operating expenses: $8,729."
       ],
@@ -6823,29 +6856,32 @@
     {
       "qid": "multidoc_19_p4",
       "mode": "MULTI_DOC",
-      "lambda": 0.1576311884615315,
-      "num_segments": 1,
-      "total_reduced_cost": -0.3202798558065331,
+      "lambda": 0.033824029231054424,
+      "num_segments": 4,
+      "total_reduced_cost": -0.4932792536218193,
       "selected_texts": [
-        "[NODE: multidoc_19_doc_a] type=row | Source: Bulletin A | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Cybersecurity Infrastructure | Operating expenses: $8,729."
+        "[NODE: multidoc_19_doc_a] type=row | Source: Bulletin A | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Cybersecurity Infrastructure | Operating expenses: $8,729.",
+        "[NODE: lookup_22_distractor] type=note | Year: 2020 | Agency: Risk and Compliance Analytics Bureau | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: multidoc_5_doc_a] type=row | Source: Bulletin A | Year: 2004 | Agency: Budget Review Unit | Program: Municipal Support | Allocations: $7,455.",
+        "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
       ],
-      "precision": 1.0,
+      "precision": 0.25,
       "recall": 0.5,
-      "f1": 0.6666666666666666,
+      "f1": 0.3333333333333333,
       "target_k": 2,
-      "num_selected": 1,
+      "num_selected": 4,
       "num_relevant_retrieved": 1,
       "missing_evidence": 1,
-      "extra_segments": 0,
+      "extra_segments": 2,
       "evidence_coverage": 0.5,
-      "score": 0.25
+      "score": 0.10999999999999999
     },
     {
       "qid": "multidoc_19_p5",
       "mode": "MULTI_DOC",
-      "lambda": 0.16629466898857445,
+      "lambda": 0.0424911616203074,
       "num_segments": 1,
-      "total_reduced_cost": -0.2933580788321837,
+      "total_reduced_cost": -0.41716158620045074,
       "selected_texts": [
         "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
       ],
@@ -6863,29 +6899,32 @@
     {
       "qid": "multidoc_19_p6",
       "mode": "MULTI_DOC",
-      "lambda": 0.19559581320541805,
-      "num_segments": 1,
-      "total_reduced_cost": -0.26872106805806195,
+      "lambda": 0.02997782679430661,
+      "num_segments": 4,
+      "total_reduced_cost": -0.5063794843163599,
       "selected_texts": [
-        "[NODE: multidoc_19_doc_a] type=row | Source: Bulletin A | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Cybersecurity Infrastructure | Operating expenses: $8,729."
+        "[NODE: multidoc_19_doc_a] type=row | Source: Bulletin A | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Cybersecurity Infrastructure | Operating expenses: $8,729.",
+        "[NODE: lookup_22_distractor] type=note | Year: 2020 | Agency: Risk and Compliance Analytics Bureau | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: multidoc_5_doc_a] type=row | Source: Bulletin A | Year: 2004 | Agency: Budget Review Unit | Program: Municipal Support | Allocations: $7,455.",
+        "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
       ],
-      "precision": 1.0,
+      "precision": 0.25,
       "recall": 0.5,
-      "f1": 0.6666666666666666,
+      "f1": 0.3333333333333333,
       "target_k": 2,
-      "num_selected": 1,
+      "num_selected": 4,
       "num_relevant_retrieved": 1,
       "missing_evidence": 1,
-      "extra_segments": 0,
+      "extra_segments": 2,
       "evidence_coverage": 0.5,
-      "score": 0.25
+      "score": 0.10999999999999999
     },
     {
       "qid": "multidoc_20_p0",
       "mode": "MULTI_DOC",
-      "lambda": 0.1858345492248587,
+      "lambda": 0.043251052143964276,
       "num_segments": 1,
-      "total_reduced_cost": -0.3630987409571303,
+      "total_reduced_cost": -0.5056822380380247,
       "selected_texts": [
         "[NODE: lookup_23_record] type=row | Year: 2022 | Agency: Sovereign Debt Operations Center | Program: Border Security Allocations | Budget authority: $8,151 | The reported budget authority for Border Security Allocations under Sovereign Debt Operations Center in 2022 were $8,151."
       ],
@@ -6903,9 +6942,9 @@
     {
       "qid": "multidoc_20_p1",
       "mode": "MULTI_DOC",
-      "lambda": 0.2842897711609041,
+      "lambda": 0.04585552183160591,
       "num_segments": 1,
-      "total_reduced_cost": -0.2538126297386321,
+      "total_reduced_cost": -0.4922468790679303,
       "selected_texts": [
         "[NODE: lookup_23_record] type=row | Year: 2022 | Agency: Sovereign Debt Operations Center | Program: Border Security Allocations | Budget authority: $8,151 | The reported budget authority for Border Security Allocations under Sovereign Debt Operations Center in 2022 were $8,151."
       ],
@@ -6923,9 +6962,9 @@
     {
       "qid": "multidoc_20_p2",
       "mode": "MULTI_DOC",
-      "lambda": 0.3061022073978548,
+      "lambda": 0.05065768426850319,
       "num_segments": 1,
-      "total_reduced_cost": -0.18794058467125668,
+      "total_reduced_cost": -0.4433851078006083,
       "selected_texts": [
         "[NODE: lookup_23_record] type=row | Year: 2022 | Agency: Sovereign Debt Operations Center | Program: Border Security Allocations | Budget authority: $8,151 | The reported budget authority for Border Security Allocations under Sovereign Debt Operations Center in 2022 were $8,151."
       ],
@@ -6943,9 +6982,9 @@
     {
       "qid": "multidoc_20_p3",
       "mode": "MULTI_DOC",
-      "lambda": 0.20378453520117373,
+      "lambda": 0.037917729365054664,
       "num_segments": 1,
-      "total_reduced_cost": -0.35097595855539704,
+      "total_reduced_cost": -0.5168427643915161,
       "selected_texts": [
         "[NODE: lookup_23_record] type=row | Year: 2022 | Agency: Sovereign Debt Operations Center | Program: Border Security Allocations | Budget authority: $8,151 | The reported budget authority for Border Security Allocations under Sovereign Debt Operations Center in 2022 were $8,151."
       ],
@@ -6963,9 +7002,9 @@
     {
       "qid": "multidoc_20_p4",
       "mode": "MULTI_DOC",
-      "lambda": 0.2955524313578384,
+      "lambda": 0.04959293151149016,
       "num_segments": 1,
-      "total_reduced_cost": -0.13355886627291158,
+      "total_reduced_cost": -0.3795183661192598,
       "selected_texts": [
         "[NODE: lookup_23_record] type=row | Year: 2022 | Agency: Sovereign Debt Operations Center | Program: Border Security Allocations | Budget authority: $8,151 | The reported budget authority for Border Security Allocations under Sovereign Debt Operations Center in 2022 were $8,151."
       ],
@@ -6983,9 +7022,9 @@
     {
       "qid": "multidoc_20_p5",
       "mode": "MULTI_DOC",
-      "lambda": 0.19918322305367384,
+      "lambda": 0.04144857871050967,
       "num_segments": 1,
-      "total_reduced_cost": -0.34841107056474774,
+      "total_reduced_cost": -0.5061457149079119,
       "selected_texts": [
         "[NODE: lookup_23_record] type=row | Year: 2022 | Agency: Sovereign Debt Operations Center | Program: Border Security Allocations | Budget authority: $8,151 | The reported budget authority for Border Security Allocations under Sovereign Debt Operations Center in 2022 were $8,151."
       ],
@@ -7003,9 +7042,9 @@
     {
       "qid": "multidoc_20_p6",
       "mode": "MULTI_DOC",
-      "lambda": 0.2251979276160032,
+      "lambda": 0.03467816699467023,
       "num_segments": 1,
-      "total_reduced_cost": -0.3237576237984069,
+      "total_reduced_cost": -0.5142773844197399,
       "selected_texts": [
         "[NODE: lookup_23_record] type=row | Year: 2022 | Agency: Sovereign Debt Operations Center | Program: Border Security Allocations | Budget authority: $8,151 | The reported budget authority for Border Security Allocations under Sovereign Debt Operations Center in 2022 were $8,151."
       ],
@@ -7023,9 +7062,9 @@
     {
       "qid": "compute_0_p0",
       "mode": "COMPUTE",
-      "lambda": 0.4813664600965219,
+      "lambda": 0.038541283467534465,
       "num_segments": 1,
-      "total_reduced_cost": -0.13132406406387448,
+      "total_reduced_cost": -0.5741492406928619,
       "selected_texts": [
         "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274."
       ],
@@ -7043,9 +7082,9 @@
     {
       "qid": "compute_0_p1",
       "mode": "COMPUTE",
-      "lambda": 0.19777674479259816,
+      "lambda": 0.04826822612029087,
       "num_segments": 1,
-      "total_reduced_cost": -0.3479996501126645,
+      "total_reduced_cost": -0.4975081687849718,
       "selected_texts": [
         "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274."
       ],
@@ -7063,9 +7102,9 @@
     {
       "qid": "compute_0_p2",
       "mode": "COMPUTE",
-      "lambda": 0.3710733236718945,
+      "lambda": 0.053766957144928684,
       "num_segments": 1,
-      "total_reduced_cost": -0.27994861619106404,
+      "total_reduced_cost": -0.5972549827180298,
       "selected_texts": [
         "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274."
       ],
@@ -7083,9 +7122,9 @@
     {
       "qid": "compute_0_p3",
       "mode": "COMPUTE",
-      "lambda": 0.32964001435456397,
+      "lambda": 0.04305812612973423,
       "num_segments": 1,
-      "total_reduced_cost": -0.30107585834568634,
+      "total_reduced_cost": -0.5876577465705161,
       "selected_texts": [
         "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274."
       ],
@@ -7103,9 +7142,9 @@
     {
       "qid": "compute_0_p4",
       "mode": "COMPUTE",
-      "lambda": 0.2673247054943577,
+      "lambda": 0.04513036024553851,
       "num_segments": 1,
-      "total_reduced_cost": -0.22224629393024264,
+      "total_reduced_cost": -0.44444063917906185,
       "selected_texts": [
         "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274."
       ],
@@ -7123,9 +7162,9 @@
     {
       "qid": "compute_0_p5",
       "mode": "COMPUTE",
-      "lambda": 0.3234792251469181,
+      "lambda": 0.05211130539169568,
       "num_segments": 1,
-      "total_reduced_cost": -0.15355107314392563,
+      "total_reduced_cost": -0.4249189928991481,
       "selected_texts": [
         "[NODE: compute_0_year_a] type=row | Year: 1999 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $10,000."
       ],
@@ -7143,9 +7182,9 @@
     {
       "qid": "compute_0_p6",
       "mode": "COMPUTE",
-      "lambda": 0.1970984265755018,
+      "lambda": 0.04660560083710992,
       "num_segments": 1,
-      "total_reduced_cost": -0.3736251032307971,
+      "total_reduced_cost": -0.524117928969189,
       "selected_texts": [
         "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274."
       ],
@@ -7163,9 +7202,9 @@
     {
       "qid": "compute_7_p0",
       "mode": "COMPUTE",
-      "lambda": 0.5160764043846854,
+      "lambda": 0.032029467887132346,
       "num_segments": 1,
-      "total_reduced_cost": -0.03253362974305707,
+      "total_reduced_cost": -0.5165805662406101,
       "selected_texts": [
         "[NODE: compute_7_year_b] type=row | Year: 2007 | Agency: Audit and Compliance Division | Program: Federal Reserve Contributions | Liabilities: $11,118."
       ],
@@ -7183,9 +7222,9 @@
     {
       "qid": "compute_7_p1",
       "mode": "COMPUTE",
-      "lambda": 0.33320722715379686,
+      "lambda": 0.06302602128812114,
       "num_segments": 1,
-      "total_reduced_cost": -0.06292079566438635,
+      "total_reduced_cost": -0.3331020015300621,
       "selected_texts": [
         "[NODE: compute_7_year_b] type=row | Year: 2007 | Agency: Audit and Compliance Division | Program: Federal Reserve Contributions | Liabilities: $11,118."
       ],
@@ -7203,9 +7242,9 @@
     {
       "qid": "compute_7_p2",
       "mode": "COMPUTE",
-      "lambda": 0.2460424385269888,
+      "lambda": 0.03913481019164464,
       "num_segments": 1,
-      "total_reduced_cost": -0.21695779681098618,
+      "total_reduced_cost": -0.4238654251463303,
       "selected_texts": [
         "[NODE: compute_7_year_b] type=row | Year: 2007 | Agency: Audit and Compliance Division | Program: Federal Reserve Contributions | Liabilities: $11,118."
       ],
@@ -7223,9 +7262,9 @@
     {
       "qid": "compute_7_p3",
       "mode": "COMPUTE",
-      "lambda": 0.2706210747859904,
+      "lambda": 0.05006034266868605,
       "num_segments": 1,
-      "total_reduced_cost": -0.10525706326001277,
+      "total_reduced_cost": -0.32581779537731714,
       "selected_texts": [
         "[NODE: compute_7_year_b] type=row | Year: 2007 | Agency: Audit and Compliance Division | Program: Federal Reserve Contributions | Liabilities: $11,118."
       ],
@@ -7243,9 +7282,9 @@
     {
       "qid": "compute_7_p4",
       "mode": "COMPUTE",
-      "lambda": 0.08770219716534483,
+      "lambda": 0.042811203843175716,
       "num_segments": 1,
-      "total_reduced_cost": -0.33575097377618074,
+      "total_reduced_cost": -0.38064196709834985,
       "selected_texts": [
         "[NODE: lookup_9_record] type=row | Year: 2008 | Agency: Audit and Compliance Division | Program: Pension Obligation Funding | Liabilities: $6,233 | The reported liabilities for Pension Obligation Funding under Audit and Compliance Division in 2008 were $6,233."
       ],
@@ -7263,9 +7302,9 @@
     {
       "qid": "compute_7_p5",
       "mode": "COMPUTE",
-      "lambda": 0.3273512157796998,
+      "lambda": 0.04604522566367914,
       "num_segments": 1,
-      "total_reduced_cost": -0.1547466133080871,
+      "total_reduced_cost": -0.43605260342410773,
       "selected_texts": [
         "[NODE: compute_7_year_b] type=row | Year: 2007 | Agency: Audit and Compliance Division | Program: Federal Reserve Contributions | Liabilities: $11,118."
       ],
@@ -7283,9 +7322,9 @@
     {
       "qid": "compute_7_p6",
       "mode": "COMPUTE",
-      "lambda": 0.10143196173496064,
+      "lambda": 0.053501963320350024,
       "num_segments": 1,
-      "total_reduced_cost": -0.3081808606239431,
+      "total_reduced_cost": -0.3561108590385538,
       "selected_texts": [
         "[NODE: lookup_9_record] type=row | Year: 2008 | Agency: Audit and Compliance Division | Program: Pension Obligation Funding | Liabilities: $6,233 | The reported liabilities for Pension Obligation Funding under Audit and Compliance Division in 2008 were $6,233."
       ],
@@ -7303,9 +7342,9 @@
     {
       "qid": "compute_8_p0",
       "mode": "COMPUTE",
-      "lambda": 0.49431121861672705,
+      "lambda": 0.03205459392335842,
       "num_segments": 1,
-      "total_reduced_cost": -0.10507715243011645,
+      "total_reduced_cost": -0.5673337771234851,
       "selected_texts": [
         "[NODE: compute_8_year_a] type=row | Year: 2007 | Agency: Fiscal Policy Oversight Bureau | Program: Strategic Infrastructure Bonds | Assets: $10,888."
       ],
@@ -7323,49 +7362,51 @@
     {
       "qid": "compute_8_p1",
       "mode": "COMPUTE",
-      "lambda": 0.1478217429223009,
-      "num_segments": 1,
-      "total_reduced_cost": -0.28548022864717837,
+      "lambda": 0.04995614852820718,
+      "num_segments": 2,
+      "total_reduced_cost": -0.39612670719683096,
       "selected_texts": [
-        "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
+        "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370.",
+        "[NODE: lookup_10_distractor] type=note | Year: 2008 | Agency: Fiscal Policy Oversight Bureau | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting."
       ],
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
       "target_k": 2,
-      "num_selected": 1,
+      "num_selected": 2,
       "num_relevant_retrieved": 0,
       "missing_evidence": 2,
       "extra_segments": 0,
       "evidence_coverage": 0.0,
-      "score": -0.52
+      "score": -0.54
     },
     {
       "qid": "compute_8_p2",
       "mode": "COMPUTE",
-      "lambda": 0.2482546080521838,
-      "num_segments": 1,
-      "total_reduced_cost": -0.16665680133470567,
+      "lambda": 0.05394491007939418,
+      "num_segments": 2,
+      "total_reduced_cost": -0.38688680906593753,
       "selected_texts": [
-        "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
+        "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370.",
+        "[NODE: lookup_10_distractor] type=note | Year: 2008 | Agency: Fiscal Policy Oversight Bureau | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting."
       ],
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
       "target_k": 2,
-      "num_selected": 1,
+      "num_selected": 2,
       "num_relevant_retrieved": 0,
       "missing_evidence": 2,
       "extra_segments": 0,
       "evidence_coverage": 0.0,
-      "score": -0.52
+      "score": -0.54
     },
     {
       "qid": "compute_8_p3",
       "mode": "COMPUTE",
-      "lambda": 0.26657251155647893,
+      "lambda": 0.06650522722395913,
       "num_segments": 1,
-      "total_reduced_cost": -0.13758512032853532,
+      "total_reduced_cost": -0.3376524046610551,
       "selected_texts": [
         "[NODE: lookup_6_record] type=row | Year: 2005 | Agency: Infrastructure Finance Office | Program: Strategic Infrastructure Bonds | Allocations: $5,822 | The reported allocations for Strategic Infrastructure Bonds under Infrastructure Finance Office in 2005 were $5,822."
       ],
@@ -7383,9 +7424,9 @@
     {
       "qid": "compute_8_p4",
       "mode": "COMPUTE",
-      "lambda": 0.34473346506987,
+      "lambda": 0.08341123128321216,
       "num_segments": 1,
-      "total_reduced_cost": -0.08548079225255689,
+      "total_reduced_cost": -0.34680302603921476,
       "selected_texts": [
         "[NODE: compute_8_year_a] type=row | Year: 2007 | Agency: Fiscal Policy Oversight Bureau | Program: Strategic Infrastructure Bonds | Assets: $10,888."
       ],
@@ -7403,9 +7444,9 @@
     {
       "qid": "compute_8_p5",
       "mode": "COMPUTE",
-      "lambda": 0.4207328417303396,
+      "lambda": 0.050078392119245634,
       "num_segments": 1,
-      "total_reduced_cost": -0.08468721142797114,
+      "total_reduced_cost": -0.4553416610390651,
       "selected_texts": [
         "[NODE: compute_8_year_a] type=row | Year: 2007 | Agency: Fiscal Policy Oversight Bureau | Program: Strategic Infrastructure Bonds | Assets: $10,888."
       ],
@@ -7423,9 +7464,9 @@
     {
       "qid": "compute_8_p6",
       "mode": "COMPUTE",
-      "lambda": 0.3956889859781657,
+      "lambda": 0.056223452401560195,
       "num_segments": 1,
-      "total_reduced_cost": -0.09738481061469595,
+      "total_reduced_cost": -0.4368503441913015,
       "selected_texts": [
         "[NODE: compute_8_year_a] type=row | Year: 2007 | Agency: Fiscal Policy Oversight Bureau | Program: Strategic Infrastructure Bonds | Assets: $10,888."
       ],
@@ -7443,149 +7484,166 @@
     {
       "qid": "compute_19_p0",
       "mode": "COMPUTE",
-      "lambda": 0.37426825358376303,
-      "num_segments": 1,
-      "total_reduced_cost": -0.243075697365423,
+      "lambda": 0.022241625814733792,
+      "num_segments": 4,
+      "total_reduced_cost": -0.6091217349190486,
       "selected_texts": [
-        "[NODE: compute_19_year_b] type=row | Year: 2019 | Agency: Federal Asset Liquidation Office | Program: Space Program Appropriations | Capital expenditures: $12,372."
+        "[NODE: compute_19_year_b] type=row | Year: 2019 | Agency: Federal Asset Liquidation Office | Program: Space Program Appropriations | Capital expenditures: $12,372.",
+        "[NODE: compute_7_year_b] type=row | Year: 2007 | Agency: Audit and Compliance Division | Program: Federal Reserve Contributions | Liabilities: $11,118.",
+        "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288.",
+        "[NODE: compute_22_year_b] type=row | Year: 2022 | Agency: Macroeconomic Policy Analysis Unit | Program: Emergency Grants | Net borrowing: $12,744."
       ],
-      "precision": 1.0,
+      "precision": 0.25,
       "recall": 0.5,
-      "f1": 0.6666666666666666,
+      "f1": 0.3333333333333333,
       "target_k": 2,
-      "num_selected": 1,
+      "num_selected": 4,
       "num_relevant_retrieved": 1,
       "missing_evidence": 1,
-      "extra_segments": 0,
+      "extra_segments": 2,
       "evidence_coverage": 0.5,
-      "score": 0.25
+      "score": 0.10999999999999999
     },
     {
       "qid": "compute_19_p1",
       "mode": "COMPUTE",
-      "lambda": 0.2748196970990158,
-      "num_segments": 1,
-      "total_reduced_cost": -0.258416298422902,
+      "lambda": 0.028078763185290706,
+      "num_segments": 4,
+      "total_reduced_cost": -0.5621289774965759,
       "selected_texts": [
-        "[NODE: compute_19_year_b] type=row | Year: 2019 | Agency: Federal Asset Liquidation Office | Program: Space Program Appropriations | Capital expenditures: $12,372."
+        "[NODE: compute_19_year_b] type=row | Year: 2019 | Agency: Federal Asset Liquidation Office | Program: Space Program Appropriations | Capital expenditures: $12,372.",
+        "[NODE: compute_0_year_b] type=row | Year: 2000 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $10,250.",
+        "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288.",
+        "[NODE: compute_22_year_b] type=row | Year: 2022 | Agency: Macroeconomic Policy Analysis Unit | Program: Emergency Grants | Net borrowing: $12,744."
       ],
-      "precision": 1.0,
+      "precision": 0.25,
       "recall": 0.5,
-      "f1": 0.6666666666666666,
+      "f1": 0.3333333333333333,
       "target_k": 2,
-      "num_selected": 1,
+      "num_selected": 4,
       "num_relevant_retrieved": 1,
       "missing_evidence": 1,
-      "extra_segments": 0,
+      "extra_segments": 2,
       "evidence_coverage": 0.5,
-      "score": 0.25
+      "score": 0.10999999999999999
     },
     {
       "qid": "compute_19_p2",
       "mode": "COMPUTE",
-      "lambda": 0.34087324284495285,
-      "num_segments": 1,
-      "total_reduced_cost": -0.2370929637157964,
+      "lambda": 0.029918898362649184,
+      "num_segments": 4,
+      "total_reduced_cost": -0.5705121530984433,
       "selected_texts": [
-        "[NODE: compute_19_year_b] type=row | Year: 2019 | Agency: Federal Asset Liquidation Office | Program: Space Program Appropriations | Capital expenditures: $12,372."
+        "[NODE: compute_19_year_b] type=row | Year: 2019 | Agency: Federal Asset Liquidation Office | Program: Space Program Appropriations | Capital expenditures: $12,372.",
+        "[NODE: compute_1_year_b] type=row | Year: 2001 | Agency: Federal Grants Division | Program: Treasury Securities | Expenditures: $10,374.",
+        "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288.",
+        "[NODE: compute_22_year_b] type=row | Year: 2022 | Agency: Macroeconomic Policy Analysis Unit | Program: Emergency Grants | Net borrowing: $12,744."
       ],
-      "precision": 1.0,
+      "precision": 0.25,
       "recall": 0.5,
-      "f1": 0.6666666666666666,
+      "f1": 0.3333333333333333,
       "target_k": 2,
-      "num_selected": 1,
+      "num_selected": 4,
       "num_relevant_retrieved": 1,
       "missing_evidence": 1,
-      "extra_segments": 0,
+      "extra_segments": 2,
       "evidence_coverage": 0.5,
-      "score": 0.25
+      "score": 0.10999999999999999
     },
     {
       "qid": "compute_19_p3",
       "mode": "COMPUTE",
-      "lambda": 0.23725585656813913,
-      "num_segments": 1,
-      "total_reduced_cost": -0.2056261454205764,
+      "lambda": 0.05292607108802774,
+      "num_segments": 2,
+      "total_reduced_cost": -0.4024892331580747,
       "selected_texts": [
-        "[NODE: lookup_21_record] type=row | Year: 2020 | Agency: Federal Asset Liquidation Office | Program: Export Credit Assistance | Capital expenditures: $7,877 | The reported capital expenditures for Export Credit Assistance under Federal Asset Liquidation Office in 2020 were $7,877."
+        "[NODE: lookup_21_record] type=row | Year: 2020 | Agency: Federal Asset Liquidation Office | Program: Export Credit Assistance | Capital expenditures: $7,877 | The reported capital expenditures for Export Credit Assistance under Federal Asset Liquidation Office in 2020 were $7,877.",
+        "[NODE: lookup_21_distractor] type=note | Year: 2019 | Agency: Federal Asset Liquidation Office | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting."
       ],
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
       "target_k": 2,
-      "num_selected": 1,
+      "num_selected": 2,
       "num_relevant_retrieved": 0,
       "missing_evidence": 2,
       "extra_segments": 0,
       "evidence_coverage": 0.0,
-      "score": -0.52
+      "score": -0.54
     },
     {
       "qid": "compute_19_p4",
       "mode": "COMPUTE",
-      "lambda": 0.15977371072954738,
-      "num_segments": 1,
-      "total_reduced_cost": -0.33543412805082634,
+      "lambda": 0.023200498479426505,
+      "num_segments": 3,
+      "total_reduced_cost": -0.4876317699339998,
       "selected_texts": [
-        "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288."
+        "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288.",
+        "[NODE: compute_19_year_b] type=row | Year: 2019 | Agency: Federal Asset Liquidation Office | Program: Space Program Appropriations | Capital expenditures: $12,372.",
+        "[NODE: multidoc_12_doc_b] type=row | Source: Bulletin B | Year: 2011 | Agency: Debt Issuance and Settlement Bureau | Program: Social Safety Net Disbursements | Balances: $7,496."
       ],
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4,
       "target_k": 2,
-      "num_selected": 1,
-      "num_relevant_retrieved": 0,
-      "missing_evidence": 2,
-      "extra_segments": 0,
-      "evidence_coverage": 0.0,
-      "score": -0.52
+      "num_selected": 3,
+      "num_relevant_retrieved": 1,
+      "missing_evidence": 1,
+      "extra_segments": 1,
+      "evidence_coverage": 0.5,
+      "score": 0.16999999999999998
     },
     {
       "qid": "compute_19_p5",
       "mode": "COMPUTE",
-      "lambda": 0.2616979011957219,
-      "num_segments": 1,
-      "total_reduced_cost": -0.23060657041634813,
+      "lambda": 0.04203233594834221,
+      "num_segments": 2,
+      "total_reduced_cost": -0.45812664832188077,
       "selected_texts": [
-        "[NODE: lookup_21_record] type=row | Year: 2020 | Agency: Federal Asset Liquidation Office | Program: Export Credit Assistance | Capital expenditures: $7,877 | The reported capital expenditures for Export Credit Assistance under Federal Asset Liquidation Office in 2020 were $7,877."
+        "[NODE: lookup_21_record] type=row | Year: 2020 | Agency: Federal Asset Liquidation Office | Program: Export Credit Assistance | Capital expenditures: $7,877 | The reported capital expenditures for Export Credit Assistance under Federal Asset Liquidation Office in 2020 were $7,877.",
+        "[NODE: lookup_21_distractor] type=note | Year: 2019 | Agency: Federal Asset Liquidation Office | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting."
       ],
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
       "target_k": 2,
-      "num_selected": 1,
+      "num_selected": 2,
       "num_relevant_retrieved": 0,
       "missing_evidence": 2,
       "extra_segments": 0,
       "evidence_coverage": 0.0,
-      "score": -0.52
+      "score": -0.54
     },
     {
       "qid": "compute_19_p6",
       "mode": "COMPUTE",
-      "lambda": 0.12248263144561351,
-      "num_segments": 1,
-      "total_reduced_cost": -0.3160633304037229,
+      "lambda": 0.019193128341775095,
+      "num_segments": 5,
+      "total_reduced_cost": -0.4890720322545861,
       "selected_texts": [
-        "[NODE: compute_19_year_b] type=row | Year: 2019 | Agency: Federal Asset Liquidation Office | Program: Space Program Appropriations | Capital expenditures: $12,372."
+        "[NODE: compute_19_year_b] type=row | Year: 2019 | Agency: Federal Asset Liquidation Office | Program: Space Program Appropriations | Capital expenditures: $12,372.",
+        "[NODE: compute_7_year_a] type=row | Year: 2006 | Agency: Audit and Compliance Division | Program: Federal Reserve Contributions | Liabilities: $10,777.",
+        "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288.",
+        "[NODE: multistep_16_program_b] type=row | Year: 2015 | Agency: Federal Asset Liquidation Office | Program: Border Security Allocations | Priority Outlays: $9,732.",
+        "[NODE: multistep_23_program_a] type=row | Year: 2022 | Agency: Federal Grants Division | Program: Space Program Appropriations | Priority Outlays: $10,323."
       ],
-      "precision": 1.0,
+      "precision": 0.2,
       "recall": 0.5,
-      "f1": 0.6666666666666666,
+      "f1": 0.28571428571428575,
       "target_k": 2,
-      "num_selected": 1,
+      "num_selected": 5,
       "num_relevant_retrieved": 1,
       "missing_evidence": 1,
-      "extra_segments": 0,
+      "extra_segments": 3,
       "evidence_coverage": 0.5,
-      "score": 0.25
+      "score": 0.05
     },
     {
       "qid": "compute_23_p0",
       "mode": "COMPUTE",
-      "lambda": 0.44025079383804544,
+      "lambda": 0.031317701853382486,
       "num_segments": 1,
-      "total_reduced_cost": -0.08311847355356905,
+      "total_reduced_cost": -0.492051565538232,
       "selected_texts": [
         "[NODE: compute_23_year_b] type=row | Year: 2023 | Agency: Treasury Operations Office | Program: Infrastructure Loans | Outlays: $12,868."
       ],
@@ -7603,9 +7661,9 @@
     {
       "qid": "compute_23_p1",
       "mode": "COMPUTE",
-      "lambda": 0.2077317505685491,
+      "lambda": 0.05881827128054314,
       "num_segments": 1,
-      "total_reduced_cost": -0.21387418811636738,
+      "total_reduced_cost": -0.36278766740437335,
       "selected_texts": [
         "[NODE: lookup_0_record] type=row | Year: 1999 | Agency: Treasury Operations Office | Program: Debt Servicing | Outlays: $5,000 | The reported outlays for Debt Servicing under Treasury Operations Office in 1999 were $5,000."
       ],
@@ -7623,9 +7681,9 @@
     {
       "qid": "compute_23_p2",
       "mode": "COMPUTE",
-      "lambda": 0.21706662699050364,
+      "lambda": 0.037170072339487804,
       "num_segments": 1,
-      "total_reduced_cost": -0.22541483751251265,
+      "total_reduced_cost": -0.40531139216352846,
       "selected_texts": [
         "[NODE: compute_23_year_b] type=row | Year: 2023 | Agency: Treasury Operations Office | Program: Infrastructure Loans | Outlays: $12,868."
       ],
@@ -7643,9 +7701,9 @@
     {
       "qid": "compute_23_p3",
       "mode": "COMPUTE",
-      "lambda": 0.23621424871592908,
+      "lambda": 0.07583028800429437,
       "num_segments": 1,
-      "total_reduced_cost": -0.15918953260833615,
+      "total_reduced_cost": -0.31957349331997087,
       "selected_texts": [
         "[NODE: lookup_0_record] type=row | Year: 1999 | Agency: Treasury Operations Office | Program: Debt Servicing | Outlays: $5,000 | The reported outlays for Debt Servicing under Treasury Operations Office in 1999 were $5,000."
       ],
@@ -7663,9 +7721,9 @@
     {
       "qid": "compute_23_p4",
       "mode": "COMPUTE",
-      "lambda": 0.09342581431958091,
+      "lambda": 0.03196237593811971,
       "num_segments": 1,
-      "total_reduced_cost": -0.2680058695972654,
+      "total_reduced_cost": -0.32946930797872664,
       "selected_texts": [
         "[NODE: compute_23_year_a] type=row | Year: 2022 | Agency: Treasury Operations Office | Program: Infrastructure Loans | Outlays: $12,553."
       ],
@@ -7683,9 +7741,9 @@
     {
       "qid": "compute_23_p5",
       "mode": "COMPUTE",
-      "lambda": 0.2872565553657362,
+      "lambda": 0.03907530843869617,
       "num_segments": 1,
-      "total_reduced_cost": -0.18557153115941266,
+      "total_reduced_cost": -0.4337527780864527,
       "selected_texts": [
         "[NODE: compute_23_year_b] type=row | Year: 2023 | Agency: Treasury Operations Office | Program: Infrastructure Loans | Outlays: $12,868."
       ],
@@ -7703,9 +7761,9 @@
     {
       "qid": "compute_23_p6",
       "mode": "COMPUTE",
-      "lambda": 0.1580932988005118,
+      "lambda": 0.036207920266244614,
       "num_segments": 1,
-      "total_reduced_cost": -0.3025904968626385,
+      "total_reduced_cost": -0.4244758753969057,
       "selected_texts": [
         "[NODE: compute_23_year_b] type=row | Year: 2023 | Agency: Treasury Operations Office | Program: Infrastructure Loans | Outlays: $12,868."
       ],
@@ -7723,29 +7781,31 @@
     {
       "qid": "multistep_1_p0",
       "mode": "MULTI_STEP",
-      "lambda": 0.17094332239502125,
-      "num_segments": 1,
-      "total_reduced_cost": -0.3346026514617028,
+      "lambda": 0.0342673560188664,
+      "num_segments": 3,
+      "total_reduced_cost": -0.4872134095377252,
       "selected_texts": [
-        "[NODE: multistep_1_program_a] type=row | Year: 2000 | Agency: Infrastructure Finance Office | Program: Emergency Grants | Priority Outlays: $8,101."
+        "[NODE: multistep_1_program_a] type=row | Year: 2000 | Agency: Infrastructure Finance Office | Program: Emergency Grants | Priority Outlays: $8,101.",
+        "[NODE: compute_16_year_a] type=row | Year: 2015 | Agency: Public Investment Accounting Division | Program: Cybersecurity Infrastructure | Interest costs: $11,776.",
+        "[NODE: lookup_6_distractor] type=note | Year: 2004 | Agency: Infrastructure Finance Office | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting."
       ],
-      "precision": 1.0,
+      "precision": 0.3333333333333333,
       "recall": 0.3333333333333333,
-      "f1": 0.5,
+      "f1": 0.3333333333333333,
       "target_k": 3,
-      "num_selected": 1,
+      "num_selected": 3,
       "num_relevant_retrieved": 1,
       "missing_evidence": 2,
       "extra_segments": 0,
       "evidence_coverage": 0.3333333333333333,
-      "score": -0.16666666666666669
+      "score": -0.2066666666666667
     },
     {
       "qid": "multistep_1_p1",
       "mode": "MULTI_STEP",
-      "lambda": 0.3996596718638151,
+      "lambda": 0.027339201333143166,
       "num_segments": 1,
-      "total_reduced_cost": -0.2059162036378196,
+      "total_reduced_cost": -0.5782366741684916,
       "selected_texts": [
         "[NODE: multistep_1_program_a] type=row | Year: 2000 | Agency: Infrastructure Finance Office | Program: Emergency Grants | Priority Outlays: $8,101."
       ],
@@ -7763,9 +7823,9 @@
     {
       "qid": "multistep_1_p2",
       "mode": "MULTI_STEP",
-      "lambda": 0.41937965176519043,
+      "lambda": 0.0352963309608305,
       "num_segments": 1,
-      "total_reduced_cost": -0.09582095531413559,
+      "total_reduced_cost": -0.4799042761184955,
       "selected_texts": [
         "[NODE: multistep_1_program_b] type=row | Year: 2000 | Agency: Infrastructure Finance Office | Program: Municipal Support | Priority Outlays: $8,577."
       ],
@@ -7783,49 +7843,53 @@
     {
       "qid": "multistep_1_p3",
       "mode": "MULTI_STEP",
-      "lambda": 0.1388180583510104,
-      "num_segments": 1,
-      "total_reduced_cost": -0.3038485159073009,
+      "lambda": 0.02293700642520372,
+      "num_segments": 3,
+      "total_reduced_cost": -0.45690606058935507,
       "selected_texts": [
-        "[NODE: multistep_1_program_b] type=row | Year: 2000 | Agency: Infrastructure Finance Office | Program: Municipal Support | Priority Outlays: $8,577."
+        "[NODE: multistep_1_program_b] type=row | Year: 2000 | Agency: Infrastructure Finance Office | Program: Municipal Support | Priority Outlays: $8,577.",
+        "[NODE: lookup_6_distractor] type=note | Year: 2004 | Agency: Infrastructure Finance Office | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: compute_16_year_a] type=row | Year: 2015 | Agency: Public Investment Accounting Division | Program: Cybersecurity Infrastructure | Interest costs: $11,776."
       ],
-      "precision": 1.0,
+      "precision": 0.3333333333333333,
       "recall": 0.3333333333333333,
-      "f1": 0.5,
+      "f1": 0.3333333333333333,
       "target_k": 3,
-      "num_selected": 1,
+      "num_selected": 3,
       "num_relevant_retrieved": 1,
       "missing_evidence": 2,
       "extra_segments": 0,
       "evidence_coverage": 0.3333333333333333,
-      "score": -0.16666666666666669
+      "score": -0.2066666666666667
     },
     {
       "qid": "multistep_1_p4",
       "mode": "MULTI_STEP",
-      "lambda": 0.28600920696013243,
-      "num_segments": 1,
-      "total_reduced_cost": -0.15077697280711178,
+      "lambda": 0.04853871820467643,
+      "num_segments": 3,
+      "total_reduced_cost": -0.40064488462557146,
       "selected_texts": [
-        "[NODE: multistep_1_program_a] type=row | Year: 2000 | Agency: Infrastructure Finance Office | Program: Emergency Grants | Priority Outlays: $8,101."
+        "[NODE: multistep_1_program_a] type=row | Year: 2000 | Agency: Infrastructure Finance Office | Program: Emergency Grants | Priority Outlays: $8,101.",
+        "[NODE: lookup_6_distractor] type=note | Year: 2004 | Agency: Infrastructure Finance Office | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: multistep_24_program_b] type=row | Year: 2023 | Agency: Cash Management Office | Program: Agency Payroll | Priority Outlays: $10,348."
       ],
-      "precision": 1.0,
+      "precision": 0.3333333333333333,
       "recall": 0.3333333333333333,
-      "f1": 0.5,
+      "f1": 0.3333333333333333,
       "target_k": 3,
-      "num_selected": 1,
+      "num_selected": 3,
       "num_relevant_retrieved": 1,
       "missing_evidence": 2,
       "extra_segments": 0,
       "evidence_coverage": 0.3333333333333333,
-      "score": -0.16666666666666669
+      "score": -0.2066666666666667
     },
     {
       "qid": "multistep_1_p5",
       "mode": "MULTI_STEP",
-      "lambda": 0.36534168316470106,
+      "lambda": 0.036084546049327204,
       "num_segments": 1,
-      "total_reduced_cost": -0.20234616413254214,
+      "total_reduced_cost": -0.531603301247916,
       "selected_texts": [
         "[NODE: multistep_1_program_a] type=row | Year: 2000 | Agency: Infrastructure Finance Office | Program: Emergency Grants | Priority Outlays: $8,101."
       ],
@@ -7843,9 +7907,9 @@
     {
       "qid": "multistep_1_p6",
       "mode": "MULTI_STEP",
-      "lambda": 0.3505921056129968,
+      "lambda": 0.022522643233648682,
       "num_segments": 1,
-      "total_reduced_cost": -0.26821200664504474,
+      "total_reduced_cost": -0.5962814690243928,
       "selected_texts": [
         "[NODE: multistep_1_program_a] type=row | Year: 2000 | Agency: Infrastructure Finance Office | Program: Emergency Grants | Priority Outlays: $8,101."
       ],
@@ -7863,49 +7927,54 @@
     {
       "qid": "multistep_5_p0",
       "mode": "MULTI_STEP",
-      "lambda": 0.1580134488201621,
-      "num_segments": 1,
-      "total_reduced_cost": -0.30925565828285195,
+      "lambda": 0.02452525392319697,
+      "num_segments": 3,
+      "total_reduced_cost": -0.4873786905313303,
       "selected_texts": [
-        "[NODE: multistep_5_program_a] type=row | Year: 2004 | Agency: Fiscal Policy Oversight Bureau | Program: Treasury Securities | Priority Outlays: $8,505."
+        "[NODE: multistep_5_program_a] type=row | Year: 2004 | Agency: Fiscal Policy Oversight Bureau | Program: Treasury Securities | Priority Outlays: $8,505.",
+        "[NODE: lookup_10_distractor] type=note | Year: 2008 | Agency: Fiscal Policy Oversight Bureau | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: compute_9_year_a] type=row | Year: 2008 | Agency: National Revenue Collections Office | Program: Social Safety Net Disbursements | Deficits: $10,999."
       ],
-      "precision": 1.0,
+      "precision": 0.3333333333333333,
       "recall": 0.3333333333333333,
-      "f1": 0.5,
+      "f1": 0.3333333333333333,
       "target_k": 3,
-      "num_selected": 1,
+      "num_selected": 3,
       "num_relevant_retrieved": 1,
       "missing_evidence": 2,
       "extra_segments": 0,
       "evidence_coverage": 0.3333333333333333,
-      "score": -0.16666666666666669
+      "score": -0.2066666666666667
     },
     {
       "qid": "multistep_5_p1",
       "mode": "MULTI_STEP",
-      "lambda": 0.0870524175988793,
-      "num_segments": 1,
-      "total_reduced_cost": -0.29187509324698513,
+      "lambda": 0.020402833328998032,
+      "num_segments": 4,
+      "total_reduced_cost": -0.45499459488235927,
       "selected_texts": [
-        "[NODE: multistep_5_program_a] type=row | Year: 2004 | Agency: Fiscal Policy Oversight Bureau | Program: Treasury Securities | Priority Outlays: $8,505."
+        "[NODE: multistep_5_program_a] type=row | Year: 2004 | Agency: Fiscal Policy Oversight Bureau | Program: Treasury Securities | Priority Outlays: $8,505.",
+        "[NODE: compute_12_year_b] type=row | Year: 2012 | Agency: Strategic Reserve Management Office | Program: Rural Development Loans | Collections: $11,621.",
+        "[NODE: lookup_10_distractor] type=note | Year: 2008 | Agency: Fiscal Policy Oversight Bureau | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: multidoc_11_doc_a] type=row | Source: Bulletin A | Year: 2010 | Agency: National Revenue Collections Office | Program: Strategic Infrastructure Bonds | Surpluses: $8,001."
       ],
-      "precision": 1.0,
+      "precision": 0.25,
       "recall": 0.3333333333333333,
-      "f1": 0.5,
+      "f1": 0.28571428571428575,
       "target_k": 3,
-      "num_selected": 1,
+      "num_selected": 4,
       "num_relevant_retrieved": 1,
       "missing_evidence": 2,
-      "extra_segments": 0,
+      "extra_segments": 1,
       "evidence_coverage": 0.3333333333333333,
-      "score": -0.16666666666666669
+      "score": -0.2666666666666667
     },
     {
       "qid": "multistep_5_p2",
       "mode": "MULTI_STEP",
-      "lambda": 0.3829417139781471,
+      "lambda": 0.020151757611719695,
       "num_segments": 1,
-      "total_reduced_cost": -0.19165230158291385,
+      "total_reduced_cost": -0.5544422579493412,
       "selected_texts": [
         "[NODE: multistep_5_program_a] type=row | Year: 2004 | Agency: Fiscal Policy Oversight Bureau | Program: Treasury Securities | Priority Outlays: $8,505."
       ],
@@ -7923,49 +7992,53 @@
     {
       "qid": "multistep_5_p3",
       "mode": "MULTI_STEP",
-      "lambda": 0.3565866123300345,
-      "num_segments": 1,
-      "total_reduced_cost": -0.12131356191944248,
+      "lambda": 0.031235630837004855,
+      "num_segments": 3,
+      "total_reduced_cost": -0.47615990676381525,
       "selected_texts": [
-        "[NODE: multistep_5_program_a] type=row | Year: 2004 | Agency: Fiscal Policy Oversight Bureau | Program: Treasury Securities | Priority Outlays: $8,505."
+        "[NODE: multistep_5_program_a] type=row | Year: 2004 | Agency: Fiscal Policy Oversight Bureau | Program: Treasury Securities | Priority Outlays: $8,505.",
+        "[NODE: lookup_10_distractor] type=note | Year: 2008 | Agency: Fiscal Policy Oversight Bureau | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: compute_23_year_a] type=row | Year: 2022 | Agency: Treasury Operations Office | Program: Infrastructure Loans | Outlays: $12,553."
       ],
-      "precision": 1.0,
+      "precision": 0.3333333333333333,
       "recall": 0.3333333333333333,
-      "f1": 0.5,
+      "f1": 0.3333333333333333,
       "target_k": 3,
-      "num_selected": 1,
+      "num_selected": 3,
       "num_relevant_retrieved": 1,
       "missing_evidence": 2,
       "extra_segments": 0,
       "evidence_coverage": 0.3333333333333333,
-      "score": -0.16666666666666669
+      "score": -0.2066666666666667
     },
     {
       "qid": "multistep_5_p4",
       "mode": "MULTI_STEP",
-      "lambda": 0.2575727841578675,
-      "num_segments": 1,
-      "total_reduced_cost": -0.20662872705739455,
+      "lambda": 0.03886775457205083,
+      "num_segments": 3,
+      "total_reduced_cost": -0.48828537605236766,
       "selected_texts": [
-        "[NODE: multistep_5_program_a] type=row | Year: 2004 | Agency: Fiscal Policy Oversight Bureau | Program: Treasury Securities | Priority Outlays: $8,505."
+        "[NODE: multistep_5_program_a] type=row | Year: 2004 | Agency: Fiscal Policy Oversight Bureau | Program: Treasury Securities | Priority Outlays: $8,505.",
+        "[NODE: lookup_10_distractor] type=note | Year: 2008 | Agency: Fiscal Policy Oversight Bureau | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: multistep_21_program_a] type=row | Year: 2020 | Agency: Public Debt Service | Program: Border Security Allocations | Priority Outlays: $10,121."
       ],
-      "precision": 1.0,
+      "precision": 0.3333333333333333,
       "recall": 0.3333333333333333,
-      "f1": 0.5,
+      "f1": 0.3333333333333333,
       "target_k": 3,
-      "num_selected": 1,
+      "num_selected": 3,
       "num_relevant_retrieved": 1,
       "missing_evidence": 2,
       "extra_segments": 0,
       "evidence_coverage": 0.3333333333333333,
-      "score": -0.16666666666666669
+      "score": -0.2066666666666667
     },
     {
       "qid": "multistep_5_p5",
       "mode": "MULTI_STEP",
-      "lambda": 0.3320435204323646,
+      "lambda": 0.017935484408601425,
       "num_segments": 1,
-      "total_reduced_cost": -0.27939755177244596,
+      "total_reduced_cost": -0.5935055877962092,
       "selected_texts": [
         "[NODE: multistep_5_program_a] type=row | Year: 2004 | Agency: Fiscal Policy Oversight Bureau | Program: Treasury Securities | Priority Outlays: $8,505."
       ],
@@ -7983,9 +8056,9 @@
     {
       "qid": "multistep_5_p6",
       "mode": "MULTI_STEP",
-      "lambda": 0.3690948587602489,
+      "lambda": 0.025815689494467425,
       "num_segments": 1,
-      "total_reduced_cost": -0.17250485224534545,
+      "total_reduced_cost": -0.5157840215111269,
       "selected_texts": [
         "[NODE: multistep_5_program_a] type=row | Year: 2004 | Agency: Fiscal Policy Oversight Bureau | Program: Treasury Securities | Priority Outlays: $8,505."
       ],
@@ -8003,9 +8076,9 @@
     {
       "qid": "multistep_7_p0",
       "mode": "MULTI_STEP",
-      "lambda": 0.14075807093244622,
+      "lambda": 0.04868328884405349,
       "num_segments": 1,
-      "total_reduced_cost": -0.3726112189347085,
+      "total_reduced_cost": -0.4646860010231012,
       "selected_texts": [
         "[NODE: multistep_7_classification] type=metadata | Year: 2006 | Agency: Capital Markets Regulation Division | Priority programs: Disaster Relief; Strategic Infrastructure Bonds."
       ],
@@ -8023,69 +8096,77 @@
     {
       "qid": "multistep_7_p1",
       "mode": "MULTI_STEP",
-      "lambda": 0.36629458112891083,
-      "num_segments": 1,
-      "total_reduced_cost": -0.06887478702800293,
+      "lambda": 0.03721618350368087,
+      "num_segments": 3,
+      "total_reduced_cost": -0.4323078343862873,
       "selected_texts": [
-        "[NODE: multistep_7_program_a] type=row | Year: 2006 | Agency: Capital Markets Regulation Division | Program: Disaster Relief | Priority Outlays: $8,707."
+        "[NODE: multistep_7_program_a] type=row | Year: 2006 | Agency: Capital Markets Regulation Division | Program: Disaster Relief | Priority Outlays: $8,707.",
+        "[NODE: lookup_6_record] type=row | Year: 2005 | Agency: Infrastructure Finance Office | Program: Strategic Infrastructure Bonds | Allocations: $5,822 | The reported allocations for Strategic Infrastructure Bonds under Infrastructure Finance Office in 2005 were $5,822.",
+        "[NODE: compute_17_year_a] type=row | Year: 2016 | Agency: Congressional Appropriations Liaison | Program: Border Security Allocations | Administrative costs: $11,887."
       ],
-      "precision": 1.0,
+      "precision": 0.3333333333333333,
       "recall": 0.3333333333333333,
-      "f1": 0.5,
+      "f1": 0.3333333333333333,
       "target_k": 3,
-      "num_selected": 1,
+      "num_selected": 3,
       "num_relevant_retrieved": 1,
       "missing_evidence": 2,
       "extra_segments": 0,
       "evidence_coverage": 0.3333333333333333,
-      "score": -0.16666666666666669
+      "score": -0.2066666666666667
     },
     {
       "qid": "multistep_7_p2",
       "mode": "MULTI_STEP",
-      "lambda": 0.060331803152520194,
-      "num_segments": 1,
-      "total_reduced_cost": -0.2708371184583446,
+      "lambda": 0.022913514384427035,
+      "num_segments": 5,
+      "total_reduced_cost": -0.3786465488276284,
       "selected_texts": [
-        "[NODE: multistep_7_program_b] type=row | Year: 2006 | Agency: Capital Markets Regulation Division | Program: Strategic Infrastructure Bonds | Priority Outlays: $9,039."
+        "[NODE: multistep_7_program_b] type=row | Year: 2006 | Agency: Capital Markets Regulation Division | Program: Strategic Infrastructure Bonds | Priority Outlays: $9,039.",
+        "[NODE: lookup_12_distractor] type=note | Year: 2010 | Agency: Capital Markets Regulation Division | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: compute_12_year_a] type=row | Year: 2011 | Agency: Strategic Reserve Management Office | Program: Rural Development Loans | Collections: $11,332.",
+        "[NODE: multistep_19_classification] type=metadata | Year: 2018 | Agency: Macroeconomic Policy Analysis Unit | Priority programs: Education Finance Transfers; Veterans Benefits Processing.",
+        "[NODE: multidoc_11_doc_a] type=row | Source: Bulletin A | Year: 2010 | Agency: National Revenue Collections Office | Program: Strategic Infrastructure Bonds | Surpluses: $8,001."
       ],
-      "precision": 1.0,
+      "precision": 0.2,
       "recall": 0.3333333333333333,
-      "f1": 0.5,
+      "f1": 0.25,
       "target_k": 3,
-      "num_selected": 1,
+      "num_selected": 5,
       "num_relevant_retrieved": 1,
       "missing_evidence": 2,
-      "extra_segments": 0,
+      "extra_segments": 2,
       "evidence_coverage": 0.3333333333333333,
-      "score": -0.16666666666666669
+      "score": -0.3266666666666667
     },
     {
       "qid": "multistep_7_p3",
       "mode": "MULTI_STEP",
-      "lambda": 0.3516014978429155,
-      "num_segments": 1,
-      "total_reduced_cost": -0.1331828895865127,
+      "lambda": 0.03237449370608784,
+      "num_segments": 3,
+      "total_reduced_cost": -0.5240726751926892,
       "selected_texts": [
-        "[NODE: multistep_7_program_a] type=row | Year: 2006 | Agency: Capital Markets Regulation Division | Program: Disaster Relief | Priority Outlays: $8,707."
+        "[NODE: multistep_7_program_a] type=row | Year: 2006 | Agency: Capital Markets Regulation Division | Program: Disaster Relief | Priority Outlays: $8,707.",
+        "[NODE: lookup_6_record] type=row | Year: 2005 | Agency: Infrastructure Finance Office | Program: Strategic Infrastructure Bonds | Allocations: $5,822 | The reported allocations for Strategic Infrastructure Bonds under Infrastructure Finance Office in 2005 were $5,822.",
+        "[NODE: compute_0_year_a] type=row | Year: 1999 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $10,000."
       ],
-      "precision": 1.0,
+      "precision": 0.3333333333333333,
       "recall": 0.3333333333333333,
-      "f1": 0.5,
+      "f1": 0.3333333333333333,
       "target_k": 3,
-      "num_selected": 1,
+      "num_selected": 3,
       "num_relevant_retrieved": 1,
       "missing_evidence": 2,
       "extra_segments": 0,
       "evidence_coverage": 0.3333333333333333,
-      "score": -0.16666666666666669
+      "score": -0.2066666666666667
     },
     {
       "qid": "multistep_7_p4",
       "mode": "MULTI_STEP",
-      "lambda": 0.23626668646827734,
+      "lambda": 0.06043277849649758,
       "num_segments": 1,
-      "total_reduced_cost": -0.2419774541328293,
+      "total_reduced_cost": -0.41781136210460906,
       "selected_texts": [
         "[NODE: multistep_7_classification] type=metadata | Year: 2006 | Agency: Capital Markets Regulation Division | Priority programs: Disaster Relief; Strategic Infrastructure Bonds."
       ],
@@ -8103,9 +8184,9 @@
     {
       "qid": "multistep_7_p5",
       "mode": "MULTI_STEP",
-      "lambda": 0.22099700646340503,
+      "lambda": 0.04713789846160979,
       "num_segments": 1,
-      "total_reduced_cost": -0.20377692432151323,
+      "total_reduced_cost": -0.37763603232330845,
       "selected_texts": [
         "[NODE: multistep_7_program_b] type=row | Year: 2006 | Agency: Capital Markets Regulation Division | Program: Strategic Infrastructure Bonds | Priority Outlays: $9,039."
       ],
@@ -8123,109 +8204,124 @@
     {
       "qid": "multistep_7_p6",
       "mode": "MULTI_STEP",
-      "lambda": 0.3015421756570145,
-      "num_segments": 1,
-      "total_reduced_cost": -0.1700700754114895,
+      "lambda": 0.029573061159794488,
+      "num_segments": 3,
+      "total_reduced_cost": -0.46198151758771505,
       "selected_texts": [
-        "[NODE: multistep_7_program_b] type=row | Year: 2006 | Agency: Capital Markets Regulation Division | Program: Strategic Infrastructure Bonds | Priority Outlays: $9,039."
+        "[NODE: multistep_7_program_b] type=row | Year: 2006 | Agency: Capital Markets Regulation Division | Program: Strategic Infrastructure Bonds | Priority Outlays: $9,039.",
+        "[NODE: multistep_7_classification] type=metadata | Year: 2006 | Agency: Capital Markets Regulation Division | Priority programs: Disaster Relief; Strategic Infrastructure Bonds.",
+        "[NODE: compute_0_year_a] type=row | Year: 1999 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $10,000."
       ],
-      "precision": 1.0,
-      "recall": 0.3333333333333333,
-      "f1": 0.5,
+      "precision": 0.6666666666666666,
+      "recall": 0.6666666666666666,
+      "f1": 0.6666666666666666,
       "target_k": 3,
-      "num_selected": 1,
-      "num_relevant_retrieved": 1,
-      "missing_evidence": 2,
+      "num_selected": 3,
+      "num_relevant_retrieved": 2,
+      "missing_evidence": 1,
       "extra_segments": 0,
-      "evidence_coverage": 0.3333333333333333,
-      "score": -0.16666666666666669
+      "evidence_coverage": 0.6666666666666666,
+      "score": 0.3966666666666666
     },
     {
       "qid": "multistep_13_p0",
       "mode": "MULTI_STEP",
-      "lambda": 0.2413750026487604,
-      "num_segments": 1,
-      "total_reduced_cost": -0.2619741532766994,
+      "lambda": 0.026342682893785618,
+      "num_segments": 4,
+      "total_reduced_cost": -0.5473771618176128,
       "selected_texts": [
-        "[NODE: multistep_13_classification] type=metadata | Year: 2012 | Agency: Public Investment Accounting Division | Priority programs: Social Safety Net Disbursements; Pension Obligation Funding."
+        "[NODE: multistep_13_classification] type=metadata | Year: 2012 | Agency: Public Investment Accounting Division | Priority programs: Social Safety Net Disbursements; Pension Obligation Funding.",
+        "[NODE: lookup_19_record] type=row | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Social Safety Net Disbursements | Administrative costs: $7,603 | The reported administrative costs for Social Safety Net Disbursements under Congressional Appropriations Liaison in 2018 were $7,603.",
+        "[NODE: multistep_20_classification] type=metadata | Year: 2019 | Agency: Treasury Operations Office | Priority programs: Cybersecurity Infrastructure; Debt Servicing.",
+        "[NODE: lookup_9_record] type=row | Year: 2008 | Agency: Audit and Compliance Division | Program: Pension Obligation Funding | Liabilities: $6,233 | The reported liabilities for Pension Obligation Funding under Audit and Compliance Division in 2008 were $6,233."
       ],
-      "precision": 1.0,
+      "precision": 0.25,
       "recall": 0.3333333333333333,
-      "f1": 0.5,
+      "f1": 0.28571428571428575,
       "target_k": 3,
-      "num_selected": 1,
+      "num_selected": 4,
       "num_relevant_retrieved": 1,
       "missing_evidence": 2,
-      "extra_segments": 0,
+      "extra_segments": 1,
       "evidence_coverage": 0.3333333333333333,
-      "score": -0.16666666666666669
+      "score": -0.2666666666666667
     },
     {
       "qid": "multistep_13_p1",
       "mode": "MULTI_STEP",
-      "lambda": 0.42922631640638154,
-      "num_segments": 1,
-      "total_reduced_cost": -0.18431483058965237,
+      "lambda": 0.02073937490538414,
+      "num_segments": 4,
+      "total_reduced_cost": -0.6106156153707784,
       "selected_texts": [
-        "[NODE: multistep_13_program_a] type=row | Year: 2012 | Agency: Public Investment Accounting Division | Program: Social Safety Net Disbursements | Priority Outlays: $9,313."
+        "[NODE: multistep_13_program_a] type=row | Year: 2012 | Agency: Public Investment Accounting Division | Program: Social Safety Net Disbursements | Priority Outlays: $9,313.",
+        "[NODE: distractor_12] type=note | Year: 2011 | Agency: Capital Markets Regulation Division | Program: Pension Obligation Funding | Administrative note value: $5,532 | This note is background context and is not the final answer for the training questions.",
+        "[NODE: multistep_22_program_a] type=row | Year: 2021 | Agency: Revenue Analysis Bureau | Program: Judicial Operations Funding | Priority Outlays: $10,222.",
+        "[NODE: multistep_13_classification] type=metadata | Year: 2012 | Agency: Public Investment Accounting Division | Priority programs: Social Safety Net Disbursements; Pension Obligation Funding."
       ],
-      "precision": 1.0,
-      "recall": 0.3333333333333333,
-      "f1": 0.5,
+      "precision": 0.5,
+      "recall": 0.6666666666666666,
+      "f1": 0.5714285714285715,
       "target_k": 3,
-      "num_selected": 1,
-      "num_relevant_retrieved": 1,
-      "missing_evidence": 2,
-      "extra_segments": 0,
-      "evidence_coverage": 0.3333333333333333,
-      "score": -0.16666666666666669
+      "num_selected": 4,
+      "num_relevant_retrieved": 2,
+      "missing_evidence": 1,
+      "extra_segments": 1,
+      "evidence_coverage": 0.6666666666666666,
+      "score": 0.33666666666666667
     },
     {
       "qid": "multistep_13_p2",
       "mode": "MULTI_STEP",
-      "lambda": 0.13972644684815114,
-      "num_segments": 1,
-      "total_reduced_cost": -0.25827555105579103,
+      "lambda": 0.016721193682120383,
+      "num_segments": 5,
+      "total_reduced_cost": -0.44630107005899605,
       "selected_texts": [
-        "[NODE: multistep_13_program_b] type=row | Year: 2012 | Agency: Public Investment Accounting Division | Program: Pension Obligation Funding | Priority Outlays: $9,501."
+        "[NODE: multistep_13_program_b] type=row | Year: 2012 | Agency: Public Investment Accounting Division | Program: Pension Obligation Funding | Priority Outlays: $9,501.",
+        "[NODE: lookup_12_distractor] type=note | Year: 2010 | Agency: Capital Markets Regulation Division | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: multidoc_17_doc_a] type=row | Source: Bulletin A | Year: 2016 | Agency: Financial Stability Monitoring Unit | Program: Pension Obligation Funding | Interest costs: $8,547.",
+        "[NODE: multistep_8_program_a] type=row | Year: 2007 | Agency: Federal Disbursement Authority | Program: Technology Modernization | Priority Outlays: $8,808.",
+        "[NODE: compute_12_year_a] type=row | Year: 2011 | Agency: Strategic Reserve Management Office | Program: Rural Development Loans | Collections: $11,332."
       ],
-      "precision": 1.0,
+      "precision": 0.2,
       "recall": 0.3333333333333333,
-      "f1": 0.5,
+      "f1": 0.25,
       "target_k": 3,
-      "num_selected": 1,
+      "num_selected": 5,
       "num_relevant_retrieved": 1,
       "missing_evidence": 2,
-      "extra_segments": 0,
+      "extra_segments": 2,
       "evidence_coverage": 0.3333333333333333,
-      "score": -0.16666666666666669
+      "score": -0.3266666666666667
     },
     {
       "qid": "multistep_13_p3",
       "mode": "MULTI_STEP",
-      "lambda": 0.3423503560780864,
-      "num_segments": 1,
-      "total_reduced_cost": -0.14045773361212027,
+      "lambda": 0.0361104510543001,
+      "num_segments": 4,
+      "total_reduced_cost": -0.48801676683393036,
       "selected_texts": [
-        "[NODE: multistep_13_program_a] type=row | Year: 2012 | Agency: Public Investment Accounting Division | Program: Social Safety Net Disbursements | Priority Outlays: $9,313."
+        "[NODE: multistep_13_program_a] type=row | Year: 2012 | Agency: Public Investment Accounting Division | Program: Social Safety Net Disbursements | Priority Outlays: $9,313.",
+        "[NODE: lookup_12_distractor] type=note | Year: 2010 | Agency: Capital Markets Regulation Division | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: multistep_0_program_a] type=row | Year: 1999 | Agency: Budget Review Unit | Program: Debt Servicing | Priority Outlays: $8,000.",
+        "[NODE: lookup_9_record] type=row | Year: 2008 | Agency: Audit and Compliance Division | Program: Pension Obligation Funding | Liabilities: $6,233 | The reported liabilities for Pension Obligation Funding under Audit and Compliance Division in 2008 were $6,233."
       ],
-      "precision": 1.0,
+      "precision": 0.25,
       "recall": 0.3333333333333333,
-      "f1": 0.5,
+      "f1": 0.28571428571428575,
       "target_k": 3,
-      "num_selected": 1,
+      "num_selected": 4,
       "num_relevant_retrieved": 1,
       "missing_evidence": 2,
-      "extra_segments": 0,
+      "extra_segments": 1,
       "evidence_coverage": 0.3333333333333333,
-      "score": -0.16666666666666669
+      "score": -0.2666666666666667
     },
     {
       "qid": "multistep_13_p4",
       "mode": "MULTI_STEP",
-      "lambda": 0.4060901787423384,
+      "lambda": 0.028829744833395485,
       "num_segments": 1,
-      "total_reduced_cost": -0.10971709583476769,
+      "total_reduced_cost": -0.48697752974371056,
       "selected_texts": [
         "[NODE: multistep_13_program_b] type=row | Year: 2012 | Agency: Public Investment Accounting Division | Program: Pension Obligation Funding | Priority Outlays: $9,501."
       ],
@@ -8243,9 +8339,9 @@
     {
       "qid": "multistep_13_p5",
       "mode": "MULTI_STEP",
-      "lambda": 0.3774604301899005,
+      "lambda": 0.032618998509670157,
       "num_segments": 1,
-      "total_reduced_cost": -0.16251876038608237,
+      "total_reduced_cost": -0.5073601920663127,
       "selected_texts": [
         "[NODE: multistep_13_program_a] type=row | Year: 2012 | Agency: Public Investment Accounting Division | Program: Social Safety Net Disbursements | Priority Outlays: $9,313."
       ],
@@ -8263,29 +8359,31 @@
     {
       "qid": "multistep_13_p6",
       "mode": "MULTI_STEP",
-      "lambda": 0.3506281755486827,
-      "num_segments": 1,
-      "total_reduced_cost": -0.20427827263142778,
+      "lambda": 0.01943606896956088,
+      "num_segments": 3,
+      "total_reduced_cost": -0.5562946875989772,
       "selected_texts": [
-        "[NODE: multistep_13_program_a] type=row | Year: 2012 | Agency: Public Investment Accounting Division | Program: Social Safety Net Disbursements | Priority Outlays: $9,313."
+        "[NODE: multistep_13_program_a] type=row | Year: 2012 | Agency: Public Investment Accounting Division | Program: Social Safety Net Disbursements | Priority Outlays: $9,313.",
+        "[NODE: distractor_12] type=note | Year: 2011 | Agency: Capital Markets Regulation Division | Program: Pension Obligation Funding | Administrative note value: $5,532 | This note is background context and is not the final answer for the training questions.",
+        "[NODE: compute_0_year_a] type=row | Year: 1999 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $10,000."
       ],
-      "precision": 1.0,
+      "precision": 0.3333333333333333,
       "recall": 0.3333333333333333,
-      "f1": 0.5,
+      "f1": 0.3333333333333333,
       "target_k": 3,
-      "num_selected": 1,
+      "num_selected": 3,
       "num_relevant_retrieved": 1,
       "missing_evidence": 2,
       "extra_segments": 0,
       "evidence_coverage": 0.3333333333333333,
-      "score": -0.16666666666666669
+      "score": -0.2066666666666667
     },
     {
       "qid": "multistep_24_p0",
       "mode": "MULTI_STEP",
-      "lambda": 0.23431617544103964,
+      "lambda": 0.031991522101020235,
       "num_segments": 1,
-      "total_reduced_cost": -0.2115085619629529,
+      "total_reduced_cost": -0.4138332153029723,
       "selected_texts": [
         "[NODE: multistep_24_program_a] type=row | Year: 2023 | Agency: Cash Management Office | Program: Veterans Benefits Processing | Priority Outlays: $10,424."
       ],
@@ -8303,29 +8401,30 @@
     {
       "qid": "multistep_24_p1",
       "mode": "MULTI_STEP",
-      "lambda": 0.3697293488070902,
-      "num_segments": 1,
-      "total_reduced_cost": -0.054986451886905985,
+      "lambda": 0.04416097420513144,
+      "num_segments": 2,
+      "total_reduced_cost": -0.3854434294161783,
       "selected_texts": [
-        "[NODE: lookup_4_record] type=row | Year: 2003 | Agency: Cash Management Office | Program: Technology Modernization | Appropriations: $5,548 | The reported appropriations for Technology Modernization under Cash Management Office in 2003 were $5,548."
+        "[NODE: lookup_4_record] type=row | Year: 2003 | Agency: Cash Management Office | Program: Technology Modernization | Appropriations: $5,548 | The reported appropriations for Technology Modernization under Cash Management Office in 2003 were $5,548.",
+        "[NODE: multistep_24_program_b] type=row | Year: 2023 | Agency: Cash Management Office | Program: Agency Payroll | Priority Outlays: $10,348."
       ],
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
+      "precision": 0.5,
+      "recall": 0.3333333333333333,
+      "f1": 0.4,
       "target_k": 3,
-      "num_selected": 1,
-      "num_relevant_retrieved": 0,
-      "missing_evidence": 3,
+      "num_selected": 2,
+      "num_relevant_retrieved": 1,
+      "missing_evidence": 2,
       "extra_segments": 0,
-      "evidence_coverage": 0.0,
-      "score": -0.77
+      "evidence_coverage": 0.3333333333333333,
+      "score": -0.18666666666666668
     },
     {
       "qid": "multistep_24_p2",
       "mode": "MULTI_STEP",
-      "lambda": 0.4494096336663749,
+      "lambda": 0.02387150024020149,
       "num_segments": 1,
-      "total_reduced_cost": -0.1047096547258749,
+      "total_reduced_cost": -0.5302477881520483,
       "selected_texts": [
         "[NODE: multistep_24_program_a] type=row | Year: 2023 | Agency: Cash Management Office | Program: Veterans Benefits Processing | Priority Outlays: $10,424."
       ],
@@ -8343,9 +8442,53 @@
     {
       "qid": "multistep_24_p3",
       "mode": "MULTI_STEP",
-      "lambda": 0.38367487252962995,
+      "lambda": 0.04575839936551958,
+      "num_segments": 3,
+      "total_reduced_cost": -0.37115800921841824,
+      "selected_texts": [
+        "[NODE: multistep_24_program_a] type=row | Year: 2023 | Agency: Cash Management Office | Program: Veterans Benefits Processing | Priority Outlays: $10,424.",
+        "[NODE: lookup_15_distractor] type=note | Year: 2013 | Agency: Debt Issuance and Settlement Bureau | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: multistep_11_program_b] type=row | Year: 2010 | Agency: Interagency Coordination Office | Program: Rural Development Loans | Priority Outlays: $9,347."
+      ],
+      "precision": 0.3333333333333333,
+      "recall": 0.3333333333333333,
+      "f1": 0.3333333333333333,
+      "target_k": 3,
+      "num_selected": 3,
+      "num_relevant_retrieved": 1,
+      "missing_evidence": 2,
+      "extra_segments": 0,
+      "evidence_coverage": 0.3333333333333333,
+      "score": -0.2066666666666667
+    },
+    {
+      "qid": "multistep_24_p4",
+      "mode": "MULTI_STEP",
+      "lambda": 0.024992484089679835,
+      "num_segments": 3,
+      "total_reduced_cost": -0.3731898826067118,
+      "selected_texts": [
+        "[NODE: multistep_24_program_b] type=row | Year: 2023 | Agency: Cash Management Office | Program: Agency Payroll | Priority Outlays: $10,348.",
+        "[NODE: lookup_23_distractor] type=note | Year: 2021 | Agency: Sovereign Debt Operations Center | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
+        "[NODE: compute_16_year_a] type=row | Year: 2015 | Agency: Public Investment Accounting Division | Program: Cybersecurity Infrastructure | Interest costs: $11,776."
+      ],
+      "precision": 0.3333333333333333,
+      "recall": 0.3333333333333333,
+      "f1": 0.3333333333333333,
+      "target_k": 3,
+      "num_selected": 3,
+      "num_relevant_retrieved": 1,
+      "missing_evidence": 2,
+      "extra_segments": 0,
+      "evidence_coverage": 0.3333333333333333,
+      "score": -0.2066666666666667
+    },
+    {
+      "qid": "multistep_24_p5",
+      "mode": "MULTI_STEP",
+      "lambda": 0.04326956588390655,
       "num_segments": 1,
-      "total_reduced_cost": -0.006457716377784917,
+      "total_reduced_cost": -0.40627393925231287,
       "selected_texts": [
         "[NODE: multistep_24_program_a] type=row | Year: 2023 | Agency: Cash Management Office | Program: Veterans Benefits Processing | Priority Outlays: $10,424."
       ],
@@ -8361,49 +8504,11 @@
       "score": -0.16666666666666669
     },
     {
-      "qid": "multistep_24_p4",
-      "mode": "MULTI_STEP",
-      "lambda": 0.08740590461898878,
-      "num_segments": 1,
-      "total_reduced_cost": -0.28503014371563834,
-      "selected_texts": [
-        "[NODE: multistep_24_program_b] type=row | Year: 2023 | Agency: Cash Management Office | Program: Agency Payroll | Priority Outlays: $10,348."
-      ],
-      "precision": 1.0,
-      "recall": 0.3333333333333333,
-      "f1": 0.5,
-      "target_k": 3,
-      "num_selected": 1,
-      "num_relevant_retrieved": 1,
-      "missing_evidence": 2,
-      "extra_segments": 0,
-      "evidence_coverage": 0.3333333333333333,
-      "score": -0.16666666666666669
-    },
-    {
-      "qid": "multistep_24_p5",
-      "mode": "MULTI_STEP",
-      "lambda": 0.4812892856728698,
-      "num_segments": 0,
-      "total_reduced_cost": 0.0,
-      "selected_texts": [],
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "target_k": 3,
-      "num_selected": 0,
-      "num_relevant_retrieved": 0,
-      "missing_evidence": 3,
-      "extra_segments": 0,
-      "evidence_coverage": 0.0,
-      "score": -0.75
-    },
-    {
       "qid": "multistep_24_p6",
       "mode": "MULTI_STEP",
-      "lambda": 0.4356010829341689,
+      "lambda": 0.021689342109457218,
       "num_segments": 1,
-      "total_reduced_cost": -0.1045864399026899,
+      "total_reduced_cost": -0.5184981807274016,
       "selected_texts": [
         "[NODE: multistep_24_program_a] type=row | Year: 2023 | Agency: Cash Management Office | Program: Veterans Benefits Processing | Priority Outlays: $10,424."
       ],
@@ -8423,9 +8528,9 @@
     {
       "qid": "lookup_4_p0",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.17141907682895008,
+      "total_reduced_cost": -0.62141907682895,
       "selected_texts": [
         "[NODE: lookup_4_record] type=row | Year: 2003 | Agency: Cash Management Office | Program: Technology Modernization | Appropriations: $5,548 | The reported appropriations for Technology Modernization under Cash Management Office in 2003 were $5,548."
       ],
@@ -8443,9 +8548,9 @@
     {
       "qid": "lookup_4_p1",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.24268826858482395,
+      "total_reduced_cost": -0.7226882685848239,
       "selected_texts": [
         "[NODE: lookup_4_record] type=row | Year: 2003 | Agency: Cash Management Office | Program: Technology Modernization | Appropriations: $5,548 | The reported appropriations for Technology Modernization under Cash Management Office in 2003 were $5,548."
       ],
@@ -8463,9 +8568,9 @@
     {
       "qid": "lookup_4_p2",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.10993786394309668,
+      "total_reduced_cost": -0.5599378639430966,
       "selected_texts": [
         "[NODE: lookup_4_record] type=row | Year: 2003 | Agency: Cash Management Office | Program: Technology Modernization | Appropriations: $5,548 | The reported appropriations for Technology Modernization under Cash Management Office in 2003 were $5,548."
       ],
@@ -8483,9 +8588,9 @@
     {
       "qid": "lookup_4_p3",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.15120328755573897,
+      "total_reduced_cost": -0.6012032875557389,
       "selected_texts": [
         "[NODE: lookup_4_record] type=row | Year: 2003 | Agency: Cash Management Office | Program: Technology Modernization | Appropriations: $5,548 | The reported appropriations for Technology Modernization under Cash Management Office in 2003 were $5,548."
       ],
@@ -8503,9 +8608,9 @@
     {
       "qid": "lookup_4_p4",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.191864598762582,
+      "total_reduced_cost": -0.641864598762582,
       "selected_texts": [
         "[NODE: lookup_4_record] type=row | Year: 2003 | Agency: Cash Management Office | Program: Technology Modernization | Appropriations: $5,548 | The reported appropriations for Technology Modernization under Cash Management Office in 2003 were $5,548."
       ],
@@ -8523,9 +8628,9 @@
     {
       "qid": "lookup_4_p5",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.01553390492025375,
+      "total_reduced_cost": -0.46553390492025376,
       "selected_texts": [
         "[NODE: lookup_4_record] type=row | Year: 2003 | Agency: Cash Management Office | Program: Technology Modernization | Appropriations: $5,548 | The reported appropriations for Technology Modernization under Cash Management Office in 2003 were $5,548."
       ],
@@ -8543,9 +8648,9 @@
     {
       "qid": "lookup_4_p6",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.01,
       "num_segments": 1,
-      "total_reduced_cost": -0.2329029859601165,
+      "total_reduced_cost": -0.7229029859601165,
       "selected_texts": [
         "[NODE: lookup_4_record] type=row | Year: 2003 | Agency: Cash Management Office | Program: Technology Modernization | Appropriations: $5,548 | The reported appropriations for Technology Modernization under Cash Management Office in 2003 were $5,548."
       ],
@@ -8563,9 +8668,9 @@
     {
       "qid": "lookup_10_p0",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.252641226741083,
+      "total_reduced_cost": -0.702641226741083,
       "selected_texts": [
         "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
       ],
@@ -8583,9 +8688,9 @@
     {
       "qid": "lookup_10_p1",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.17268176660068935,
+      "total_reduced_cost": -0.6226817666006893,
       "selected_texts": [
         "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
       ],
@@ -8603,9 +8708,9 @@
     {
       "qid": "lookup_10_p2",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.28332651226058536,
+      "total_reduced_cost": -0.7633265122605853,
       "selected_texts": [
         "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
       ],
@@ -8623,9 +8728,9 @@
     {
       "qid": "lookup_10_p3",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.1521147160172548,
+      "total_reduced_cost": -0.6021147160172547,
       "selected_texts": [
         "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
       ],
@@ -8643,9 +8748,9 @@
     {
       "qid": "lookup_10_p4",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.01,
       "num_segments": 1,
-      "total_reduced_cost": -0.3057488397135173,
+      "total_reduced_cost": -0.7957488397135173,
       "selected_texts": [
         "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
       ],
@@ -8663,9 +8768,9 @@
     {
       "qid": "lookup_10_p5",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.2539120207847766,
+      "total_reduced_cost": -0.7039120207847765,
       "selected_texts": [
         "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
       ],
@@ -8683,9 +8788,9 @@
     {
       "qid": "lookup_10_p6",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.2889559754262464,
+      "total_reduced_cost": -0.7689559754262464,
       "selected_texts": [
         "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370."
       ],
@@ -8703,9 +8808,9 @@
     {
       "qid": "lookup_11_p0",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.23808745710686396,
+      "total_reduced_cost": -0.718087457106864,
       "selected_texts": [
         "[NODE: lookup_11_record] type=row | Year: 2010 | Agency: National Revenue Collections Office | Program: Judicial Operations Funding | Deficits: $6,507 | The reported deficits for Judicial Operations Funding under National Revenue Collections Office in 2010 were $6,507."
       ],
@@ -8723,9 +8828,9 @@
     {
       "qid": "lookup_11_p1",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.1550132092732377,
+      "total_reduced_cost": -0.6050132092732377,
       "selected_texts": [
         "[NODE: lookup_11_record] type=row | Year: 2010 | Agency: National Revenue Collections Office | Program: Judicial Operations Funding | Deficits: $6,507 | The reported deficits for Judicial Operations Funding under National Revenue Collections Office in 2010 were $6,507."
       ],
@@ -8743,9 +8848,9 @@
     {
       "qid": "lookup_11_p2",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.23292723260490966,
+      "total_reduced_cost": -0.7129272326049096,
       "selected_texts": [
         "[NODE: lookup_11_record] type=row | Year: 2010 | Agency: National Revenue Collections Office | Program: Judicial Operations Funding | Deficits: $6,507 | The reported deficits for Judicial Operations Funding under National Revenue Collections Office in 2010 were $6,507."
       ],
@@ -8763,9 +8868,9 @@
     {
       "qid": "lookup_11_p3",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.1199541650677417,
+      "total_reduced_cost": -0.5699541650677417,
       "selected_texts": [
         "[NODE: lookup_11_record] type=row | Year: 2010 | Agency: National Revenue Collections Office | Program: Judicial Operations Funding | Deficits: $6,507 | The reported deficits for Judicial Operations Funding under National Revenue Collections Office in 2010 were $6,507."
       ],
@@ -8783,9 +8888,9 @@
     {
       "qid": "lookup_11_p4",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.22886003456643877,
+      "total_reduced_cost": -0.7088600345664388,
       "selected_texts": [
         "[NODE: lookup_11_record] type=row | Year: 2010 | Agency: National Revenue Collections Office | Program: Judicial Operations Funding | Deficits: $6,507 | The reported deficits for Judicial Operations Funding under National Revenue Collections Office in 2010 were $6,507."
       ],
@@ -8803,9 +8908,9 @@
     {
       "qid": "lookup_11_p5",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.01,
       "num_segments": 1,
-      "total_reduced_cost": -0.2685726417160903,
+      "total_reduced_cost": -0.7585726417160903,
       "selected_texts": [
         "[NODE: lookup_11_record] type=row | Year: 2010 | Agency: National Revenue Collections Office | Program: Judicial Operations Funding | Deficits: $6,507 | The reported deficits for Judicial Operations Funding under National Revenue Collections Office in 2010 were $6,507."
       ],
@@ -8823,9 +8928,9 @@
     {
       "qid": "lookup_11_p6",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.01,
       "num_segments": 1,
-      "total_reduced_cost": -0.2516501151621664,
+      "total_reduced_cost": -0.7416501151621664,
       "selected_texts": [
         "[NODE: lookup_11_record] type=row | Year: 2010 | Agency: National Revenue Collections Office | Program: Judicial Operations Funding | Deficits: $6,507 | The reported deficits for Judicial Operations Funding under National Revenue Collections Office in 2010 were $6,507."
       ],
@@ -8843,9 +8948,9 @@
     {
       "qid": "lookup_19_p0",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.3036334357638396,
+      "total_reduced_cost": -0.7836334357638396,
       "selected_texts": [
         "[NODE: lookup_19_record] type=row | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Social Safety Net Disbursements | Administrative costs: $7,603 | The reported administrative costs for Social Safety Net Disbursements under Congressional Appropriations Liaison in 2018 were $7,603."
       ],
@@ -8863,9 +8968,9 @@
     {
       "qid": "lookup_19_p1",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.01,
       "num_segments": 1,
-      "total_reduced_cost": -0.2998195843141821,
+      "total_reduced_cost": -0.7898195843141821,
       "selected_texts": [
         "[NODE: lookup_19_record] type=row | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Social Safety Net Disbursements | Administrative costs: $7,603 | The reported administrative costs for Social Safety Net Disbursements under Congressional Appropriations Liaison in 2018 were $7,603."
       ],
@@ -8883,9 +8988,9 @@
     {
       "qid": "lookup_19_p2",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.2124765728914666,
+      "total_reduced_cost": -0.6924765728914666,
       "selected_texts": [
         "[NODE: lookup_19_record] type=row | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Social Safety Net Disbursements | Administrative costs: $7,603 | The reported administrative costs for Social Safety Net Disbursements under Congressional Appropriations Liaison in 2018 were $7,603."
       ],
@@ -8903,9 +9008,9 @@
     {
       "qid": "lookup_19_p3",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.28665216573449914,
+      "total_reduced_cost": -0.7666521657344991,
       "selected_texts": [
         "[NODE: lookup_19_record] type=row | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Social Safety Net Disbursements | Administrative costs: $7,603 | The reported administrative costs for Social Safety Net Disbursements under Congressional Appropriations Liaison in 2018 were $7,603."
       ],
@@ -8923,9 +9028,9 @@
     {
       "qid": "lookup_19_p4",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.24998853550429678,
+      "total_reduced_cost": -0.7299885355042968,
       "selected_texts": [
         "[NODE: lookup_19_record] type=row | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Social Safety Net Disbursements | Administrative costs: $7,603 | The reported administrative costs for Social Safety Net Disbursements under Congressional Appropriations Liaison in 2018 were $7,603."
       ],
@@ -8943,9 +9048,9 @@
     {
       "qid": "lookup_19_p5",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.18687214828656618,
+      "total_reduced_cost": -0.6368721482865661,
       "selected_texts": [
         "[NODE: lookup_19_record] type=row | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Social Safety Net Disbursements | Administrative costs: $7,603 | The reported administrative costs for Social Safety Net Disbursements under Congressional Appropriations Liaison in 2018 were $7,603."
       ],
@@ -8963,9 +9068,9 @@
     {
       "qid": "lookup_19_p6",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.27540484752620187,
+      "total_reduced_cost": -0.7254048475262018,
       "selected_texts": [
         "[NODE: lookup_19_record] type=row | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Social Safety Net Disbursements | Administrative costs: $7,603 | The reported administrative costs for Social Safety Net Disbursements under Congressional Appropriations Liaison in 2018 were $7,603."
       ],
@@ -8983,9 +9088,9 @@
     {
       "qid": "lookup_24_p0",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.27318992078390525,
+      "total_reduced_cost": -0.7231899207839052,
       "selected_texts": [
         "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288."
       ],
@@ -9003,9 +9108,9 @@
     {
       "qid": "lookup_24_p1",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.25972325197974944,
+      "total_reduced_cost": -0.7097232519797494,
       "selected_texts": [
         "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288."
       ],
@@ -9023,9 +9128,9 @@
     {
       "qid": "lookup_24_p2",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.3164831081878934,
+      "total_reduced_cost": -0.7964831081878934,
       "selected_texts": [
         "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288."
       ],
@@ -9043,9 +9148,9 @@
     {
       "qid": "lookup_24_p3",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.2743132709957302,
+      "total_reduced_cost": -0.7243132709957302,
       "selected_texts": [
         "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288."
       ],
@@ -9063,9 +9168,9 @@
     {
       "qid": "lookup_24_p4",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.21784250519526827,
+      "total_reduced_cost": -0.6678425051952682,
       "selected_texts": [
         "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288."
       ],
@@ -9083,9 +9188,9 @@
     {
       "qid": "lookup_24_p5",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.2761569260953922,
+      "total_reduced_cost": -0.7261569260953922,
       "selected_texts": [
         "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288."
       ],
@@ -9103,9 +9208,9 @@
     {
       "qid": "lookup_24_p6",
       "mode": "LOOKUP",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.27022999478337106,
+      "total_reduced_cost": -0.750229994783371,
       "selected_texts": [
         "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288."
       ],
@@ -9123,9 +9228,9 @@
     {
       "qid": "multidoc_2_p0",
       "mode": "MULTI_DOC",
-      "lambda": 0.01,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.48726870960854224,
+      "total_reduced_cost": -0.5322687096085423,
       "selected_texts": [
         "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274.",
         "[NODE: lookup_7_distractor] type=note | Year: 2005 | Agency: Economic Stabilization Fund | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
@@ -9147,9 +9252,9 @@
     {
       "qid": "multidoc_2_p1",
       "mode": "MULTI_DOC",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.19149995594176805,
+      "total_reduced_cost": -0.3414999559417681,
       "selected_texts": [
         "[NODE: multidoc_2_doc_a] type=row | Source: Bulletin A | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Tax Refund Processing | Expenditures: $7,182."
       ],
@@ -9167,9 +9272,9 @@
     {
       "qid": "multidoc_2_p2",
       "mode": "MULTI_DOC",
-      "lambda": 0.2,
+      "lambda": 0.1,
       "num_segments": 1,
-      "total_reduced_cost": -0.23625165907747564,
+      "total_reduced_cost": -0.3362516590774757,
       "selected_texts": [
         "[NODE: multidoc_2_doc_a] type=row | Source: Bulletin A | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Tax Refund Processing | Expenditures: $7,182."
       ],
@@ -9187,9 +9292,9 @@
     {
       "qid": "multidoc_2_p3",
       "mode": "MULTI_DOC",
-      "lambda": 0.01,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.4850658011846263,
+      "total_reduced_cost": -0.5300658011846263,
       "selected_texts": [
         "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274.",
         "[NODE: lookup_5_distractor] type=note | Year: 2003 | Agency: Budget Review Unit | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
@@ -9211,9 +9316,9 @@
     {
       "qid": "multidoc_2_p4",
       "mode": "MULTI_DOC",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.24382341184844686,
+      "total_reduced_cost": -0.3938234118484469,
       "selected_texts": [
         "[NODE: multidoc_2_doc_a] type=row | Source: Bulletin A | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Tax Refund Processing | Expenditures: $7,182."
       ],
@@ -9231,9 +9336,9 @@
     {
       "qid": "multidoc_2_p5",
       "mode": "MULTI_DOC",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.21384119537000235,
+      "total_reduced_cost": -0.36384119537000237,
       "selected_texts": [
         "[NODE: multidoc_2_doc_a] type=row | Source: Bulletin A | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Tax Refund Processing | Expenditures: $7,182."
       ],
@@ -9251,9 +9356,9 @@
     {
       "qid": "multidoc_2_p6",
       "mode": "MULTI_DOC",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.2391040721389805,
+      "total_reduced_cost": -0.3891040721389805,
       "selected_texts": [
         "[NODE: multidoc_2_doc_a] type=row | Source: Bulletin A | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Tax Refund Processing | Expenditures: $7,182."
       ],
@@ -9271,9 +9376,9 @@
     {
       "qid": "multidoc_4_p0",
       "mode": "MULTI_DOC",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.23610789925502956,
+      "total_reduced_cost": -0.3861078992550296,
       "selected_texts": [
         "[NODE: multidoc_4_doc_b] type=row | Source: Bulletin B | Year: 2003 | Agency: Economic Stabilization Fund | Program: Treasury Securities | Disbursements: $6,832."
       ],
@@ -9291,9 +9396,9 @@
     {
       "qid": "multidoc_4_p1",
       "mode": "MULTI_DOC",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.2938176539267302,
+      "total_reduced_cost": -0.4438176539267302,
       "selected_texts": [
         "[NODE: multidoc_4_doc_b] type=row | Source: Bulletin B | Year: 2003 | Agency: Economic Stabilization Fund | Program: Treasury Securities | Disbursements: $6,832."
       ],
@@ -9311,9 +9416,9 @@
     {
       "qid": "multidoc_4_p2",
       "mode": "MULTI_DOC",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.23484721808881887,
+      "total_reduced_cost": -0.3848472180888189,
       "selected_texts": [
         "[NODE: multidoc_4_doc_b] type=row | Source: Bulletin B | Year: 2003 | Agency: Economic Stabilization Fund | Program: Treasury Securities | Disbursements: $6,832."
       ],
@@ -9331,9 +9436,9 @@
     {
       "qid": "multidoc_4_p3",
       "mode": "MULTI_DOC",
-      "lambda": 0.02,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.39546974584040057,
+      "total_reduced_cost": -0.49046974584040065,
       "selected_texts": [
         "[NODE: lookup_0_record] type=row | Year: 1999 | Agency: Treasury Operations Office | Program: Debt Servicing | Outlays: $5,000 | The reported outlays for Debt Servicing under Treasury Operations Office in 1999 were $5,000.",
         "[NODE: multistep_8_classification] type=metadata | Year: 2007 | Agency: Federal Disbursement Authority | Priority programs: Technology Modernization; Social Safety Net Disbursements.",
@@ -9355,9 +9460,9 @@
     {
       "qid": "multidoc_4_p4",
       "mode": "MULTI_DOC",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.2421193183470866,
+      "total_reduced_cost": -0.39211931834708663,
       "selected_texts": [
         "[NODE: multidoc_4_doc_b] type=row | Source: Bulletin B | Year: 2003 | Agency: Economic Stabilization Fund | Program: Treasury Securities | Disbursements: $6,832."
       ],
@@ -9375,9 +9480,9 @@
     {
       "qid": "multidoc_4_p5",
       "mode": "MULTI_DOC",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.015179935271369516,
+      "total_reduced_cost": -0.4651799352713695,
       "selected_texts": [
         "[NODE: multidoc_4_doc_b] type=row | Source: Bulletin B | Year: 2003 | Agency: Economic Stabilization Fund | Program: Treasury Securities | Disbursements: $6,832."
       ],
@@ -9395,9 +9500,9 @@
     {
       "qid": "multidoc_4_p6",
       "mode": "MULTI_DOC",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.021338811222741616,
+      "total_reduced_cost": -0.5013388112227416,
       "selected_texts": [
         "[NODE: multidoc_4_doc_b] type=row | Source: Bulletin B | Year: 2003 | Agency: Economic Stabilization Fund | Program: Treasury Securities | Disbursements: $6,832."
       ],
@@ -9415,9 +9520,9 @@
     {
       "qid": "multidoc_14_p0",
       "mode": "MULTI_DOC",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.18934537453715383,
+      "total_reduced_cost": -0.33934537453715385,
       "selected_texts": [
         "[NODE: multidoc_14_doc_a] type=row | Source: Bulletin A | Year: 2013 | Agency: Strategic Reserve Management Office | Program: Defense Procurement Transfers | Payments: $8,274."
       ],
@@ -9435,9 +9540,9 @@
     {
       "qid": "multidoc_14_p1",
       "mode": "MULTI_DOC",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.27747234789724545,
+      "total_reduced_cost": -0.4274723478972455,
       "selected_texts": [
         "[NODE: multidoc_14_doc_a] type=row | Source: Bulletin A | Year: 2013 | Agency: Strategic Reserve Management Office | Program: Defense Procurement Transfers | Payments: $8,274."
       ],
@@ -9455,9 +9560,9 @@
     {
       "qid": "multidoc_14_p2",
       "mode": "MULTI_DOC",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.14922393630059122,
+      "total_reduced_cost": -0.29922393630059124,
       "selected_texts": [
         "[NODE: multidoc_14_doc_a] type=row | Source: Bulletin A | Year: 2013 | Agency: Strategic Reserve Management Office | Program: Defense Procurement Transfers | Payments: $8,274."
       ],
@@ -9475,9 +9580,9 @@
     {
       "qid": "multidoc_14_p3",
       "mode": "MULTI_DOC",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.2121606259237518,
+      "total_reduced_cost": -0.3621606259237518,
       "selected_texts": [
         "[NODE: multidoc_14_doc_a] type=row | Source: Bulletin A | Year: 2013 | Agency: Strategic Reserve Management Office | Program: Defense Procurement Transfers | Payments: $8,274."
       ],
@@ -9495,9 +9600,9 @@
     {
       "qid": "multidoc_14_p4",
       "mode": "MULTI_DOC",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.23121194341971846,
+      "total_reduced_cost": -0.3812119434197185,
       "selected_texts": [
         "[NODE: multidoc_14_doc_a] type=row | Source: Bulletin A | Year: 2013 | Agency: Strategic Reserve Management Office | Program: Defense Procurement Transfers | Payments: $8,274."
       ],
@@ -9515,9 +9620,9 @@
     {
       "qid": "multidoc_14_p5",
       "mode": "MULTI_DOC",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.03625217401084957,
+      "total_reduced_cost": -0.4862521740108496,
       "selected_texts": [
         "[NODE: multidoc_14_doc_a] type=row | Source: Bulletin A | Year: 2013 | Agency: Strategic Reserve Management Office | Program: Defense Procurement Transfers | Payments: $8,274."
       ],
@@ -9535,9 +9640,9 @@
     {
       "qid": "multidoc_14_p6",
       "mode": "MULTI_DOC",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.00264401987372187,
+      "total_reduced_cost": -0.4526440198737219,
       "selected_texts": [
         "[NODE: multidoc_14_doc_a] type=row | Source: Bulletin A | Year: 2013 | Agency: Strategic Reserve Management Office | Program: Defense Procurement Transfers | Payments: $8,274."
       ],
@@ -9591,9 +9696,9 @@
     {
       "qid": "multidoc_19_p2",
       "mode": "MULTI_DOC",
-      "lambda": 0.02,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.5055682166790083,
+      "total_reduced_cost": -0.6005682166790082,
       "selected_texts": [
         "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370.",
         "[NODE: lookup_22_distractor] type=note | Year: 2020 | Agency: Risk and Compliance Analytics Bureau | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
@@ -9615,9 +9720,9 @@
     {
       "qid": "multidoc_19_p3",
       "mode": "MULTI_DOC",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.023678825293268257,
+      "total_reduced_cost": -0.47367882529326827,
       "selected_texts": [
         "[NODE: multidoc_19_doc_a] type=row | Source: Bulletin A | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Cybersecurity Infrastructure | Operating expenses: $8,729."
       ],
@@ -9635,9 +9740,9 @@
     {
       "qid": "multidoc_19_p4",
       "mode": "MULTI_DOC",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.2779110442680646,
+      "total_reduced_cost": -0.42791104426806464,
       "selected_texts": [
         "[NODE: multidoc_19_doc_a] type=row | Source: Bulletin A | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Cybersecurity Infrastructure | Operating expenses: $8,729."
       ],
@@ -9655,9 +9760,9 @@
     {
       "qid": "multidoc_19_p5",
       "mode": "MULTI_DOC",
-      "lambda": 0.02,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.4922664198938721,
+      "total_reduced_cost": -0.5872664198938721,
       "selected_texts": [
         "[NODE: lookup_10_record] type=row | Year: 2009 | Agency: Fiscal Policy Oversight Bureau | Program: Cybersecurity Infrastructure | Assets: $6,370 | The reported assets for Cybersecurity Infrastructure under Fiscal Policy Oversight Bureau in 2009 were $6,370.",
         "[NODE: lookup_22_distractor] type=note | Year: 2020 | Agency: Risk and Compliance Analytics Bureau | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
@@ -9679,9 +9784,9 @@
     {
       "qid": "multidoc_19_p6",
       "mode": "MULTI_DOC",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.26431688126348,
+      "total_reduced_cost": -0.41431688126348004,
       "selected_texts": [
         "[NODE: multidoc_19_doc_a] type=row | Source: Bulletin A | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Cybersecurity Infrastructure | Operating expenses: $8,729."
       ],
@@ -9745,9 +9850,9 @@
     {
       "qid": "multidoc_20_p2",
       "mode": "MULTI_DOC",
-      "lambda": 0.02,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.5045273617011321,
+      "total_reduced_cost": -0.5995273617011322,
       "selected_texts": [
         "[NODE: lookup_23_record] type=row | Year: 2022 | Agency: Sovereign Debt Operations Center | Program: Border Security Allocations | Budget authority: $8,151 | The reported budget authority for Border Security Allocations under Sovereign Debt Operations Center in 2022 were $8,151.",
         "[NODE: lookup_20_distractor] type=note | Year: 2018 | Agency: Municipal Finance Advisory Board | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
@@ -9769,9 +9874,9 @@
     {
       "qid": "multidoc_20_p3",
       "mode": "MULTI_DOC",
-      "lambda": 0.01,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.5891525970716575,
+      "total_reduced_cost": -0.6341525970716575,
       "selected_texts": [
         "[NODE: lookup_23_record] type=row | Year: 2022 | Agency: Sovereign Debt Operations Center | Program: Border Security Allocations | Budget authority: $8,151 | The reported budget authority for Border Security Allocations under Sovereign Debt Operations Center in 2022 were $8,151.",
         "[NODE: multidoc_20_doc_a] type=row | Source: Bulletin A | Year: 2019 | Agency: Municipal Finance Advisory Board | Program: Border Security Allocations | Capital expenditures: $8,820.",
@@ -9816,9 +9921,9 @@
     {
       "qid": "multidoc_20_p5",
       "mode": "MULTI_DOC",
-      "lambda": 0.01,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.6001439292903022,
+      "total_reduced_cost": -0.6451439292903023,
       "selected_texts": [
         "[NODE: lookup_23_record] type=row | Year: 2022 | Agency: Sovereign Debt Operations Center | Program: Border Security Allocations | Budget authority: $8,151 | The reported budget authority for Border Security Allocations under Sovereign Debt Operations Center in 2022 were $8,151.",
         "[NODE: lookup_20_distractor] type=note | Year: 2018 | Agency: Municipal Finance Advisory Board | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
@@ -9840,9 +9945,9 @@
     {
       "qid": "multidoc_20_p6",
       "mode": "MULTI_DOC",
-      "lambda": 0.02,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.5470174265060287,
+      "total_reduced_cost": -0.6420174265060288,
       "selected_texts": [
         "[NODE: lookup_23_record] type=row | Year: 2022 | Agency: Sovereign Debt Operations Center | Program: Border Security Allocations | Budget authority: $8,151 | The reported budget authority for Border Security Allocations under Sovereign Debt Operations Center in 2022 were $8,151.",
         "[NODE: lookup_20_distractor] type=note | Year: 2018 | Agency: Municipal Finance Advisory Board | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
@@ -9864,9 +9969,9 @@
     {
       "qid": "compute_0_p0",
       "mode": "COMPUTE",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.11269052416039638,
+      "total_reduced_cost": -0.5626905241603963,
       "selected_texts": [
         "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274."
       ],
@@ -9884,9 +9989,9 @@
     {
       "qid": "compute_0_p1",
       "mode": "COMPUTE",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.04577639490526264,
+      "total_reduced_cost": -0.49577639490526265,
       "selected_texts": [
         "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274."
       ],
@@ -9904,9 +10009,9 @@
     {
       "qid": "compute_0_p2",
       "mode": "COMPUTE",
-      "lambda": 0.5,
+      "lambda": 0.01,
       "num_segments": 1,
-      "total_reduced_cost": -0.15102193986295853,
+      "total_reduced_cost": -0.6410219398629585,
       "selected_texts": [
         "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274."
       ],
@@ -9924,9 +10029,9 @@
     {
       "qid": "compute_0_p3",
       "mode": "COMPUTE",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.1307158727002503,
+      "total_reduced_cost": -0.6107158727002503,
       "selected_texts": [
         "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274."
       ],
@@ -9962,9 +10067,9 @@
     {
       "qid": "compute_0_p5",
       "mode": "COMPUTE",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.27703029829084375,
+      "total_reduced_cost": -0.42703029829084377,
       "selected_texts": [
         "[NODE: compute_0_year_a] type=row | Year: 1999 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $10,000."
       ],
@@ -9982,9 +10087,9 @@
     {
       "qid": "compute_0_p6",
       "mode": "COMPUTE",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.07072352980629892,
+      "total_reduced_cost": -0.5507235298062989,
       "selected_texts": [
         "[NODE: lookup_2_record] type=row | Year: 2001 | Agency: Revenue Analysis Bureau | Program: Agency Payroll | Receipts: $5,274 | The reported receipts for Agency Payroll under Revenue Analysis Bureau in 2001 were $5,274."
       ],
@@ -10002,9 +10107,9 @@
     {
       "qid": "compute_7_p0",
       "mode": "COMPUTE",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.04861003412774245,
+      "total_reduced_cost": -0.5286100341277424,
       "selected_texts": [
         "[NODE: compute_7_year_b] type=row | Year: 2007 | Agency: Audit and Compliance Division | Program: Federal Reserve Contributions | Liabilities: $11,118."
       ],
@@ -10022,9 +10127,9 @@
     {
       "qid": "compute_7_p1",
       "mode": "COMPUTE",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.1961280228181832,
+      "total_reduced_cost": -0.3461280228181832,
       "selected_texts": [
         "[NODE: compute_7_year_b] type=row | Year: 2007 | Agency: Audit and Compliance Division | Program: Federal Reserve Contributions | Liabilities: $11,118."
       ],
@@ -10042,9 +10147,9 @@
     {
       "qid": "compute_7_p2",
       "mode": "COMPUTE",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.26300023533797495,
+      "total_reduced_cost": -0.413000235337975,
       "selected_texts": [
         "[NODE: compute_7_year_b] type=row | Year: 2007 | Agency: Audit and Compliance Division | Program: Federal Reserve Contributions | Liabilities: $11,118."
       ],
@@ -10062,9 +10167,9 @@
     {
       "qid": "compute_7_p3",
       "mode": "COMPUTE",
-      "lambda": 0.2,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.17587813804600316,
+      "total_reduced_cost": -0.35587813804600316,
       "selected_texts": [
         "[NODE: compute_7_year_b] type=row | Year: 2007 | Agency: Audit and Compliance Division | Program: Federal Reserve Contributions | Liabilities: $11,118."
       ],
@@ -10082,9 +10187,9 @@
     {
       "qid": "compute_7_p4",
       "mode": "COMPUTE",
-      "lambda": 0.01,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.4584262513410611,
+      "total_reduced_cost": -0.5034262513410611,
       "selected_texts": [
         "[NODE: lookup_9_record] type=row | Year: 2008 | Agency: Audit and Compliance Division | Program: Pension Obligation Funding | Liabilities: $6,233 | The reported liabilities for Pension Obligation Funding under Audit and Compliance Division in 2008 were $6,233.",
         "[NODE: multidoc_7_doc_b] type=row | Source: Bulletin B | Year: 2006 | Agency: Fiscal Policy Oversight Bureau | Program: Technology Modernization | Revenues: $7,081.",
@@ -10106,9 +10211,9 @@
     {
       "qid": "compute_7_p5",
       "mode": "COMPUTE",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.28209782908778686,
+      "total_reduced_cost": -0.4320978290877869,
       "selected_texts": [
         "[NODE: compute_7_year_b] type=row | Year: 2007 | Agency: Audit and Compliance Division | Program: Federal Reserve Contributions | Liabilities: $11,118."
       ],
@@ -10126,9 +10231,9 @@
     {
       "qid": "compute_7_p6",
       "mode": "COMPUTE",
-      "lambda": 0.01,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.45280284994799175,
+      "total_reduced_cost": -0.49780284994799173,
       "selected_texts": [
         "[NODE: lookup_9_record] type=row | Year: 2008 | Agency: Audit and Compliance Division | Program: Pension Obligation Funding | Liabilities: $6,233 | The reported liabilities for Pension Obligation Funding under Audit and Compliance Division in 2008 were $6,233.",
         "[NODE: compute_14_year_b] type=row | Year: 2014 | Agency: Interagency Coordination Office | Program: Pension Obligation Funding | Subsidies: $11,869.",
@@ -10150,9 +10255,9 @@
     {
       "qid": "compute_8_p0",
       "mode": "COMPUTE",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.0993883710468435,
+      "total_reduced_cost": -0.5793883710468435,
       "selected_texts": [
         "[NODE: compute_8_year_a] type=row | Year: 2007 | Agency: Fiscal Policy Oversight Bureau | Program: Strategic Infrastructure Bonds | Assets: $10,888."
       ],
@@ -10206,9 +10311,9 @@
     {
       "qid": "compute_8_p3",
       "mode": "COMPUTE",
-      "lambda": 0.02,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.41744823806818626,
+      "total_reduced_cost": -0.5124482380681863,
       "selected_texts": [
         "[NODE: lookup_6_record] type=row | Year: 2005 | Agency: Infrastructure Finance Office | Program: Strategic Infrastructure Bonds | Allocations: $5,822 | The reported allocations for Strategic Infrastructure Bonds under Infrastructure Finance Office in 2005 were $5,822.",
         "[NODE: distractor_31] type=note | Year: 2004 | Agency: Infrastructure Finance Office | Program: Strategic Infrastructure Bonds | Administrative note value: $9,541 | This note is background context and is not the final answer for the training questions.",
@@ -10230,9 +10335,9 @@
     {
       "qid": "compute_8_p4",
       "mode": "COMPUTE",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.2302142573224269,
+      "total_reduced_cost": -0.3802142573224269,
       "selected_texts": [
         "[NODE: compute_8_year_a] type=row | Year: 2007 | Agency: Fiscal Policy Oversight Bureau | Program: Strategic Infrastructure Bonds | Assets: $10,888."
       ],
@@ -10250,9 +10355,9 @@
     {
       "qid": "compute_8_p5",
       "mode": "COMPUTE",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.005420053158310734,
+      "total_reduced_cost": -0.45542005315831074,
       "selected_texts": [
         "[NODE: compute_8_year_a] type=row | Year: 2007 | Agency: Fiscal Policy Oversight Bureau | Program: Strategic Infrastructure Bonds | Assets: $10,888."
       ],
@@ -10270,9 +10375,9 @@
     {
       "qid": "compute_8_p6",
       "mode": "COMPUTE",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.29307379659286165,
+      "total_reduced_cost": -0.44307379659286167,
       "selected_texts": [
         "[NODE: compute_8_year_a] type=row | Year: 2007 | Agency: Fiscal Policy Oversight Bureau | Program: Strategic Infrastructure Bonds | Assets: $10,888."
       ],
@@ -10290,9 +10395,9 @@
     {
       "qid": "compute_19_p0",
       "mode": "COMPUTE",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.11734395094918604,
+      "total_reduced_cost": -0.567343950949186,
       "selected_texts": [
         "[NODE: compute_19_year_b] type=row | Year: 2019 | Agency: Federal Asset Liquidation Office | Program: Space Program Appropriations | Capital expenditures: $12,372."
       ],
@@ -10310,9 +10415,9 @@
     {
       "qid": "compute_19_p1",
       "mode": "COMPUTE",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.033235995521917805,
+      "total_reduced_cost": -0.4832359955219178,
       "selected_texts": [
         "[NODE: compute_19_year_b] type=row | Year: 2019 | Agency: Federal Asset Liquidation Office | Program: Space Program Appropriations | Capital expenditures: $12,372."
       ],
@@ -10330,9 +10435,9 @@
     {
       "qid": "compute_19_p2",
       "mode": "COMPUTE",
-      "lambda": 0.02,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.6117110358279321,
+      "total_reduced_cost": -0.7067110358279322,
       "selected_texts": [
         "[NODE: compute_19_year_b] type=row | Year: 2019 | Agency: Federal Asset Liquidation Office | Program: Space Program Appropriations | Capital expenditures: $12,372.",
         "[NODE: compute_1_year_b] type=row | Year: 2001 | Agency: Federal Grants Division | Program: Treasury Securities | Expenditures: $10,374.",
@@ -10354,9 +10459,9 @@
     {
       "qid": "compute_19_p3",
       "mode": "COMPUTE",
-      "lambda": 0.02,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.5183233778992498,
+      "total_reduced_cost": -0.6133233778992497,
       "selected_texts": [
         "[NODE: lookup_21_record] type=row | Year: 2020 | Agency: Federal Asset Liquidation Office | Program: Export Credit Assistance | Capital expenditures: $7,877 | The reported capital expenditures for Export Credit Assistance under Federal Asset Liquidation Office in 2020 were $7,877.",
         "[NODE: lookup_21_distractor] type=note | Year: 2019 | Agency: Federal Asset Liquidation Office | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
@@ -10378,9 +10483,9 @@
     {
       "qid": "compute_19_p4",
       "mode": "COMPUTE",
-      "lambda": 0.01,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.544876257873181,
+      "total_reduced_cost": -0.589876257873181,
       "selected_texts": [
         "[NODE: lookup_24_record] type=row | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Space Program Appropriations | Net borrowing: $8,288 | The reported net borrowing for Space Program Appropriations under Macroeconomic Policy Analysis Unit in 2023 were $8,288.",
         "[NODE: compute_19_year_b] type=row | Year: 2019 | Agency: Federal Asset Liquidation Office | Program: Space Program Appropriations | Capital expenditures: $12,372.",
@@ -10402,9 +10507,9 @@
     {
       "qid": "compute_19_p5",
       "mode": "COMPUTE",
-      "lambda": 0.02,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.5336120203827689,
+      "total_reduced_cost": -0.628612020382769,
       "selected_texts": [
         "[NODE: lookup_21_record] type=row | Year: 2020 | Agency: Federal Asset Liquidation Office | Program: Export Credit Assistance | Capital expenditures: $7,877 | The reported capital expenditures for Export Credit Assistance under Federal Asset Liquidation Office in 2020 were $7,877.",
         "[NODE: lookup_21_distractor] type=note | Year: 2019 | Agency: Federal Asset Liquidation Office | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
@@ -10426,9 +10531,9 @@
     {
       "qid": "compute_19_p6",
       "mode": "COMPUTE",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.2385459618493364,
+      "total_reduced_cost": -0.38854596184933643,
       "selected_texts": [
         "[NODE: compute_19_year_b] type=row | Year: 2019 | Agency: Federal Asset Liquidation Office | Program: Space Program Appropriations | Capital expenditures: $12,372."
       ],
@@ -10446,9 +10551,9 @@
     {
       "qid": "compute_23_p0",
       "mode": "COMPUTE",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.02336926739161449,
+      "total_reduced_cost": -0.4733692673916145,
       "selected_texts": [
         "[NODE: compute_23_year_b] type=row | Year: 2023 | Agency: Treasury Operations Office | Program: Infrastructure Loans | Outlays: $12,868."
       ],
@@ -10484,9 +10589,9 @@
     {
       "qid": "compute_23_p2",
       "mode": "COMPUTE",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.24248146450301628,
+      "total_reduced_cost": -0.3924814645030163,
       "selected_texts": [
         "[NODE: compute_23_year_b] type=row | Year: 2023 | Agency: Treasury Operations Office | Program: Infrastructure Loans | Outlays: $12,868."
       ],
@@ -10504,9 +10609,9 @@
     {
       "qid": "compute_23_p3",
       "mode": "COMPUTE",
-      "lambda": 0.02,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.39227663993580775,
+      "total_reduced_cost": -0.4872766399358078,
       "selected_texts": [
         "[NODE: lookup_0_record] type=row | Year: 1999 | Agency: Treasury Operations Office | Program: Debt Servicing | Outlays: $5,000 | The reported outlays for Debt Servicing under Treasury Operations Office in 1999 were $5,000.",
         "[NODE: distractor_24] type=note | Year: 2023 | Agency: Macroeconomic Policy Analysis Unit | Program: Treasury Securities | Administrative note value: $8,064 | This note is background context and is not the final answer for the training questions.",
@@ -10528,9 +10633,9 @@
     {
       "qid": "compute_23_p4",
       "mode": "COMPUTE",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.1614316839168463,
+      "total_reduced_cost": -0.31143168391684634,
       "selected_texts": [
         "[NODE: compute_23_year_a] type=row | Year: 2022 | Agency: Treasury Operations Office | Program: Infrastructure Loans | Outlays: $12,553."
       ],
@@ -10548,9 +10653,9 @@
     {
       "qid": "compute_23_p5",
       "mode": "COMPUTE",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.27282808652514884,
+      "total_reduced_cost": -0.42282808652514886,
       "selected_texts": [
         "[NODE: compute_23_year_b] type=row | Year: 2023 | Agency: Treasury Operations Office | Program: Infrastructure Loans | Outlays: $12,868."
       ],
@@ -10568,9 +10673,9 @@
     {
       "qid": "compute_23_p6",
       "mode": "COMPUTE",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.26068379566315025,
+      "total_reduced_cost": -0.4106837956631503,
       "selected_texts": [
         "[NODE: compute_23_year_b] type=row | Year: 2023 | Agency: Treasury Operations Office | Program: Infrastructure Loans | Outlays: $12,868."
       ],
@@ -10588,9 +10693,9 @@
     {
       "qid": "multistep_1_p0",
       "mode": "MULTI_STEP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.005545973856724062,
+      "total_reduced_cost": -0.4555459738567241,
       "selected_texts": [
         "[NODE: multistep_1_program_a] type=row | Year: 2000 | Agency: Infrastructure Finance Office | Program: Emergency Grants | Priority Outlays: $8,101."
       ],
@@ -10608,9 +10713,9 @@
     {
       "qid": "multistep_1_p1",
       "mode": "MULTI_STEP",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.10557587550163472,
+      "total_reduced_cost": -0.5855758755016347,
       "selected_texts": [
         "[NODE: multistep_1_program_a] type=row | Year: 2000 | Agency: Infrastructure Finance Office | Program: Emergency Grants | Priority Outlays: $8,101."
       ],
@@ -10628,9 +10733,9 @@
     {
       "qid": "multistep_1_p2",
       "mode": "MULTI_STEP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.015200607079326023,
+      "total_reduced_cost": -0.46520060707932603,
       "selected_texts": [
         "[NODE: multistep_1_program_b] type=row | Year: 2000 | Agency: Infrastructure Finance Office | Program: Municipal Support | Priority Outlays: $8,577."
       ],
@@ -10648,9 +10753,9 @@
     {
       "qid": "multistep_1_p3",
       "mode": "MULTI_STEP",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.24266657425831129,
+      "total_reduced_cost": -0.3926665742583113,
       "selected_texts": [
         "[NODE: multistep_1_program_b] type=row | Year: 2000 | Agency: Infrastructure Finance Office | Program: Municipal Support | Priority Outlays: $8,577."
       ],
@@ -10668,9 +10773,9 @@
     {
       "qid": "multistep_1_p4",
       "mode": "MULTI_STEP",
-      "lambda": 0.2,
+      "lambda": 0.1,
       "num_segments": 1,
-      "total_reduced_cost": -0.2367861797672442,
+      "total_reduced_cost": -0.33678617976724423,
       "selected_texts": [
         "[NODE: multistep_1_program_a] type=row | Year: 2000 | Agency: Infrastructure Finance Office | Program: Emergency Grants | Priority Outlays: $8,101."
       ],
@@ -10688,9 +10793,9 @@
     {
       "qid": "multistep_1_p5",
       "mode": "MULTI_STEP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.0676878472972432,
+      "total_reduced_cost": -0.5176878472972432,
       "selected_texts": [
         "[NODE: multistep_1_program_a] type=row | Year: 2000 | Agency: Infrastructure Finance Office | Program: Emergency Grants | Priority Outlays: $8,101."
       ],
@@ -10708,9 +10813,9 @@
     {
       "qid": "multistep_1_p6",
       "mode": "MULTI_STEP",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.11880411225804155,
+      "total_reduced_cost": -0.5988041122580415,
       "selected_texts": [
         "[NODE: multistep_1_program_a] type=row | Year: 2000 | Agency: Infrastructure Finance Office | Program: Emergency Grants | Priority Outlays: $8,101."
       ],
@@ -10728,9 +10833,9 @@
     {
       "qid": "multistep_5_p0",
       "mode": "MULTI_STEP",
-      "lambda": 0.02,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.5056006960156441,
+      "total_reduced_cost": -0.600600696015644,
       "selected_texts": [
         "[NODE: multistep_5_program_a] type=row | Year: 2004 | Agency: Fiscal Policy Oversight Bureau | Program: Treasury Securities | Priority Outlays: $8,505.",
         "[NODE: lookup_10_distractor] type=note | Year: 2008 | Agency: Fiscal Policy Oversight Bureau | Category: Administrative Overhead | Internal reference only. Do not use for budget reporting.",
@@ -10752,9 +10857,9 @@
     {
       "qid": "multistep_5_p1",
       "mode": "MULTI_STEP",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.1789275108458644,
+      "total_reduced_cost": -0.3289275108458644,
       "selected_texts": [
         "[NODE: multistep_5_program_a] type=row | Year: 2004 | Agency: Fiscal Policy Oversight Bureau | Program: Treasury Securities | Priority Outlays: $8,505."
       ],
@@ -10772,9 +10877,9 @@
     {
       "qid": "multistep_5_p2",
       "mode": "MULTI_STEP",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.07459401556106093,
+      "total_reduced_cost": -0.5545940155610609,
       "selected_texts": [
         "[NODE: multistep_5_program_a] type=row | Year: 2004 | Agency: Fiscal Policy Oversight Bureau | Program: Treasury Securities | Priority Outlays: $8,505."
       ],
@@ -10792,9 +10897,9 @@
     {
       "qid": "multistep_5_p3",
       "mode": "MULTI_STEP",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.277900174249477,
+      "total_reduced_cost": -0.427900174249477,
       "selected_texts": [
         "[NODE: multistep_5_program_a] type=row | Year: 2004 | Agency: Fiscal Policy Oversight Bureau | Program: Treasury Securities | Priority Outlays: $8,505."
       ],
@@ -10812,9 +10917,9 @@
     {
       "qid": "multistep_5_p4",
       "mode": "MULTI_STEP",
-      "lambda": 0.2,
+      "lambda": 0.1,
       "num_segments": 1,
-      "total_reduced_cost": -0.26420151121526203,
+      "total_reduced_cost": -0.364201511215262,
       "selected_texts": [
         "[NODE: multistep_5_program_a] type=row | Year: 2004 | Agency: Fiscal Policy Oversight Bureau | Program: Treasury Securities | Priority Outlays: $8,505."
       ],
@@ -10832,9 +10937,9 @@
     {
       "qid": "multistep_5_p5",
       "mode": "MULTI_STEP",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.11144107220481059,
+      "total_reduced_cost": -0.5914410722048106,
       "selected_texts": [
         "[NODE: multistep_5_program_a] type=row | Year: 2004 | Agency: Fiscal Policy Oversight Bureau | Program: Treasury Securities | Priority Outlays: $8,505."
       ],
@@ -10852,9 +10957,9 @@
     {
       "qid": "multistep_5_p6",
       "mode": "MULTI_STEP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.04159971100559434,
+      "total_reduced_cost": -0.49159971100559435,
       "selected_texts": [
         "[NODE: multistep_5_program_a] type=row | Year: 2004 | Agency: Fiscal Policy Oversight Bureau | Program: Treasury Securities | Priority Outlays: $8,505."
       ],
@@ -10872,9 +10977,9 @@
     {
       "qid": "multistep_7_p0",
       "mode": "MULTI_STEP",
-      "lambda": 0.01,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.608631874907436,
+      "total_reduced_cost": -0.6536318749074359,
       "selected_texts": [
         "[NODE: multistep_7_classification] type=metadata | Year: 2006 | Agency: Capital Markets Regulation Division | Priority programs: Disaster Relief; Strategic Infrastructure Bonds.",
         "[NODE: multistep_23_classification] type=metadata | Year: 2022 | Agency: Federal Grants Division | Priority programs: Space Program Appropriations; Tax Refund Processing.",
@@ -10896,9 +11001,9 @@
     {
       "qid": "multistep_7_p1",
       "mode": "MULTI_STEP",
-      "lambda": 0.2,
+      "lambda": 0.1,
       "num_segments": 1,
-      "total_reduced_cost": -0.23516936815691375,
+      "total_reduced_cost": -0.3351693681569138,
       "selected_texts": [
         "[NODE: multistep_7_program_a] type=row | Year: 2006 | Agency: Capital Markets Regulation Division | Program: Disaster Relief | Priority Outlays: $8,707."
       ],
@@ -10916,9 +11021,9 @@
     {
       "qid": "multistep_7_p2",
       "mode": "MULTI_STEP",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.13116892161086474,
+      "total_reduced_cost": -0.28116892161086476,
       "selected_texts": [
         "[NODE: multistep_7_program_b] type=row | Year: 2006 | Agency: Capital Markets Regulation Division | Program: Strategic Infrastructure Bonds | Priority Outlays: $9,039."
       ],
@@ -10959,9 +11064,9 @@
     {
       "qid": "multistep_7_p4",
       "mode": "MULTI_STEP",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.27824414060110664,
+      "total_reduced_cost": -0.42824414060110666,
       "selected_texts": [
         "[NODE: multistep_7_classification] type=metadata | Year: 2006 | Agency: Capital Markets Regulation Division | Priority programs: Disaster Relief; Strategic Infrastructure Bonds."
       ],
@@ -10979,9 +11084,9 @@
     {
       "qid": "multistep_7_p5",
       "mode": "MULTI_STEP",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.22477393078491825,
+      "total_reduced_cost": -0.3747739307849183,
       "selected_texts": [
         "[NODE: multistep_7_program_b] type=row | Year: 2006 | Agency: Capital Markets Regulation Division | Program: Strategic Infrastructure Bonds | Priority Outlays: $9,039."
       ],
@@ -10999,9 +11104,9 @@
     {
       "qid": "multistep_7_p6",
       "mode": "MULTI_STEP",
-      "lambda": 0.02,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.49547594174975657,
+      "total_reduced_cost": -0.5904759417497566,
       "selected_texts": [
         "[NODE: multistep_7_program_b] type=row | Year: 2006 | Agency: Capital Markets Regulation Division | Program: Strategic Infrastructure Bonds | Priority Outlays: $9,039.",
         "[NODE: multistep_7_classification] type=metadata | Year: 2006 | Agency: Capital Markets Regulation Division | Priority programs: Disaster Relief; Strategic Infrastructure Bonds.",
@@ -11023,9 +11128,9 @@
     {
       "qid": "multistep_13_p0",
       "mode": "MULTI_STEP",
-      "lambda": 0.5,
+      "lambda": 0.1,
       "num_segments": 1,
-      "total_reduced_cost": -0.0033491559254598124,
+      "total_reduced_cost": -0.40334915592545983,
       "selected_texts": [
         "[NODE: multistep_13_classification] type=metadata | Year: 2012 | Agency: Public Investment Accounting Division | Priority programs: Social Safety Net Disbursements; Pension Obligation Funding."
       ],
@@ -11066,9 +11171,9 @@
     {
       "qid": "multistep_13_p2",
       "mode": "MULTI_STEP",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.19800199790394213,
+      "total_reduced_cost": -0.34800199790394215,
       "selected_texts": [
         "[NODE: multistep_13_program_b] type=row | Year: 2012 | Agency: Public Investment Accounting Division | Program: Pension Obligation Funding | Priority Outlays: $9,501."
       ],
@@ -11086,9 +11191,9 @@
     {
       "qid": "multistep_13_p3",
       "mode": "MULTI_STEP",
-      "lambda": 0.2,
+      "lambda": 0.1,
       "num_segments": 1,
-      "total_reduced_cost": -0.28280808969020665,
+      "total_reduced_cost": -0.38280808969020663,
       "selected_texts": [
         "[NODE: multistep_13_program_a] type=row | Year: 2012 | Agency: Public Investment Accounting Division | Program: Social Safety Net Disbursements | Priority Outlays: $9,313."
       ],
@@ -11106,9 +11211,9 @@
     {
       "qid": "multistep_13_p4",
       "mode": "MULTI_STEP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.015807274577106067,
+      "total_reduced_cost": -0.4658072745771061,
       "selected_texts": [
         "[NODE: multistep_13_program_b] type=row | Year: 2012 | Agency: Public Investment Accounting Division | Program: Pension Obligation Funding | Priority Outlays: $9,501."
       ],
@@ -11126,9 +11231,9 @@
     {
       "qid": "multistep_13_p5",
       "mode": "MULTI_STEP",
-      "lambda": 0.01,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.5712411701099399,
+      "total_reduced_cost": -0.61624117010994,
       "selected_texts": [
         "[NODE: multistep_13_program_a] type=row | Year: 2012 | Agency: Public Investment Accounting Division | Program: Social Safety Net Disbursements | Priority Outlays: $9,313.",
         "[NODE: multidoc_19_doc_a] type=row | Source: Bulletin A | Year: 2018 | Agency: Congressional Appropriations Liaison | Program: Cybersecurity Infrastructure | Operating expenses: $8,729.",
@@ -11150,9 +11255,9 @@
     {
       "qid": "multistep_13_p6",
       "mode": "MULTI_STEP",
-      "lambda": 0.01,
+      "lambda": 0.001,
       "num_segments": 5,
-      "total_reduced_cost": -0.5942822251560461,
+      "total_reduced_cost": -0.639282225156046,
       "selected_texts": [
         "[NODE: multistep_13_program_a] type=row | Year: 2012 | Agency: Public Investment Accounting Division | Program: Social Safety Net Disbursements | Priority Outlays: $9,313.",
         "[NODE: distractor_12] type=note | Year: 2011 | Agency: Capital Markets Regulation Division | Program: Pension Obligation Funding | Administrative note value: $5,532 | This note is background context and is not the final answer for the training questions.",
@@ -11174,9 +11279,9 @@
     {
       "qid": "multistep_24_p0",
       "mode": "MULTI_STEP",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.24582473740399252,
+      "total_reduced_cost": -0.39582473740399254,
       "selected_texts": [
         "[NODE: multistep_24_program_a] type=row | Year: 2023 | Agency: Cash Management Office | Program: Veterans Benefits Processing | Priority Outlays: $10,424."
       ],
@@ -11216,9 +11321,9 @@
     {
       "qid": "multistep_24_p2",
       "mode": "MULTI_STEP",
-      "lambda": 0.5,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.054119288392249776,
+      "total_reduced_cost": -0.5041192883922497,
       "selected_texts": [
         "[NODE: multistep_24_program_a] type=row | Year: 2023 | Agency: Cash Management Office | Program: Veterans Benefits Processing | Priority Outlays: $10,424."
       ],
@@ -11236,9 +11341,9 @@
     {
       "qid": "multistep_24_p3",
       "mode": "MULTI_STEP",
-      "lambda": 0.2,
+      "lambda": 0.1,
       "num_segments": 1,
-      "total_reduced_cost": -0.19013258890741486,
+      "total_reduced_cost": -0.2901325889074149,
       "selected_texts": [
         "[NODE: multistep_24_program_a] type=row | Year: 2023 | Agency: Cash Management Office | Program: Veterans Benefits Processing | Priority Outlays: $10,424."
       ],
@@ -11256,9 +11361,9 @@
     {
       "qid": "multistep_24_p4",
       "mode": "MULTI_STEP",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.1724360483346271,
+      "total_reduced_cost": -0.32243604833462713,
       "selected_texts": [
         "[NODE: multistep_24_program_b] type=row | Year: 2023 | Agency: Cash Management Office | Program: Agency Payroll | Priority Outlays: $10,348."
       ],
@@ -11276,9 +11381,9 @@
     {
       "qid": "multistep_24_p5",
       "mode": "MULTI_STEP",
-      "lambda": 0.2,
+      "lambda": 0.05,
       "num_segments": 1,
-      "total_reduced_cost": -0.24954350513621942,
+      "total_reduced_cost": -0.39954350513621945,
       "selected_texts": [
         "[NODE: multistep_24_program_a] type=row | Year: 2023 | Agency: Cash Management Office | Program: Veterans Benefits Processing | Priority Outlays: $10,424."
       ],
@@ -11296,9 +11401,9 @@
     {
       "qid": "multistep_24_p6",
       "mode": "MULTI_STEP",
-      "lambda": 0.5,
+      "lambda": 0.02,
       "num_segments": 1,
-      "total_reduced_cost": -0.04018752283685878,
+      "total_reduced_cost": -0.5201875228368588,
       "selected_texts": [
         "[NODE: multistep_24_program_a] type=row | Year: 2023 | Agency: Cash Management Office | Program: Veterans Benefits Processing | Priority Outlays: $10,424."
       ],
