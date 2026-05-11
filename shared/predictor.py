@@ -1,48 +1,43 @@
-"""LambdaPredictor MLP. Classifier head over the lambda grid."""
+"""LambdaPredictor MLP. Regressor head predicting log(lambda)."""
 
 import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from .constants import LAMBDA_GRID, MODES
+from .constants import EPS
 from .scoring import ensure_1d
 
 
-LAMBDA_TO_IDX = {lam: i for i, lam in enumerate(LAMBDA_GRID)}
-IDX_TO_LAMBDA = {i: lam for i, lam in enumerate(LAMBDA_GRID)}
-
-
 class LambdaPredictor(nn.Module):
-    """Classifier MLP over the lambda grid."""
+    """Regressor MLP that predicts log(lambda). Supports arbitrary input dimensions."""
 
-    def __init__(self, input_dim, hidden_dim=64, num_classes=len(LAMBDA_GRID)):
+    def __init__(self, input_dim: int, hidden_dim: int = 64):
         super().__init__()
         self.net = nn.Sequential(
             nn.Linear(input_dim, hidden_dim),
             nn.ReLU(),
             nn.Linear(hidden_dim, hidden_dim),
             nn.ReLU(),
-            nn.Linear(hidden_dim, num_classes),
+            nn.Linear(hidden_dim, 1),
         )
 
     def forward(self, x):
-        return self.net(x)  # logits over lambda grid
+        return self.net(x).squeeze(-1)
 
     def predict_lambda(self, x):
-        """Return the predicted lambda value (snapped to grid)."""
+        """
+        Inference helper: Pass a tensor, get the actual positive lambda float(s).
+        (Exponentiates the log-space output back to linear space).
+        """
+        self.eval()
         with torch.no_grad():
-            logits = self.forward(x)
-            idx = logits.argmax(dim=-1).cpu().numpy()
-        return np.array([IDX_TO_LAMBDA[int(i)] for i in idx])
-
-    def predict_proba(self, x):
-        """Return softmax probabilities over the grid."""
-        with torch.no_grad():
-            return torch.softmax(self.forward(x), dim=-1).cpu().numpy()
+            log_lambda = self.forward(x)
+            actual_lambda = torch.exp(log_lambda)
+        return actual_lambda.cpu().numpy()
 
 
 def build_training_dataset(records, embed_fn):
-    from shared.scoring import ensure_1d
+    """Convert optimal records into regression training data."""
     optimal = [r for r in records if r["is_optimal"]]
     queries = [r["query"] for r in optimal]
     modes = [r["mode"] for r in optimal]
@@ -53,6 +48,7 @@ def build_training_dataset(records, embed_fn):
 
 
 def stratified_train_val_split(X, y, modes, val_frac=0.2, seed=0):
+    """Stratify by query mode so validation has examples from each mode."""
     rng = np.random.default_rng(seed)
     modes_arr = np.asarray(modes)
     train_idx, val_idx = [], []
@@ -71,51 +67,51 @@ def stratified_train_val_split(X, y, modes, val_frac=0.2, seed=0):
     return X[train_idx], X[val_idx], y[train_idx], y[val_idx], train_idx, val_idx
 
 
-def train_classifier(X_train, y_train, X_val, y_val, hidden_dim=64, num_epochs=200, lr=1e-3, seed=0):
-    """Train a LambdaPredictor classifier. Returns (model, train_losses, val_losses)."""
+def train_predictor(X_train, y_train, X_val, y_val, hidden_dim=64, num_epochs=200, lr=1e-3, seed=0):
+    """Train a LambdaPredictor regressor in log-space. Returns (model, train_losses, val_losses)."""
     torch.manual_seed(seed)
     np.random.seed(seed)
 
     input_dim = X_train.shape[1]
     model = LambdaPredictor(input_dim=input_dim, hidden_dim=hidden_dim)
-    criterion = nn.CrossEntropyLoss()
+    criterion = nn.MSELoss()
     optimizer = optim.Adam(model.parameters(), lr=lr)
 
     X_train_t = torch.tensor(X_train, dtype=torch.float32)
-    y_train_t = torch.tensor(y_train, dtype=torch.long)
+    # Convert targets to log-space for training automatically
+    y_train_log_t = torch.tensor(np.log(np.clip(y_train, EPS, None)), dtype=torch.float32)
+
     X_val_t = torch.tensor(X_val, dtype=torch.float32)
-    y_val_t = torch.tensor(y_val, dtype=torch.long)
+    y_val_log_t = torch.tensor(np.log(np.clip(y_val, EPS, None)), dtype=torch.float32)
 
     train_losses, val_losses = [], []
     for epoch in range(num_epochs):
         model.train()
         optimizer.zero_grad()
-        logits = model(X_train_t)
-        train_loss = criterion(logits, y_train_t)
+        preds_log = model(X_train_t)
+        train_loss = criterion(preds_log, y_train_log_t)
         train_loss.backward()
         optimizer.step()
         train_losses.append(float(train_loss.item()))
 
         model.eval()
         with torch.no_grad():
-            val_logits = model(X_val_t)
-            val_loss = criterion(val_logits, y_val_t)
+            val_preds_log = model(X_val_t)
+            val_loss = criterion(val_preds_log, y_val_log_t)
         val_losses.append(float(val_loss.item()))
 
         if epoch % 50 == 0 or epoch == num_epochs - 1:
-            train_acc = (logits.argmax(-1) == y_train_t).float().mean().item()
-            val_acc = (val_logits.argmax(-1) == y_val_t).float().mean().item()
-            print(f"Epoch {epoch:03d} | train CE={train_loss.item():.4f} acc={train_acc:.3f} | "
-                  f"val CE={val_loss.item():.4f} acc={val_acc:.3f}")
+            print(f"Epoch {epoch:03d} | train log-MSE={train_loss.item():.4f} | val log-MSE={val_loss.item():.4f}")
 
     return model, train_losses, val_losses
 
 
-def evaluate_classifier(model, X, y_true_idx):
-    """Top-1 and top-1-within-1-grid-step accuracy."""
+def evaluate_predictor(model, X, y_true):
+    """Evaluate the regressor on MSE and MAE in linear space."""
     X_t = torch.tensor(X, dtype=torch.float32)
-    with torch.no_grad():
-        pred_idx = model(X_t).argmax(-1).numpy()
-    top1 = float(np.mean(pred_idx == y_true_idx))
-    within1 = float(np.mean(np.abs(pred_idx - y_true_idx) <= 1))
-    return {"top1_accuracy": top1, "within_one_grid_step": within1, "pred_idx": pred_idx}
+    pred_lambda = model.predict_lambda(X_t)
+
+    mse = float(np.mean((pred_lambda - y_true) ** 2))
+    mae = float(np.mean(np.abs(pred_lambda - y_true)))
+
+    return {"mse": mse, "mae": mae, "pred_lambda": pred_lambda}
