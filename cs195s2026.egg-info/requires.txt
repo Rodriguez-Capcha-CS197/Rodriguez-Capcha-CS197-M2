@@ -1,0 +1,6 @@
+ipykernel>=7.2.0
+jupyter>=1.1.1
+numpy
+torch
+matplotlib
+pyyaml

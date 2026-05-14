@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: cs195s2026
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+Requires-Dist: ipykernel>=7.2.0
+Requires-Dist: jupyter>=1.1.1
+Requires-Dist: numpy
+Requires-Dist: torch
+Requires-Dist: matplotlib
+Requires-Dist: pyyaml
