@@ -55,6 +55,18 @@ def _qwen_queries(passage_text: str, model_id: str, n_queries: int, temperature:
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--n-passages", type=int, default=10000)
+    parser.add_argument(
+        "--max-passages-for-queries",
+        type=int,
+        default=None,
+        help="Hard cap on how many sampled passages will receive synthetic queries.",
+    )
+    parser.add_argument(
+        "--target-tokens",
+        type=int,
+        default=None,
+        help="Approximate whitespace-token budget for FineWeb sampling (e.g., 500000000).",
+    )
     parser.add_argument("--n-queries", type=int, default=2)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--generator", choices=["qwen", "template"], default="template")
@@ -63,8 +75,24 @@ def main():
     parser.add_argument("--output-path", type=str, default="outputs/fineweb_queries.jsonl")
     args = parser.parse_args()
 
-    passages = load_fineweb_sample(n_passages=args.n_passages, seed=args.seed)
+    passages = load_fineweb_sample(
+        n_passages=args.n_passages,
+        seed=args.seed,
+        target_tokens=args.target_tokens,
+    )
+    sampled_passages = len(passages)
+    sampled_tokens = sum(len(p.split()) for p in passages)
+    if args.max_passages_for_queries is not None:
+        passages = passages[: args.max_passages_for_queries]
     os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
+
+    if args.target_tokens is not None:
+        print(
+            f"sampled pool: {sampled_passages} passages at ~{sampled_tokens} whitespace tokens "
+            f"(target={args.target_tokens})"
+        )
+    if args.max_passages_for_queries is not None:
+        print(f"query generation capped to {len(passages)} passages")
 
     with open(args.output_path, "w", encoding="utf-8") as f:
         for i, passage_text in enumerate(passages):

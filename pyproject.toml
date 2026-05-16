@@ -10,7 +10,12 @@ dependencies = [
     "numpy",
     "torch",
     "matplotlib",
-    "pyyaml"
+    "pyyaml",
+    "beir",
+    "datasets",
+    "sentence-transformers",
+    "transformers",
+    "spacy",
 ]
 
 [tool.setuptools.packages.find]

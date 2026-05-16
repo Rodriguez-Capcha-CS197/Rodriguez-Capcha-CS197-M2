@@ -151,7 +151,7 @@ def _sweep_records(
     return records
 
 
-def _load_fineweb_queries(path: str):
+def _load_fineweb_queries(path: str, max_queries_for_sweep: int | None = None):
     passages = {}
     examples = []
     with open(path, "r", encoding="utf-8") as f:
@@ -163,6 +163,10 @@ def _load_fineweb_queries(path: str):
             for i, q in enumerate(row.get("queries", [])):
                 qid = f"{passage_id}_q{i}"
                 examples.append(QueryExample(qid=qid, query=str(q), relevant_doc_ids=[passage_id]))
+                if max_queries_for_sweep is not None and len(examples) >= max_queries_for_sweep:
+                    doc_ids = list(passages.keys())
+                    doc_texts = [passages[d] for d in doc_ids]
+                    return doc_ids, doc_texts, examples
     doc_ids = list(passages.keys())
     doc_texts = [passages[d] for d in doc_ids]
     return doc_ids, doc_texts, examples
@@ -197,13 +201,24 @@ def main():
     parser.add_argument("--marco-n-passages", type=int, default=15000)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--embed-model", type=str, default="sentence-transformers/all-MiniLM-L6-v2")
+    parser.add_argument(
+        "--max-queries-for-sweep",
+        type=int,
+        default=None,
+        help="Hard cap on FineWeb query count used for lambda sweep labeling.",
+    )
     parser.add_argument("--fineweb-output-path", type=str, default="outputs/fineweb_labeled.json")
     parser.add_argument("--marco-output-path", type=str, default="outputs/marco_labeled.json")
     args = parser.parse_args()
 
     embedder = MiniLMEmbedder(args.embed_model)
 
-    fw_doc_ids, fw_doc_texts, fw_examples = _load_fineweb_queries(args.fineweb_queries_path)
+    fw_doc_ids, fw_doc_texts, fw_examples = _load_fineweb_queries(
+        args.fineweb_queries_path,
+        max_queries_for_sweep=args.max_queries_for_sweep,
+    )
+    if args.max_queries_for_sweep is not None:
+        print(f"fineweb sweep capped at {len(fw_examples)} queries")
     fw_segments, fw_segment_to_doc_id, _ = _build_segments_from_docs(fw_doc_ids, fw_doc_texts, embedder)
     fw_records = _sweep_records("fineweb", fw_segments, fw_examples, fw_segment_to_doc_id, embedder)
     save_records(fw_records, args.fineweb_output_path)

@@ -15,17 +15,26 @@ def _get_nlp():
     return _NLP
 
 
-def load_fineweb_sample(n_passages=10000, seed=0):
-    """Stream FineWeb-Edu and return up to n_passages raw text strings."""
+def load_fineweb_sample(n_passages=10000, seed=0, target_tokens=None):
+    """Stream FineWeb-Edu and return sampled raw text strings.
+
+    Sampling stops at whichever constraint is hit first:
+    - n_passages (if set)
+    - target_tokens, using whitespace-token approximation (if set)
+    """
     del seed  # Placeholder for deterministic sampling extension.
     ds = load_dataset("HuggingFaceFW/fineweb-edu", split="train", streaming=True)
     texts = []
+    token_count = 0
     for item in ds:
-        if len(texts) >= n_passages:
+        if n_passages is not None and len(texts) >= n_passages:
+            break
+        if target_tokens is not None and token_count >= target_tokens:
             break
         text = str(item.get("text", "")).strip()
         if text:
             texts.append(text)
+            token_count += len(text.split())
     return texts
 
 

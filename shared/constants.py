@@ -24,4 +24,4 @@ MODE_COLORS = {
     "COMPUTE": "forestgreen",
     "MULTI_STEP": "crimson",
 }
-LAMBDA_BINS = [0.001, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0]
+LAMBDA_BINS = [0.001, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5]
