@@ -85,6 +85,32 @@ def extract_covariance_features(query_emb, corpus_embs, corpus_norms):
     )
 
 
+def build_hybrid_features(query_emb, corpus_embs, corpus_norms):
+    """Build the model input for query embedding + density features."""
+    query = ensure_1d(query_emb).astype(np.float32)
+    density = extract_density_features(query, corpus_embs, corpus_norms)
+    return np.concatenate([query, density], axis=0)
+
+
+def build_covariance_features(query_emb, corpus_embs, corpus_norms):
+    """Build the model input for query embedding + covariance features."""
+    query = ensure_1d(query_emb).astype(np.float32)
+    covariance = extract_covariance_features(query, corpus_embs, corpus_norms)
+    return np.concatenate([query, covariance], axis=0)
+
+
+def build_training_feature_record(query_emb, corpus_embs, corpus_norms):
+    """Build JSON-serializable feature fields for one labeled query."""
+    query = ensure_1d(query_emb).astype(np.float32)
+    return {
+        "plain_features": query.tolist(),
+        "density_features": extract_density_features(query, corpus_embs, corpus_norms).tolist(),
+        "covariance_summary_features": extract_covariance_features(query, corpus_embs, corpus_norms).tolist(),
+        "hybrid_features": build_hybrid_features(query, corpus_embs, corpus_norms).tolist(),
+        "covariance_features": build_covariance_features(query, corpus_embs, corpus_norms).tolist(),
+    }
+
+
 def predict_plain_lambda(model, query_text, embed_fn):
     """Predict lambda from query embedding only."""
     query_emb = ensure_1d(embed_fn(query_text)).astype(np.float32)
@@ -95,8 +121,7 @@ def predict_plain_lambda(model, query_text, embed_fn):
 def predict_hybrid_lambda(model, query_text, embed_fn, corpus_embs, corpus_norms):
     """Predict lambda from query embedding + density geometry features."""
     query_emb = ensure_1d(embed_fn(query_text)).astype(np.float32)
-    geom = extract_density_features(query_emb, corpus_embs, corpus_norms)
-    features = np.concatenate([query_emb, geom], axis=0)
+    features = build_hybrid_features(query_emb, corpus_embs, corpus_norms)
     log_lam = _predict_log_lambda(model, features)[0]
     return float(np.exp(log_lam))
 
@@ -104,7 +129,6 @@ def predict_hybrid_lambda(model, query_text, embed_fn, corpus_embs, corpus_norms
 def predict_covariance_lambda(model, query_text, embed_fn, corpus_embs, corpus_norms):
     """Predict lambda from query embedding + redundancy geometry features."""
     query_emb = ensure_1d(embed_fn(query_text)).astype(np.float32)
-    geom = extract_covariance_features(query_emb, corpus_embs, corpus_norms)
-    features = np.concatenate([query_emb, geom], axis=0)
+    features = build_covariance_features(query_emb, corpus_embs, corpus_norms)
     log_lam = _predict_log_lambda(model, features)[0]
     return float(np.exp(log_lam))

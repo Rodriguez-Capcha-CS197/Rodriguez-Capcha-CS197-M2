@@ -6,6 +6,7 @@ import argparse
 from dataclasses import dataclass
 from typing import Dict, List, Sequence
 
+import numpy as np
 from beir import util
 from beir.datasets.data_loader import GenericDataLoader
 from sentence_transformers import SentenceTransformer
@@ -13,6 +14,7 @@ from sentence_transformers import SentenceTransformer
 from shared.beir_scoring import build_beir_segments, fiqa_ndcg
 from shared.constants import ETA_REDUNDANCY, LAMBDA_GRID, MAX_SEGMENTS, TIE_EPS
 from shared.io_utils import save_records
+from shared.lambda_inference import build_training_feature_record
 from shared.scoring import ensure_1d
 from shared.segments import SegmentBuildConfig
 from ska_agent.core.pricing import PricingEngine
@@ -85,6 +87,8 @@ def main():
         lookback_k=args.lookback_k,
     )
     segments, segment_to_doc_id = build_beir_segments(corpus, embedder, segment_config=segment_config)
+    corpus_embs = np.asarray([seg.vector for seg in segments], dtype=np.float32)
+    corpus_norms = np.linalg.norm(corpus_embs, axis=1)
     examples = _prepare_query_examples(queries, qrels)
     lambda_grid = sorted(set(list(LAMBDA_GRID) + [1.0]))
 
@@ -155,6 +159,8 @@ def main():
                     best_lam = lam
 
         per_query[best_idx]["is_optimal"] = True
+        query_emb = ensure_1d(query_embedding_cache[ex.query]).astype(np.float32)
+        per_query[best_idx].update(build_training_feature_record(query_emb, corpus_embs, corpus_norms))
         records.extend(per_query)
 
         if idx % 100 == 0:

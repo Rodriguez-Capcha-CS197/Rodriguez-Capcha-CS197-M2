@@ -7,10 +7,12 @@ import json
 from dataclasses import dataclass
 from typing import Dict, List, Sequence
 
+import numpy as np
 from sentence_transformers import SentenceTransformer
 
 from shared.constants import ETA_REDUNDANCY, LAMBDA_GRID, MAX_SEGMENTS, TIE_EPS
 from shared.io_utils import save_records
+from shared.lambda_inference import build_training_feature_record
 from shared.marco_loader import load_marco_sample
 from shared.scoring import ensure_1d
 from shared.segments import SegmentBuildConfig, build_segments_from_docs
@@ -58,6 +60,8 @@ def _sweep_records(
 ):
     lambda_grid = sorted(set(list(LAMBDA_GRID) + [1.0]))
     query_embedding_cache = {ex.query: ensure_1d(embedder.embed_single(ex.query)) for ex in query_examples}
+    corpus_embs = np.asarray([seg.vector for seg in segments], dtype=np.float32)
+    corpus_norms = np.linalg.norm(corpus_embs, axis=1)
 
     def cached_embed_fn(text):
         if text in query_embedding_cache:
@@ -127,6 +131,8 @@ def _sweep_records(
                     best_lam = lam
 
         per_query[best_idx]["is_optimal"] = True
+        query_emb = ensure_1d(query_embedding_cache[ex.query]).astype(np.float32)
+        per_query[best_idx].update(build_training_feature_record(query_emb, corpus_embs, corpus_norms))
         records.extend(per_query)
 
         if idx % 100 == 0:

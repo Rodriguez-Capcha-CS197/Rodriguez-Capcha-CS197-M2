@@ -18,8 +18,6 @@ from sentence_transformers import SentenceTransformer
 from shared.beir_scoring import build_beir_segments
 from shared.dataset_utils import merge_and_shuffle_datasets
 from shared.lambda_inference import (
-    extract_covariance_features,
-    extract_density_features,
     predict_covariance_lambda,
     predict_hybrid_lambda,
     predict_plain_lambda,
@@ -111,11 +109,26 @@ def _fixed_policy(lam):
     return fn
 
 
-def _collect_training_targets(records):
+def _collect_training_features(records):
     optimal = [r for r in records if r.get("is_optimal")]
-    queries = [r["query"] for r in optimal]
+    missing = [
+        r["question_id"]
+        for r in optimal
+        if "plain_features" not in r or "hybrid_features" not in r or "covariance_features" not in r
+    ]
+    if missing:
+        preview = ", ".join(missing[:5])
+        raise ValueError(
+            "Training records are missing saved feature vectors on optimal rows. "
+            "Regenerate Job 2 labels with the current feature-serialization code. "
+            f"Example missing qids: {preview}"
+        )
+
+    X_plain = np.asarray([r["plain_features"] for r in optimal], dtype=np.float32)
+    X_hybrid = np.asarray([r["hybrid_features"] for r in optimal], dtype=np.float32)
+    X_cov = np.asarray([r["covariance_features"] for r in optimal], dtype=np.float32)
     lambdas = np.asarray([float(r["lambda"]) for r in optimal], dtype=np.float32)
-    return queries, lambdas
+    return X_plain, X_hybrid, X_cov, lambdas
 
 
 def _assert_record_segment_config(records, expected_config, records_path):
@@ -140,20 +153,6 @@ def _assert_record_segment_config(records, expected_config, records_path):
             mismatches.append(f"{key}: saw {sorted(seen)!r}, expected {expected_value!r}")
     if mismatches:
         raise ValueError(f"{records_path} segment_config mismatch: " + "; ".join(mismatches))
-
-
-def _build_train_features(queries, embed_fn, corpus_embs, corpus_norms):
-    X_plain = []
-    X_hybrid = []
-    X_cov = []
-    for q in queries:
-        q_emb = np.asarray(embed_fn(q), dtype=np.float32).reshape(-1)
-        X_plain.append(q_emb)
-        dens = np.asarray(extract_density_features(q_emb, corpus_embs, corpus_norms), dtype=np.float32)
-        cov = np.asarray(extract_covariance_features(q_emb, corpus_embs, corpus_norms), dtype=np.float32)
-        X_hybrid.append(np.concatenate([q_emb, dens], axis=0))
-        X_cov.append(np.concatenate([q_emb, cov], axis=0))
-    return np.asarray(X_plain), np.asarray(X_hybrid), np.asarray(X_cov)
 
 
 def _eval_domain(
@@ -258,18 +257,10 @@ def main():
     _assert_record_segment_config(training_records, segment_config, "training records")
     if args.train_limit and args.train_limit > 0:
         training_records = training_records[: args.train_limit]
-    train_queries, train_lambdas = _collect_training_targets(training_records)
-    if len(train_queries) == 0:
+    X_plain, X_hybrid, X_cov, train_lambdas = _collect_training_features(training_records)
+    if len(train_lambdas) == 0:
         raise ValueError("No optimal rows found in training records.")
     fixed_lambda = float(np.median(train_lambdas))
-
-    # Build a training-corpus matrix from labeled records for feature training.
-    # Hybrid/covariance test-time features are still computed on test corpus.
-    train_query_embs = np.asarray([embedder.embed_single(q) for q in train_queries], dtype=np.float32)
-    train_norms = np.linalg.norm(train_query_embs, axis=1)
-    X_plain, X_hybrid, X_cov = _build_train_features(
-        train_queries, embedder.embed_single, train_query_embs, train_norms
-    )
 
     scifact_runs = []
     fiqa_runs = []
