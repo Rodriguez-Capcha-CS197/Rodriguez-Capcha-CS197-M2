@@ -2,10 +2,10 @@
 
 from beir.retrieval.evaluation import EvaluateRetrieval
 
-from .corpus import build_segments_from_texts
+from .segments import SegmentBuildConfig, build_segments_from_docs
 
 
-def build_beir_segments(corpus, embedder):
+def build_beir_segments(corpus, embedder, segment_config: SegmentBuildConfig | None = None):
     """
     Build Segment objects from BEIR corpus and map segment ids to doc ids.
 
@@ -24,11 +24,7 @@ def build_beir_segments(corpus, embedder):
         texts.append(combined)
         doc_ids.append(doc_id)
 
-    segments = build_segments_from_texts(texts, embedder)
-    segment_to_doc_id = {}
-    for i, seg in enumerate(segments):
-        segment_to_doc_id[int(seg.start_idx)] = doc_ids[i]
-    return segments, segment_to_doc_id
+    return build_segments_from_docs(doc_ids, texts, embedder, config=segment_config)
 
 
 def _to_beir_results(retrieved_segments, segment_to_doc_id, query_id):
@@ -37,7 +33,8 @@ def _to_beir_results(retrieved_segments, segment_to_doc_id, query_id):
         doc_id = segment_to_doc_id.get(int(seg.start_idx))
         if doc_id is None:
             continue
-        results[query_id][doc_id] = 1.0 / (rank + 1)
+        score = 1.0 / (rank + 1)
+        results[query_id][doc_id] = max(score, results[query_id].get(doc_id, 0.0))
     return results
 
 

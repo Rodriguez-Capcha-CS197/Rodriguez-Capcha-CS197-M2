@@ -25,6 +25,7 @@ from shared.lambda_inference import (
     predict_plain_lambda,
 )
 from shared.predictor import LambdaPredictor
+from shared.segments import SegmentBuildConfig
 
 
 class MiniLMEmbedder:
@@ -117,6 +118,30 @@ def _collect_training_targets(records):
     return queries, lambdas
 
 
+def _assert_record_segment_config(records, expected_config, records_path):
+    strategies = {r.get("segment_strategy") for r in records if r.get("segment_strategy")}
+    expected_strategy = expected_config.strategy
+    if not strategies:
+        print(f"warning: {records_path} has no segment_strategy metadata; assuming {expected_strategy}")
+        return
+    if strategies != {expected_strategy}:
+        raise ValueError(
+            f"{records_path} was generated with segment strategies {sorted(strategies)}, "
+            f"but this run requested {expected_strategy!r}."
+        )
+    configs = [r.get("segment_config") for r in records if r.get("segment_config")]
+    if not configs:
+        return
+    expected = expected_config.to_dict()
+    mismatches = []
+    for key, expected_value in expected.items():
+        seen = {cfg.get(key) for cfg in configs}
+        if seen != {expected_value}:
+            mismatches.append(f"{key}: saw {sorted(seen)!r}, expected {expected_value!r}")
+    if mismatches:
+        raise ValueError(f"{records_path} segment_config mismatch: " + "; ".join(mismatches))
+
+
 def _build_train_features(queries, embed_fn, corpus_embs, corpus_norms):
     X_plain = []
     X_hybrid = []
@@ -141,13 +166,15 @@ def _eval_domain(
     hybrid_model,
     cov_model,
     fixed_lambda,
+    segment_config,
 ):
     with open(records_path, "r", encoding="utf-8") as f:
         records = json.load(f)
+    _assert_record_segment_config(records, segment_config, records_path)
     records_by_query = _group_by_query(records)
 
     corpus, _, _ = GenericDataLoader(beir_data_path).load(split=split)
-    segments, _ = build_beir_segments(corpus, embedder)
+    segments, _ = build_beir_segments(corpus, embedder, segment_config=segment_config)
     corpus_embs = np.asarray([seg.vector for seg in segments], dtype=np.float32)
     corpus_norms = np.linalg.norm(corpus_embs, axis=1)
 
@@ -209,13 +236,26 @@ def main():
     parser.add_argument("--seeds", default="0,1,2")
     parser.add_argument("--train-limit", type=int, default=0)
     parser.add_argument("--output-dir", default="outputs/week9")
+    parser.add_argument("--segment-strategy", default="geometry_sentence")
+    parser.add_argument("--min-sentence-len", type=int, default=20)
+    parser.add_argument("--min-segment-size", type=int, default=2)
+    parser.add_argument("--max-segment-size", type=int, default=15)
+    parser.add_argument("--lookback-k", type=int, default=50)
     args = parser.parse_args()
 
     os.makedirs(args.output_dir, exist_ok=True)
     seeds = [int(x) for x in args.seeds.split(",") if x.strip()]
     embedder = MiniLMEmbedder(args.embed_model)
+    segment_config = SegmentBuildConfig(
+        strategy=args.segment_strategy,
+        min_sentence_len=args.min_sentence_len,
+        min_segment_size=args.min_segment_size,
+        max_segment_size=args.max_segment_size,
+        lookback_k=args.lookback_k,
+    )
 
     training_records = merge_and_shuffle_datasets(args.fineweb_records, args.marco_records, seed=0)
+    _assert_record_segment_config(training_records, segment_config, "training records")
     if args.train_limit and args.train_limit > 0:
         training_records = training_records[: args.train_limit]
     train_queries, train_lambdas = _collect_training_targets(training_records)
@@ -249,6 +289,7 @@ def main():
                 hybrid_model,
                 cov_model,
                 fixed_lambda,
+                segment_config,
             )
         )
         fiqa_runs.append(
@@ -262,6 +303,7 @@ def main():
                 hybrid_model,
                 cov_model,
                 fixed_lambda,
+                segment_config,
             )
         )
         print(f"completed seed {seed}")

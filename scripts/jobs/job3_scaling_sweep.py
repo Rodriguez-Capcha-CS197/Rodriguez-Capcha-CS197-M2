@@ -38,6 +38,16 @@ def _run_week9_eval(output_dir, n_train_limit, common_args):
         common_args["seeds"],
         "--train-limit",
         str(n_train_limit),
+        "--segment-strategy",
+        common_args["segment_strategy"],
+        "--min-sentence-len",
+        str(common_args["min_sentence_len"]),
+        "--min-segment-size",
+        str(common_args["min_segment_size"]),
+        "--max-segment-size",
+        str(common_args["max_segment_size"]),
+        "--lookback-k",
+        str(common_args["lookback_k"]),
     ]
     env = {**os.environ, "PYTHONPATH": _REPO_ROOT}
     subprocess.run(cmd, check=True, cwd=_REPO_ROOT, env=env)
@@ -63,6 +73,11 @@ def main():
     parser.add_argument("--seeds", default="0,1,2")
     parser.add_argument("--sizes", default="1000,5000,10000,25000,50000")
     parser.add_argument("--output-dir", default="outputs/week9/scaling")
+    parser.add_argument("--segment-strategy", default="geometry_sentence")
+    parser.add_argument("--min-sentence-len", type=int, default=20)
+    parser.add_argument("--min-segment-size", type=int, default=2)
+    parser.add_argument("--max-segment-size", type=int, default=15)
+    parser.add_argument("--lookback-k", type=int, default=50)
     args = parser.parse_args()
 
     os.makedirs(args.output_dir, exist_ok=True)
@@ -78,6 +93,11 @@ def main():
         "split": args.split,
         "embed_model": args.embed_model,
         "seeds": args.seeds,
+        "segment_strategy": args.segment_strategy,
+        "min_sentence_len": args.min_sentence_len,
+        "min_segment_size": args.min_segment_size,
+        "max_segment_size": args.max_segment_size,
+        "lookback_k": args.lookback_k,
     }
 
     summary = []

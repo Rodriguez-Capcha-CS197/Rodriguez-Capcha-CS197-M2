@@ -16,11 +16,10 @@ from beir import util
 from beir.datasets.data_loader import GenericDataLoader
 from sentence_transformers import SentenceTransformer
 
-from shared.fineweb_loader import split_into_sentences
 from shared.beir_scoring import scifact_ndcg
 from shared.predictor import LambdaPredictor
 from shared.scoring import ensure_1d
-from ska_agent.core.geometry import GeometryLearner
+from shared.segments import SegmentBuildConfig, build_segments_from_docs
 from ska_agent.core.pricing import PricingEngine
 from ska_agent.core.structures import Segment
 
@@ -70,46 +69,6 @@ def _load_fineweb_queries(path: str, max_queries: int | None) -> tuple[list[str]
     doc_ids = list(passages.keys())
     doc_texts = [passages[d] for d in doc_ids]
     return doc_ids, doc_texts, examples
-
-
-# Build geometry segments per document and map segment index to document id.
-def _build_geometry_segments(
-    doc_ids: list[str],
-    doc_texts: list[str],
-    embedder: MiniLMEmbedder,
-    min_sentence_len: int,
-    min_segment_size: int,
-    max_segment_size: int,
-    lookback_k: int,
-) -> tuple[list[Segment], dict[int, str]]:
-    all_segments: list[Segment] = []
-    segment_to_doc_id: dict[int, str] = {}
-    global_idx = 0
-    for doc_id, text in zip(doc_ids, doc_texts):
-        sentences = split_into_sentences(text, min_len=min_sentence_len)
-        if not sentences:
-            continue
-        sent_embs = np.asarray(embedder.embed(sentences), dtype=np.float64)
-        learner = GeometryLearner(
-            lambda_seg=None,
-            lookback_k=lookback_k,
-            min_segment_size=min_segment_size,
-            max_segment_size=max_segment_size,
-        )
-        segs = learner.learn_geometry(sent_embs, sentences, verbose=False)
-        for seg in segs:
-            mapped = Segment(
-                text=seg.text,
-                vector=np.asarray(seg.vector, dtype=np.float64),
-                start_idx=global_idx,
-                end_idx=global_idx + 1,
-                sentences=seg.sentences,
-                internal_cost=float(seg.internal_cost),
-            )
-            all_segments.append(mapped)
-            segment_to_doc_id[global_idx] = doc_id
-            global_idx += 1
-    return all_segments, segment_to_doc_id
 
 
 # Build SciFact query examples from BEIR data.
@@ -395,26 +354,20 @@ def _run_ablation(
     }
 
 
-# Build FineWeb training labels with GeometryLearner + lambda sweeps.
+# Build FineWeb training labels with the shared segment builder + lambda sweeps.
 def _build_fineweb_labels(
     fineweb_queries_path: str,
     max_fineweb_queries: int | None,
     embedder: MiniLMEmbedder,
     lambda_grid: list[float],
-    min_sentence_len: int,
-    min_segment_size: int,
-    max_segment_size: int,
-    lookback_k: int,
+    segment_config: SegmentBuildConfig,
 ) -> tuple[np.ndarray, np.ndarray]:
     doc_ids, doc_texts, examples = _load_fineweb_queries(fineweb_queries_path, max_fineweb_queries)
-    segments, seg_to_doc = _build_geometry_segments(
+    segments, seg_to_doc = build_segments_from_docs(
         doc_ids,
         doc_texts,
         embedder,
-        min_sentence_len=min_sentence_len,
-        min_segment_size=min_segment_size,
-        max_segment_size=max_segment_size,
-        lookback_k=lookback_k,
+        config=segment_config,
     )
     engines = {
         lam: PricingEngine(
@@ -453,12 +406,20 @@ def main() -> None:
     parser.add_argument("--min-segment-size", type=int, default=2)
     parser.add_argument("--max-segment-size", type=int, default=15)
     parser.add_argument("--lookback-k", type=int, default=50)
+    parser.add_argument("--segment-strategy", default="geometry_sentence")
     parser.add_argument("--output-path", default="outputs/paper_bottleneck_ablation_scifact.json")
     args = parser.parse_args()
 
     os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
     lambda_grid = sorted({float(x.strip()) for x in args.lambda_grid.split(",") if x.strip()})
     embedder = MiniLMEmbedder(args.embed_model)
+    segment_config = SegmentBuildConfig(
+        strategy=args.segment_strategy,
+        min_sentence_len=args.min_sentence_len,
+        min_segment_size=args.min_segment_size,
+        max_segment_size=args.max_segment_size,
+        lookback_k=args.lookback_k,
+    )
 
     print("building FineWeb labels...")
     X_train, y_train = _build_fineweb_labels(
@@ -466,10 +427,7 @@ def main() -> None:
         args.max_fineweb_queries,
         embedder,
         lambda_grid,
-        min_sentence_len=args.min_sentence_len,
-        min_segment_size=args.min_segment_size,
-        max_segment_size=args.max_segment_size,
-        lookback_k=args.lookback_k,
+        segment_config=segment_config,
     )
     print(f"fineweb training pairs: {len(X_train)}")
 
@@ -491,14 +449,11 @@ def main() -> None:
         scifact_doc_texts.append(merged)
 
     print("building SciFact geometry segments...")
-    scifact_segments, scifact_seg_to_doc = _build_geometry_segments(
+    scifact_segments, scifact_seg_to_doc = build_segments_from_docs(
         scifact_doc_ids,
         scifact_doc_texts,
         embedder,
-        min_sentence_len=args.min_sentence_len,
-        min_segment_size=args.min_segment_size,
-        max_segment_size=args.max_segment_size,
-        lookback_k=args.lookback_k,
+        config=segment_config,
     )
     scifact_examples = _prepare_scifact_examples(queries, qrels)
 
@@ -518,6 +473,9 @@ def main() -> None:
     result["fixed_lambda"] = fixed_lambda
     result["lambda_grid"] = lambda_grid
     result["train_pairs"] = int(len(X_train))
+    result["segment_strategy"] = segment_config.strategy
+    result["segment_config"] = segment_config.to_dict()
+    result["num_scifact_segments"] = int(len(scifact_segments))
 
     with open(args.output_path, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2)

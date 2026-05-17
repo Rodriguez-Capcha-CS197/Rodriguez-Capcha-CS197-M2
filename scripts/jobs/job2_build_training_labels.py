@@ -7,15 +7,14 @@ import json
 from dataclasses import dataclass
 from typing import Dict, List, Sequence
 
-import numpy as np
 from sentence_transformers import SentenceTransformer
 
 from shared.constants import ETA_REDUNDANCY, LAMBDA_GRID, MAX_SEGMENTS, TIE_EPS
 from shared.io_utils import save_records
 from shared.marco_loader import load_marco_sample
 from shared.scoring import ensure_1d
+from shared.segments import SegmentBuildConfig, build_segments_from_docs
 from ska_agent.core.pricing import PricingEngine
-from ska_agent.core.structures import Segment
 
 
 @dataclass
@@ -34,26 +33,6 @@ class MiniLMEmbedder:
 
     def embed_single(self, text):
         return self.embed([text])[0]
-
-
-def _build_segments_from_docs(doc_ids: List[str], doc_texts: List[str], embedder: MiniLMEmbedder):
-    vectors = embedder.embed(doc_texts)
-    segments = []
-    segment_to_doc_id = {}
-    doc_to_segment_idx = {}
-    for i, (doc_id, text, vec) in enumerate(zip(doc_ids, doc_texts, vectors)):
-        seg = Segment(
-            text=text,
-            vector=np.asarray(vec, dtype=np.float64),
-            start_idx=i,
-            end_idx=i + 1,
-            sentences=[text],
-            internal_cost=0.0,
-        )
-        segments.append(seg)
-        segment_to_doc_id[i] = doc_id
-        doc_to_segment_idx[doc_id] = i
-    return segments, segment_to_doc_id, doc_to_segment_idx
 
 
 def _score_retrieval(retrieved_doc_ids: Sequence[str], relevant_doc_ids: Sequence[str]):
@@ -75,6 +54,7 @@ def _sweep_records(
     query_examples: List[QueryExample],
     segment_to_doc_id: Dict[int, str],
     embedder: MiniLMEmbedder,
+    segment_config: SegmentBuildConfig,
 ):
     lambda_grid = sorted(set(list(LAMBDA_GRID) + [1.0]))
     query_embedding_cache = {ex.query: ensure_1d(embedder.embed_single(ex.query)) for ex in query_examples}
@@ -123,6 +103,9 @@ def _sweep_records(
                 "num_segments": int(len(result.segments)),
                 "relevant_doc_ids": list(ex.relevant_doc_ids),
                 "retrieved_doc_ids": retrieved_doc_ids,
+                "segment_strategy": segment_config.strategy,
+                "segment_config": segment_config.to_dict(),
+                "num_corpus_segments": int(len(segments)),
                 "is_optimal": False,
             }
             per_query.append(row)
@@ -209,9 +192,21 @@ def main():
     )
     parser.add_argument("--fineweb-output-path", type=str, default="outputs/fineweb_labeled.json")
     parser.add_argument("--marco-output-path", type=str, default="outputs/marco_labeled.json")
+    parser.add_argument("--segment-strategy", type=str, default="geometry_sentence")
+    parser.add_argument("--min-sentence-len", type=int, default=20)
+    parser.add_argument("--min-segment-size", type=int, default=2)
+    parser.add_argument("--max-segment-size", type=int, default=15)
+    parser.add_argument("--lookback-k", type=int, default=50)
     args = parser.parse_args()
 
     embedder = MiniLMEmbedder(args.embed_model)
+    segment_config = SegmentBuildConfig(
+        strategy=args.segment_strategy,
+        min_sentence_len=args.min_sentence_len,
+        min_segment_size=args.min_segment_size,
+        max_segment_size=args.max_segment_size,
+        lookback_k=args.lookback_k,
+    )
 
     fw_doc_ids, fw_doc_texts, fw_examples = _load_fineweb_queries(
         args.fineweb_queries_path,
@@ -219,8 +214,20 @@ def main():
     )
     if args.max_queries_for_sweep is not None:
         print(f"fineweb sweep capped at {len(fw_examples)} queries")
-    fw_segments, fw_segment_to_doc_id, _ = _build_segments_from_docs(fw_doc_ids, fw_doc_texts, embedder)
-    fw_records = _sweep_records("fineweb", fw_segments, fw_examples, fw_segment_to_doc_id, embedder)
+    fw_segments, fw_segment_to_doc_id = build_segments_from_docs(
+        fw_doc_ids,
+        fw_doc_texts,
+        embedder,
+        config=segment_config,
+    )
+    fw_records = _sweep_records(
+        "fineweb",
+        fw_segments,
+        fw_examples,
+        fw_segment_to_doc_id,
+        embedder,
+        segment_config,
+    )
     save_records(fw_records, args.fineweb_output_path)
 
     mr_doc_ids, mr_doc_texts, mr_examples = _load_marco_data(
@@ -228,8 +235,20 @@ def main():
         n_passages=args.marco_n_passages,
         seed=args.seed,
     )
-    mr_segments, mr_segment_to_doc_id, _ = _build_segments_from_docs(mr_doc_ids, mr_doc_texts, embedder)
-    mr_records = _sweep_records("marco", mr_segments, mr_examples, mr_segment_to_doc_id, embedder)
+    mr_segments, mr_segment_to_doc_id = build_segments_from_docs(
+        mr_doc_ids,
+        mr_doc_texts,
+        embedder,
+        config=segment_config,
+    )
+    mr_records = _sweep_records(
+        "marco",
+        mr_segments,
+        mr_examples,
+        mr_segment_to_doc_id,
+        embedder,
+        segment_config,
+    )
     save_records(mr_records, args.marco_output_path)
 
 

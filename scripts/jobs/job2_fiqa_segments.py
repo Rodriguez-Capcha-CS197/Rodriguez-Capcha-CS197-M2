@@ -14,6 +14,7 @@ from shared.beir_scoring import build_beir_segments, fiqa_ndcg
 from shared.constants import ETA_REDUNDANCY, LAMBDA_GRID, MAX_SEGMENTS, TIE_EPS
 from shared.io_utils import save_records
 from shared.scoring import ensure_1d
+from shared.segments import SegmentBuildConfig
 from ska_agent.core.pricing import PricingEngine
 
 
@@ -65,13 +66,25 @@ def main():
     parser.add_argument("--split", type=str, default="test")
     parser.add_argument("--embed-model", type=str, default="sentence-transformers/all-MiniLM-L6-v2")
     parser.add_argument("--output-path", type=str, default="outputs/fiqa_sweep_records.json")
+    parser.add_argument("--segment-strategy", type=str, default="geometry_sentence")
+    parser.add_argument("--min-sentence-len", type=int, default=20)
+    parser.add_argument("--min-segment-size", type=int, default=2)
+    parser.add_argument("--max-segment-size", type=int, default=15)
+    parser.add_argument("--lookback-k", type=int, default=50)
     args = parser.parse_args()
 
     data_path = _download_fiqa(args.data_dir) if args.download else f"{args.data_dir}/fiqa"
     corpus, queries, qrels = GenericDataLoader(data_path).load(split=args.split)
 
     embedder = MiniLMEmbedder(args.embed_model)
-    segments, segment_to_doc_id = build_beir_segments(corpus, embedder)
+    segment_config = SegmentBuildConfig(
+        strategy=args.segment_strategy,
+        min_sentence_len=args.min_sentence_len,
+        min_segment_size=args.min_segment_size,
+        max_segment_size=args.max_segment_size,
+        lookback_k=args.lookback_k,
+    )
+    segments, segment_to_doc_id = build_beir_segments(corpus, embedder, segment_config=segment_config)
     examples = _prepare_query_examples(queries, qrels)
     lambda_grid = sorted(set(list(LAMBDA_GRID) + [1.0]))
 
@@ -118,6 +131,9 @@ def main():
                 "num_segments": int(len(result.segments)),
                 "relevant_doc_ids": list(ex.relevant_doc_ids),
                 "retrieved_doc_ids": _retrieved_doc_ids(result, segment_to_doc_id),
+                "segment_strategy": segment_config.strategy,
+                "segment_config": segment_config.to_dict(),
+                "num_corpus_segments": int(len(segments)),
                 "is_optimal": False,
             }
             per_query.append(row)
