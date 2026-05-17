@@ -1,6 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=job4_full
-#SBATCH --partition=normal
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=32G
 #SBATCH --time=12:00:00
@@ -8,6 +9,7 @@
 #SBATCH --error=logs/job4_full_%j.err
 
 cd ~/Rodriguez-Capcha-CS197-M2
+module load cuda
 uv sync
 export PYTHONPATH=$PWD
 mkdir -p logs outputs
