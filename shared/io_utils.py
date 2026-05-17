@@ -6,7 +6,9 @@ import torch
 
 
 def save_records(records, path):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
+    output_dir = os.path.dirname(path)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(records, f, indent=2)
     print(f"Saved {len(records)} records to: {path}")
@@ -18,7 +20,9 @@ def load_records(path):
 
 
 def save_held_out_qids(qids, path):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
+    output_dir = os.path.dirname(path)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(list(qids), f, indent=2)
     print(f"Saved {len(qids)} held-out qids to: {path}")
@@ -30,7 +34,9 @@ def load_held_out_qids(path):
 
 
 def save_classifier_checkpoint(model, metadata, path):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
+    output_dir = os.path.dirname(path)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
     torch.save({"model_state_dict": model.state_dict(), **metadata}, path)
     print(f"Saved checkpoint to: {path}")
 

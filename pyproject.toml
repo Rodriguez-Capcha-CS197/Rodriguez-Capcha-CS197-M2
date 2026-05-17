@@ -17,6 +17,8 @@ dependencies = [
     "transformers",
     "spacy",
     "accelerate>=1.13.0",
+    "pandas",
+    "scikit-learn",
 ]
 
 [tool.setuptools.packages.find]

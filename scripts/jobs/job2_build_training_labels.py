@@ -4,37 +4,26 @@ from __future__ import annotations
 
 import argparse
 import json
-from dataclasses import dataclass
+import logging
 from typing import Dict, List, Sequence
 
 import numpy as np
-from sentence_transformers import SentenceTransformer
 
-from shared.constants import ETA_REDUNDANCY, LAMBDA_GRID, MAX_SEGMENTS, TIE_EPS
+from shared.constants import ETA_REDUNDANCY, LAMBDA_GRID, MAX_SEGMENTS
+from configs.metadata import save_run_metadata
 from shared.io_utils import save_records
 from shared.lambda_inference import build_training_feature_record
 from shared.marco_loader import load_marco_sample
+from shared.embedding import MiniLMEmbedder
+from shared.logging_utils import configure_logging
+from shared.schemas import QueryExample
 from shared.scoring import ensure_1d
 from shared.segments import SegmentBuildConfig, build_segments_from_docs
+from shared.sweep_utils import BestSweepChoice, is_better_sweep_choice
 from ska_agent.core.pricing import PricingEngine
 
 
-@dataclass
-class QueryExample:
-    qid: str
-    query: str
-    relevant_doc_ids: Sequence[str]
-
-
-class MiniLMEmbedder:
-    def __init__(self, model_name: str):
-        self.model = SentenceTransformer(model_name)
-
-    def embed(self, sentences):
-        return self.model.encode(sentences, convert_to_numpy=True)
-
-    def embed_single(self, text):
-        return self.embed([text])[0]
+LOGGER = logging.getLogger(__name__)
 
 
 def _score_retrieval(retrieved_doc_ids: Sequence[str], relevant_doc_ids: Sequence[str]):
@@ -82,10 +71,7 @@ def _sweep_records(
     records = []
     for idx, ex in enumerate(query_examples, start=1):
         per_query = []
-        best_score = -float("inf")
-        best_idx = 0
-        best_k = None
-        best_lam = None
+        best = BestSweepChoice()
 
         for lam in lambda_grid:
             result = engines[lam].retrieve(ex.query, verbose=False)
@@ -115,28 +101,21 @@ def _sweep_records(
             per_query.append(row)
 
             k = len(result.segments)
-            if f1 > best_score + TIE_EPS:
-                best_score = f1
-                best_idx = len(per_query) - 1
-                best_k = k
-                best_lam = lam
-            elif abs(f1 - best_score) <= TIE_EPS:
-                if best_k is None or k < best_k:
-                    best_idx = len(per_query) - 1
-                    best_k = k
-                    best_lam = lam
-                elif k == best_k and best_lam is not None and lam < best_lam:
-                    best_idx = len(per_query) - 1
-                    best_k = k
-                    best_lam = lam
+            if is_better_sweep_choice(f1, k, float(lam), best):
+                best = BestSweepChoice(
+                    score=f1,
+                    row_index=len(per_query) - 1,
+                    num_segments=k,
+                    lambda_value=float(lam),
+                )
 
-        per_query[best_idx]["is_optimal"] = True
+        per_query[best.row_index]["is_optimal"] = True
         query_emb = ensure_1d(query_embedding_cache[ex.query]).astype(np.float32)
-        per_query[best_idx].update(build_training_feature_record(query_emb, corpus_embs, corpus_norms))
+        per_query[best.row_index].update(build_training_feature_record(query_emb, corpus_embs, corpus_norms))
         records.extend(per_query)
 
         if idx % 100 == 0:
-            print(f"{dataset_name}: processed {idx}/{len(query_examples)} queries")
+            LOGGER.info("%s: processed %d/%d queries", dataset_name, idx, len(query_examples))
     return records
 
 
@@ -184,6 +163,7 @@ def _load_marco_data(data_path: str, n_passages: int, seed: int):
 
 
 def main():
+    configure_logging()
     parser = argparse.ArgumentParser()
     parser.add_argument("--fineweb-queries-path", type=str, default="outputs/fineweb_queries.jsonl")
     parser.add_argument("--marco-data-path", type=str, required=True)
@@ -219,7 +199,7 @@ def main():
         max_queries_for_sweep=args.max_queries_for_sweep,
     )
     if args.max_queries_for_sweep is not None:
-        print(f"fineweb sweep capped at {len(fw_examples)} queries")
+        LOGGER.info("fineweb sweep capped at %d queries", len(fw_examples))
     fw_segments, fw_segment_to_doc_id = build_segments_from_docs(
         fw_doc_ids,
         fw_doc_texts,
@@ -235,6 +215,11 @@ def main():
         segment_config,
     )
     save_records(fw_records, args.fineweb_output_path)
+    save_run_metadata(
+        f"{args.fineweb_output_path}.metadata.json",
+        args,
+        extra={"dataset": "fineweb", "segment_config": segment_config.to_dict()},
+    )
 
     mr_doc_ids, mr_doc_texts, mr_examples = _load_marco_data(
         data_path=args.marco_data_path,
@@ -256,6 +241,11 @@ def main():
         segment_config,
     )
     save_records(mr_records, args.marco_output_path)
+    save_run_metadata(
+        f"{args.marco_output_path}.metadata.json",
+        args,
+        extra={"dataset": "marco", "segment_config": segment_config.to_dict()},
+    )
 
 
 if __name__ == "__main__":

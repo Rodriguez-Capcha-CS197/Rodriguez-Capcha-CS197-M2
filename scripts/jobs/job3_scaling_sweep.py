@@ -8,6 +8,9 @@ import os
 import subprocess
 import sys
 
+from configs.metadata import save_run_metadata
+from scripts.reporting import export_scaling_latex
+
 _JOBS_DIR = os.path.dirname(os.path.abspath(__file__))
 _REPO_ROOT = os.path.abspath(os.path.join(_JOBS_DIR, "..", ".."))
 
@@ -114,6 +117,15 @@ def main():
 
     with open(os.path.join(args.output_dir, "scaling_summary.json"), "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
+    export_scaling_latex(
+        os.path.join(args.output_dir, "scaling_summary.json"),
+        os.path.join(args.output_dir, "scaling_summary_table.tex"),
+    )
+    save_run_metadata(
+        os.path.join(args.output_dir, "scaling_metadata.json"),
+        args,
+        extra={"sizes": sizes},
+    )
 
 
 if __name__ == "__main__":

@@ -4,37 +4,37 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 import os
 from collections import defaultdict
 
-import matplotlib.pyplot as plt
 import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from beir.datasets.data_loader import GenericDataLoader
-from sentence_transformers import SentenceTransformer
 
+from configs.metadata import save_run_metadata
+from scripts.reporting import (
+    export_cross_domain_latex,
+    plot_feature_ablation,
+    plot_lambda_distribution_shift,
+    plot_tsne_lambda,
+)
 from shared.beir_scoring import build_beir_segments
 from shared.dataset_utils import merge_and_shuffle_datasets
+from shared.embedding import MiniLMEmbedder
 from shared.lambda_inference import (
     predict_covariance_lambda,
     predict_hybrid_lambda,
     predict_plain_lambda,
 )
+from shared.logging_utils import configure_logging
 from shared.predictor import LambdaPredictor
 from shared.segments import SegmentBuildConfig
 
 
-class MiniLMEmbedder:
-    def __init__(self, model_name: str):
-        self.model = SentenceTransformer(model_name)
-
-    def embed(self, sentences):
-        return self.model.encode(sentences, convert_to_numpy=True)
-
-    def embed_single(self, text):
-        return self.embed([text])[0]
+LOGGER = logging.getLogger(__name__)
 
 
 def _train_model(X, y, seed, hidden_dim=64, epochs=200, lr=1e-3):
@@ -197,6 +197,8 @@ def _eval_domain(
 
 
 def _plot_summary(scifact_runs, fiqa_runs, out_png, out_pdf):
+    import matplotlib.pyplot as plt
+
     labels = ["oracle", "fixed", "plain", "hybrid", "covariance"]
     x = np.arange(len(labels))
     width = 0.35
@@ -223,6 +225,7 @@ def _plot_summary(scifact_runs, fiqa_runs, out_png, out_pdf):
 
 
 def main():
+    configure_logging()
     parser = argparse.ArgumentParser()
     parser.add_argument("--fineweb-records", default="outputs/fineweb_labeled.json")
     parser.add_argument("--marco-records", default="outputs/marco_labeled.json")
@@ -297,12 +300,21 @@ def main():
                 segment_config,
             )
         )
-        print(f"completed seed {seed}")
+        LOGGER.info("completed seed %d", seed)
 
     with open(os.path.join(args.output_dir, "scifact_results.json"), "w", encoding="utf-8") as f:
         json.dump(scifact_runs, f, indent=2)
     with open(os.path.join(args.output_dir, "fiqa_results.json"), "w", encoding="utf-8") as f:
         json.dump(fiqa_runs, f, indent=2)
+    save_run_metadata(
+        os.path.join(args.output_dir, "week9_metadata.json"),
+        args,
+        extra={
+            "segment_config": segment_config.to_dict(),
+            "seeds": seeds,
+            "train_records": int(len(training_records)),
+        },
+    )
 
     _plot_summary(
         scifact_runs,
@@ -310,8 +322,34 @@ def main():
         os.path.join(args.output_dir, "week9_comparison_table.png"),
         os.path.join(args.output_dir, "week9_comparison_table.pdf"),
     )
+    export_cross_domain_latex(
+        os.path.join(args.output_dir, "scifact_results.json"),
+        os.path.join(args.output_dir, "fiqa_results.json"),
+        os.path.join(args.output_dir, "cross_domain_ndcg_table.tex"),
+    )
+    plot_feature_ablation(
+        scifact_runs,
+        fiqa_runs,
+        os.path.join(args.output_dir, "feature_ablation.png"),
+    )
+    try:
+        plot_lambda_distribution_shift(
+            args.fineweb_records,
+            args.marco_records,
+            os.path.join(args.output_dir, "lambda_distribution_shift.png"),
+        )
+    except Exception as exc:
+        LOGGER.warning("lambda distribution plot skipped: %s", exc)
+    try:
+        plot_tsne_lambda(
+            training_records,
+            os.path.join(args.output_dir, "query_tsne_by_lambda.png"),
+            seed=seeds[0] if seeds else 0,
+        )
+    except Exception as exc:
+        LOGGER.warning("t-SNE plot skipped: %s", exc)
 
-    print("saved week9 outputs")
+    LOGGER.info("saved week9 outputs")
 
 
 if __name__ == "__main__":

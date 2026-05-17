@@ -5,8 +5,8 @@ from __future__ import annotations
 import argparse
 import copy
 import json
+import logging
 import os
-from dataclasses import dataclass
 
 import numpy as np
 import torch
@@ -14,34 +14,21 @@ import torch.nn as nn
 import torch.optim as optim
 from beir import util
 from beir.datasets.data_loader import GenericDataLoader
-from sentence_transformers import SentenceTransformer
 
+from configs.metadata import save_run_metadata
+from scripts.reporting import export_kshot_latex
 from shared.beir_scoring import scifact_ndcg
+from shared.embedding import MiniLMEmbedder
+from shared.logging_utils import configure_logging
 from shared.predictor import LambdaPredictor
+from shared.schemas import QueryExample
 from shared.scoring import ensure_1d
 from shared.segments import SegmentBuildConfig, build_segments_from_docs
 from ska_agent.core.pricing import PricingEngine
 from ska_agent.core.structures import Segment
 
 
-# Hold a single query example with relevance ids.
-@dataclass
-class QueryExample:
-    qid: str
-    query: str
-    relevant_doc_ids: list[str]
-
-
-# Build a sentence-transformer embedder wrapper.
-class MiniLMEmbedder:
-    def __init__(self, model_name: str):
-        self.model = SentenceTransformer(model_name)
-
-    def embed(self, texts: list[str]) -> np.ndarray:
-        return self.model.encode(texts, convert_to_numpy=True)
-
-    def embed_single(self, text: str) -> np.ndarray:
-        return self.embed([text])[0]
+LOGGER = logging.getLogger(__name__)
 
 
 # Download SciFact when requested.
@@ -392,6 +379,7 @@ def _build_fineweb_labels(
 
 # Main entrypoint for the full paper ablation.
 def main() -> None:
+    configure_logging()
     parser = argparse.ArgumentParser()
     parser.add_argument("--fineweb-queries-path", default="outputs/fineweb_queries.jsonl")
     parser.add_argument("--max-fineweb-queries", type=int, default=25000)
@@ -421,7 +409,7 @@ def main() -> None:
         lookback_k=args.lookback_k,
     )
 
-    print("building FineWeb labels...")
+    LOGGER.info("building FineWeb labels")
     X_train, y_train = _build_fineweb_labels(
         args.fineweb_queries_path,
         args.max_fineweb_queries,
@@ -429,12 +417,12 @@ def main() -> None:
         lambda_grid,
         segment_config=segment_config,
     )
-    print(f"fineweb training pairs: {len(X_train)}")
+    LOGGER.info("fineweb training pairs: %d", len(X_train))
 
     model = _train_predictor(X_train, y_train, seed=args.seed, hidden_dim=64, epochs=200, lr=1e-3)
     fixed_lambda = float(np.median(y_train))
 
-    print("loading SciFact...")
+    LOGGER.info("loading SciFact")
     scifact_path = _download_scifact(args.scifact_data_dir) if args.download_scifact else f"{args.scifact_data_dir}/scifact"
     corpus, queries, qrels = GenericDataLoader(scifact_path).load(split=args.scifact_split)
     scifact_doc_ids = []
@@ -448,7 +436,7 @@ def main() -> None:
         scifact_doc_ids.append(str(doc_id))
         scifact_doc_texts.append(merged)
 
-    print("building SciFact geometry segments...")
+    LOGGER.info("building SciFact geometry segments")
     scifact_segments, scifact_seg_to_doc = build_segments_from_docs(
         scifact_doc_ids,
         scifact_doc_texts,
@@ -457,7 +445,7 @@ def main() -> None:
     )
     scifact_examples = _prepare_scifact_examples(queries, qrels)
 
-    print("running ablation...")
+    LOGGER.info("running ablation")
     result = _run_ablation(
         scifact_examples=scifact_examples,
         scifact_segments=scifact_segments,
@@ -479,7 +467,13 @@ def main() -> None:
 
     with open(args.output_path, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2)
-    print(f"saved: {args.output_path}")
+    export_kshot_latex(args.output_path, os.path.splitext(args.output_path)[0] + "_kshot_table.tex")
+    save_run_metadata(
+        f"{args.output_path}.metadata.json",
+        args,
+        extra={"segment_config": segment_config.to_dict(), "lambda_grid": lambda_grid},
+    )
+    LOGGER.info("saved: %s", args.output_path)
 
 
 if __name__ == "__main__":

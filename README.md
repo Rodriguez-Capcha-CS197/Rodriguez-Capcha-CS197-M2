@@ -10,13 +10,21 @@ uv sync
 
 ## Repository layout
 
-- `shared`: shared data/eval/inference utilities
-- `ska_agent`: SKA agent package and CLI
+- `shared`: core runtime utilities reused by multiple jobs: segmentation, inference features, sweep helpers
 - `scripts/jobs`: reproducible batch jobs for each experiment stage
-- `notebooks`: exploratory analysis notebooks
-- `configs`: run/config manifests (intended location)
+- `scripts/reporting.py`: export and plotting helpers for paper tables/figures
+- `configs`: run metadata and config-oriented helpers
 - `data`: local datasets (`raw`, `interim`, `processed`; gitignored)
-- `artifacts`: generated reports/figures/checkpoints (gitignored)
+- `artifacts`: generated reports/figures/checkpoints only; no source code
+- `ska_agent`: SKA agent package and CLI
+- `notebooks`: exploratory analysis notebooks
+
+Rule of thumb:
+- Put execution logic that affects retrieval/training behavior in `shared/`.
+- Put job orchestration in `scripts/jobs/`.
+- Put paper-export code in `scripts/reporting.py`.
+- Put metadata/config serialization in `configs/`.
+- Keep generated outputs in `outputs/` or `artifacts/`, not mixed with source modules.
 
 ## Job 1 (FineWeb query generation)
 

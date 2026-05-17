@@ -3,39 +3,28 @@
 from __future__ import annotations
 
 import argparse
-from dataclasses import dataclass
+import logging
 from typing import Dict, List, Sequence
 
 import numpy as np
 from beir import util
 from beir.datasets.data_loader import GenericDataLoader
-from sentence_transformers import SentenceTransformer
 
+from configs.metadata import save_run_metadata
 from shared.beir_scoring import build_beir_segments, scifact_ndcg
-from shared.constants import ETA_REDUNDANCY, LAMBDA_GRID, MAX_SEGMENTS, TIE_EPS
+from shared.constants import ETA_REDUNDANCY, LAMBDA_GRID, MAX_SEGMENTS
+from shared.embedding import MiniLMEmbedder
 from shared.io_utils import save_records
 from shared.lambda_inference import build_training_feature_record
+from shared.logging_utils import configure_logging
+from shared.schemas import QueryExample
 from shared.scoring import ensure_1d
 from shared.segments import SegmentBuildConfig
+from shared.sweep_utils import BestSweepChoice, is_better_sweep_choice
 from ska_agent.core.pricing import PricingEngine
 
 
-@dataclass
-class QueryExample:
-    qid: str
-    query: str
-    relevant_doc_ids: Sequence[str]
-
-
-class MiniLMEmbedder:
-    def __init__(self, model_name: str):
-        self.model = SentenceTransformer(model_name)
-
-    def embed(self, sentences):
-        return self.model.encode(sentences, convert_to_numpy=True)
-
-    def embed_single(self, text):
-        return self.embed([text])[0]
+LOGGER = logging.getLogger(__name__)
 
 
 def _download_scifact(data_dir: str) -> str:
@@ -62,6 +51,7 @@ def _retrieved_doc_ids(result, segment_to_doc_id):
 
 
 def main():
+    configure_logging()
     parser = argparse.ArgumentParser()
     parser.add_argument("--data-dir", type=str, default="outputs/beir_data")
     parser.add_argument("--download", action="store_true")
@@ -113,10 +103,7 @@ def main():
     records = []
     for idx, ex in enumerate(examples, start=1):
         per_query = []
-        best_score = -float("inf")
-        best_idx = 0
-        best_k = None
-        best_lam = None
+        best = BestSweepChoice()
 
         for lam in lambda_grid:
             result = engines[lam].retrieve(ex.query, verbose=False)
@@ -143,30 +130,28 @@ def main():
             per_query.append(row)
 
             k = len(result.segments)
-            if ndcg > best_score + TIE_EPS:
-                best_score = ndcg
-                best_idx = len(per_query) - 1
-                best_k = k
-                best_lam = lam
-            elif abs(ndcg - best_score) <= TIE_EPS:
-                if best_k is None or k < best_k:
-                    best_idx = len(per_query) - 1
-                    best_k = k
-                    best_lam = lam
-                elif k == best_k and best_lam is not None and lam < best_lam:
-                    best_idx = len(per_query) - 1
-                    best_k = k
-                    best_lam = lam
+            if is_better_sweep_choice(float(ndcg), k, float(lam), best):
+                best = BestSweepChoice(
+                    score=float(ndcg),
+                    row_index=len(per_query) - 1,
+                    num_segments=k,
+                    lambda_value=float(lam),
+                )
 
-        per_query[best_idx]["is_optimal"] = True
+        per_query[best.row_index]["is_optimal"] = True
         query_emb = ensure_1d(query_embedding_cache[ex.query]).astype(np.float32)
-        per_query[best_idx].update(build_training_feature_record(query_emb, corpus_embs, corpus_norms))
+        per_query[best.row_index].update(build_training_feature_record(query_emb, corpus_embs, corpus_norms))
         records.extend(per_query)
 
         if idx % 100 == 0:
-            print(f"processed {idx}/{len(examples)} queries")
+            LOGGER.info("processed %d/%d queries", idx, len(examples))
 
     save_records(records, args.output_path)
+    save_run_metadata(
+        f"{args.output_path}.metadata.json",
+        args,
+        extra={"dataset": "scifact", "segment_config": segment_config.to_dict()},
+    )
 
 
 if __name__ == "__main__":
