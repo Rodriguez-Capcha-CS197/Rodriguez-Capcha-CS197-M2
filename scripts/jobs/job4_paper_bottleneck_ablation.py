@@ -328,43 +328,69 @@ def _run_ablation(
         np.asarray(shot_y, dtype=np.float32) if shot_y else np.empty((0,), dtype=np.float32),
     )
 
-    oracle_scores = []
-    fixed_scores = []
-    zero_shot_scores = []
-    few_shot_scores = []
+    oracle_by_qid: dict[str, float] = {}
+    fixed_by_qid: dict[str, float] = {}
+    zero_by_qid: dict[str, float] = {}
+    few_by_qid: dict[str, float] = {}
+
     for ex in scifact_examples:
-        oracle_scores.append(
-            _run_query_with_lambda(
-                ex.qid,
-                ex.query,
-                oracle_lambda_by_qid[ex.qid],
-                scifact_segments,
-                embedder,
-                scifact_seg_to_doc,
-                qrels,
-            )
+        oracle_by_qid[ex.qid] = _run_query_with_lambda(
+            ex.qid, ex.query, oracle_lambda_by_qid[ex.qid],
+            scifact_segments, embedder, scifact_seg_to_doc, qrels,
         )
-        fixed_scores.append(
-            _run_query_with_lambda(ex.qid, ex.query, fixed_lambda, scifact_segments, embedder, scifact_seg_to_doc, qrels)
+        fixed_by_qid[ex.qid] = _run_query_with_lambda(
+            ex.qid, ex.query, fixed_lambda,
+            scifact_segments, embedder, scifact_seg_to_doc, qrels,
         )
         zero_lam = _predict_lambda(train_model, embedder, ex.query)
-        zero_shot_scores.append(
-            _run_query_with_lambda(ex.qid, ex.query, zero_lam, scifact_segments, embedder, scifact_seg_to_doc, qrels)
+        zero_by_qid[ex.qid] = _run_query_with_lambda(
+            ex.qid, ex.query, zero_lam,
+            scifact_segments, embedder, scifact_seg_to_doc, qrels,
         )
         if ex.qid in shot_qids:
             continue
         ft_lam = _predict_lambda(ft_model, embedder, ex.query)
-        few_shot_scores.append(
-            _run_query_with_lambda(ex.qid, ex.query, ft_lam, scifact_segments, embedder, scifact_seg_to_doc, qrels)
+        few_by_qid[ex.qid] = _run_query_with_lambda(
+            ex.qid, ex.query, ft_lam,
+            scifact_segments, embedder, scifact_seg_to_doc, qrels,
         )
 
+    held_out_qids = [ex.qid for ex in scifact_examples if ex.qid not in shot_qids]
+
+    # All-query means (for reporting).
+    oracle_all = float(np.mean(list(oracle_by_qid.values()))) if oracle_by_qid else 0.0
+    fixed_all = float(np.mean(list(fixed_by_qid.values()))) if fixed_by_qid else 0.0
+    zero_all = float(np.mean(list(zero_by_qid.values()))) if zero_by_qid else 0.0
+
+    # Held-out-only means for apples-to-apples recovery comparison.
+    oracle_held = float(np.mean([oracle_by_qid[q] for q in held_out_qids])) if held_out_qids else 0.0
+    zero_held = float(np.mean([zero_by_qid[q] for q in held_out_qids])) if held_out_qids else 0.0
+    few_held = float(np.mean([few_by_qid[q] for q in held_out_qids])) if held_out_qids else 0.0
+
+    gap = oracle_held - zero_held
+    recovery_pct = float(100.0 * (few_held - zero_held) / gap) if gap > 1e-9 else 0.0
+
+    print(f"\n=== Fine-tuning Recovery (FineWeb → SciFact, k={k_shot}) ===")
+    print(f"Oracle nDCG@10 (all):           {oracle_all:.3f}")
+    print(f"Fixed-lambda nDCG@10 (all):     {fixed_all:.3f}")
+    print(f"MLP zero-shot nDCG@10 (all):    {zero_all:.3f}")
+    print(f"--- held-out queries only (n={len(held_out_qids)}) ---")
+    print(f"Oracle nDCG@10:                 {oracle_held:.3f}")
+    print(f"MLP zero-shot nDCG@10:          {zero_held:.3f}")
+    print(f"MLP {k_shot}-shot fine-tuned nDCG@10:   {few_held:.3f}")
+    print(f"Oracle gap:                     {gap:.3f}")
+    print(f"Recovery:                       {recovery_pct:.1f}% of oracle gap")
+
     return {
-        "oracle_ndcg_at_10": float(np.mean(oracle_scores)) if oracle_scores else 0.0,
-        "fixed_ndcg_at_10": float(np.mean(fixed_scores)) if fixed_scores else 0.0,
-        "mlp_zero_shot_ndcg_at_10": float(np.mean(zero_shot_scores)) if zero_shot_scores else 0.0,
-        "mlp_k_shot_ft_ndcg_at_10": float(np.mean(few_shot_scores)) if few_shot_scores else 0.0,
+        "oracle_ndcg_at_10": oracle_all,
+        "fixed_ndcg_at_10": fixed_all,
+        "mlp_zero_shot_ndcg_at_10": zero_all,
+        "mlp_zero_shot_held_out_ndcg_at_10": zero_held,
+        "mlp_k_shot_ft_ndcg_at_10": few_held,
+        "oracle_held_out_ndcg_at_10": oracle_held,
+        "recovery_pct": recovery_pct,
         "k_shot": int(k_shot),
-        "held_out_eval_queries": int(len(few_shot_scores)),
+        "held_out_eval_queries": int(len(held_out_qids)),
         "num_scifact_queries": int(len(scifact_examples)),
     }
 
