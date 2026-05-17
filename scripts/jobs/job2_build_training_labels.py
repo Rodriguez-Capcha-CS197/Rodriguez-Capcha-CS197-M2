@@ -47,7 +47,7 @@ def _sweep_records(
     embedder: MiniLMEmbedder,
     segment_config: SegmentBuildConfig,
 ):
-    lambda_grid = sorted(set(list(LAMBDA_GRID) + [1.0]))
+    lambda_grid = list(LAMBDA_GRID)
     query_embedding_cache = {ex.query: ensure_1d(embedder.embed_single(ex.query)) for ex in query_examples}
     corpus_embs = np.asarray([seg.vector for seg in segments], dtype=np.float32)
     corpus_norms = np.linalg.norm(corpus_embs, axis=1)
