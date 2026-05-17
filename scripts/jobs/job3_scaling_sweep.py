@@ -8,11 +8,14 @@ import os
 import subprocess
 import sys
 
+_JOBS_DIR = os.path.dirname(os.path.abspath(__file__))
+_REPO_ROOT = os.path.abspath(os.path.join(_JOBS_DIR, "..", ".."))
+
 
 def _run_week9_eval(output_dir, n_train_limit, common_args):
     cmd = [
         sys.executable,
-        "jobs/job3_week9_eval.py",
+        os.path.join(_JOBS_DIR, "job3_week9_eval.py"),
         "--output-dir",
         output_dir,
         "--fineweb-records",
@@ -36,7 +39,8 @@ def _run_week9_eval(output_dir, n_train_limit, common_args):
         "--train-limit",
         str(n_train_limit),
     ]
-    subprocess.run(cmd, check=True)
+    env = {**os.environ, "PYTHONPATH": _REPO_ROOT}
+    subprocess.run(cmd, check=True, cwd=_REPO_ROOT, env=env)
 
 
 def _read_mean(path, key):
