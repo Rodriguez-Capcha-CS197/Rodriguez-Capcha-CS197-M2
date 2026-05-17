@@ -19,6 +19,7 @@ from configs.metadata import save_run_metadata
 from scripts.reporting import export_kshot_latex
 from shared.beir_data import resolve_beir_dataset_path
 from shared.beir_scoring import scifact_ndcg
+from shared.constants import LAMBDA_GRID
 from shared.embedding import MiniLMEmbedder
 from shared.logging_utils import configure_logging
 from shared.predictor import LambdaPredictor
@@ -388,7 +389,7 @@ def main() -> None:
     parser.add_argument("--download-scifact", action="store_true")
     parser.add_argument("--scifact-split", default="test")
     parser.add_argument("--embed-model", default="sentence-transformers/all-MiniLM-L6-v2")
-    parser.add_argument("--lambda-grid", default="0.01,0.03,0.1,0.3,1.0")
+    parser.add_argument("--lambda-grid", default=",".join(str(x) for x in LAMBDA_GRID))
     parser.add_argument("--k-shot", type=int, default=10)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--min-sentence-len", type=int, default=20)
