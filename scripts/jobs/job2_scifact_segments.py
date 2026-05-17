@@ -11,6 +11,7 @@ from beir import util
 from beir.datasets.data_loader import GenericDataLoader
 
 from configs.metadata import save_run_metadata
+from shared.beir_data import resolve_beir_dataset_path
 from shared.beir_scoring import build_beir_segments, scifact_ndcg
 from shared.constants import ETA_REDUNDANCY, LAMBDA_GRID, MAX_SEGMENTS
 from shared.embedding import MiniLMEmbedder
@@ -65,7 +66,13 @@ def main():
     parser.add_argument("--lookback-k", type=int, default=50)
     args = parser.parse_args()
 
-    data_path = _download_scifact(args.data_dir) if args.download else f"{args.data_dir}/scifact"
+    data_path = resolve_beir_dataset_path(
+        args.data_dir,
+        "scifact",
+        args.split,
+        allow_download=args.download,
+        downloader=_download_scifact,
+    )
     corpus, queries, qrels = GenericDataLoader(data_path).load(split=args.split)
 
     embedder = MiniLMEmbedder(args.embed_model)

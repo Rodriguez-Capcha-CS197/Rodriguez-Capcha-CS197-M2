@@ -3,6 +3,8 @@
 import numpy as np
 from beir.datasets.data_loader import GenericDataLoader
 
+from .beir_data import resolve_beir_dataset_path
+
 
 def load_marco_sample(data_path, n_passages=15000, seed=0):
     """
@@ -11,7 +13,8 @@ def load_marco_sample(data_path, n_passages=15000, seed=0):
     Output rows:
       {"query": str, "passage": str, "doc_id": str, "qid": str}
     """
-    corpus, queries, qrels = GenericDataLoader(data_path).load(split="train")
+    resolved_data_path = resolve_beir_dataset_path(data_path, "msmarco", "train")
+    corpus, queries, qrels = GenericDataLoader(resolved_data_path).load(split="train")
 
     doc_to_qids = {}
     for qid, doc_scores in qrels.items():

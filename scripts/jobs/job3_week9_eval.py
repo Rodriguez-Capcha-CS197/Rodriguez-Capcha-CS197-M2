@@ -21,6 +21,7 @@ from scripts.reporting import (
     plot_lambda_distribution_shift,
     plot_tsne_lambda,
 )
+from shared.beir_data import resolve_beir_dataset_path
 from shared.beir_scoring import build_beir_segments
 from shared.dataset_utils import merge_and_shuffle_datasets
 from shared.embedding import MiniLMEmbedder
@@ -172,7 +173,8 @@ def _eval_domain(
     _assert_record_segment_config(records, segment_config, records_path)
     records_by_query = _group_by_query(records)
 
-    corpus, _, _ = GenericDataLoader(beir_data_path).load(split=split)
+    resolved_data_path = resolve_beir_dataset_path(beir_data_path, domain_name.lower(), split)
+    corpus, _, _ = GenericDataLoader(resolved_data_path).load(split=split)
     segments, _ = build_beir_segments(corpus, embedder, segment_config=segment_config)
     corpus_embs = np.asarray([seg.vector for seg in segments], dtype=np.float32)
     corpus_norms = np.linalg.norm(corpus_embs, axis=1)

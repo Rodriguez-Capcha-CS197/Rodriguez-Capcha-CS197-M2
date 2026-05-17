@@ -1,17 +1,25 @@
 """FineWeb-Edu loading and sentence tokenization helpers."""
 
+import re
+
 from datasets import load_dataset
 import spacy
 
 
 _NLP = None
+_SENTENCE_BOUNDARY_RE = re.compile(r"(?<=[.!?])\s+")
 
 
 def _get_nlp():
-    """Lazily load spaCy model so import stays light."""
+    """Lazily load a spaCy pipeline, falling back to a blank sentencizer."""
     global _NLP
     if _NLP is None:
-        _NLP = spacy.load("en_core_web_sm")
+        try:
+            _NLP = spacy.load("en_core_web_sm")
+        except OSError:
+            nlp = spacy.blank("en")
+            nlp.add_pipe("sentencizer")
+            _NLP = nlp
     return _NLP
 
 
@@ -40,5 +48,14 @@ def load_fineweb_sample(n_passages=10000, seed=0, target_tokens=None):
 
 def split_into_sentences(text, min_len=20):
     """Sentence-tokenize text and filter sentences shorter than min_len."""
-    nlp = _get_nlp()
-    return [s.text.strip() for s in nlp(text).sents if len(s.text.strip()) >= min_len]
+    stripped = str(text).strip()
+    if not stripped:
+        return []
+
+    try:
+        nlp = _get_nlp()
+        sentences = [s.text.strip() for s in nlp(stripped).sents]
+    except Exception:
+        sentences = [part.strip() for part in _SENTENCE_BOUNDARY_RE.split(stripped)]
+
+    return [sentence for sentence in sentences if len(sentence) >= min_len]

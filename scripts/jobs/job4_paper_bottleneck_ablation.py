@@ -17,6 +17,7 @@ from beir.datasets.data_loader import GenericDataLoader
 
 from configs.metadata import save_run_metadata
 from scripts.reporting import export_kshot_latex
+from shared.beir_data import resolve_beir_dataset_path
 from shared.beir_scoring import scifact_ndcg
 from shared.embedding import MiniLMEmbedder
 from shared.logging_utils import configure_logging
@@ -423,7 +424,13 @@ def main() -> None:
     fixed_lambda = float(np.median(y_train))
 
     LOGGER.info("loading SciFact")
-    scifact_path = _download_scifact(args.scifact_data_dir) if args.download_scifact else f"{args.scifact_data_dir}/scifact"
+    scifact_path = resolve_beir_dataset_path(
+        args.scifact_data_dir,
+        "scifact",
+        args.scifact_split,
+        allow_download=args.download_scifact,
+        downloader=_download_scifact,
+    )
     corpus, queries, qrels = GenericDataLoader(scifact_path).load(split=args.scifact_split)
     scifact_doc_ids = []
     scifact_doc_texts = []

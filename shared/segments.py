@@ -15,6 +15,7 @@ from .fineweb_loader import split_into_sentences
 
 SEGMENT_STRATEGY_GEOMETRY = "geometry_sentence"
 SEGMENT_STRATEGY_LEGACY = "legacy_passage"
+_SENTENCE_EMBED_CHUNK_SIZE = 2048
 
 
 @dataclass(frozen=True)
@@ -63,6 +64,8 @@ def _geometry_sentence_segments(
     segment_to_doc_id: dict[int, str] = {}
     global_idx = 0
 
+    prepared_docs: list[tuple[str, list[str]]] = []
+    all_sentences: list[str] = []
     for doc_id, text in zip(doc_ids, doc_texts):
         sentences = split_into_sentences(str(text), min_len=config.min_sentence_len)
         if not sentences:
@@ -70,8 +73,23 @@ def _geometry_sentence_segments(
             if not stripped:
                 continue
             sentences = [stripped]
+        prepared_docs.append((str(doc_id), sentences))
+        all_sentences.extend(sentences)
 
-        sentence_embs = np.asarray(embedder.embed(sentences), dtype=np.float64)
+    if not prepared_docs:
+        return segments, segment_to_doc_id
+
+    sentence_embedding_chunks = []
+    for start in range(0, len(all_sentences), _SENTENCE_EMBED_CHUNK_SIZE):
+        chunk = all_sentences[start : start + _SENTENCE_EMBED_CHUNK_SIZE]
+        sentence_embedding_chunks.append(np.asarray(embedder.embed(chunk), dtype=np.float64))
+    all_sentence_embs = np.concatenate(sentence_embedding_chunks, axis=0)
+
+    offset = 0
+    for doc_id, sentences in prepared_docs:
+        next_offset = offset + len(sentences)
+        sentence_embs = all_sentence_embs[offset:next_offset]
+        offset = next_offset
         learner = GeometryLearner(
             lambda_seg=None,
             lookback_k=config.lookback_k,
