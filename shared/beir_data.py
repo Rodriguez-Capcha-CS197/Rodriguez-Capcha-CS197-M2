@@ -32,7 +32,7 @@ def candidate_beir_dataset_dirs(base_path: Path, dataset_name: str) -> list[Path
 
     if base_path.is_dir():
         for child in sorted(base_path.iterdir()):
-            if child.is_dir():
+            if child.is_dir() and child.name == dataset_name:
                 add(child)
         for child in sorted(base_path.glob(f"*/{dataset_name}")):
             if child.is_dir():

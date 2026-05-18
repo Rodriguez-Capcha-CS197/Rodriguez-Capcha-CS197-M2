@@ -38,13 +38,18 @@ def _to_beir_results(retrieved_segments, segment_to_doc_id, query_id):
     return results
 
 
-def scifact_ndcg(retrieved_segments, query_id, qrels, segment_to_doc_id, k=10):
-    """Score SciFact retrieval using BEIR's nDCG@k evaluator."""
+def beir_ndcg(retrieved_segments, query_id, qrels, segment_to_doc_id, k=10):
+    """Score retrieval using BEIR's nDCG@k evaluator."""
     results = _to_beir_results(retrieved_segments, segment_to_doc_id, query_id)
     ndcg, _, _, _ = EvaluateRetrieval.evaluate(qrels, results, k_values=[k])
     return float(ndcg[f"NDCG@{k}"])
 
 
+def scifact_ndcg(retrieved_segments, query_id, qrels, segment_to_doc_id, k=10):
+    """Score SciFact retrieval using BEIR's nDCG@k evaluator."""
+    return beir_ndcg(retrieved_segments, query_id, qrels, segment_to_doc_id, k=k)
+
+
 def fiqa_ndcg(retrieved_segments, query_id, qrels, segment_to_doc_id, k=10):
     """Score FiQA retrieval using BEIR's nDCG@k evaluator (graded relevance)."""
-    return scifact_ndcg(retrieved_segments, query_id, qrels, segment_to_doc_id, k=k)
+    return beir_ndcg(retrieved_segments, query_id, qrels, segment_to_doc_id, k=k)

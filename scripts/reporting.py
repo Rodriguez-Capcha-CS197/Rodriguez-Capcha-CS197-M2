@@ -43,11 +43,14 @@ def _mean_std(values: list[float]) -> str:
     return f"{float(np.mean(arr)):.3f} ± {float(np.std(arr)):.3f}"
 
 
-def export_cross_domain_latex(scifact_results_path: str, fiqa_results_path: str, output_path: str) -> None:
+DEFAULT_METHODS = ["oracle", "precision_oracle", "f1_oracle", "fixed", "plain", "hybrid", "covariance"]
+
+
+def export_domain_latex(domain_results_paths: list[tuple[str, str]], output_path: str) -> None:
     rows = []
-    for domain, path in [("SciFact", scifact_results_path), ("FiQA", fiqa_results_path)]:
+    for domain, path in domain_results_paths:
         runs = read_json_rows(path)
-        methods = [key for key in ["oracle", "fixed", "plain", "hybrid", "covariance"] if key in runs[0]]
+        methods = [key for key in DEFAULT_METHODS if key in runs[0]]
         for method in methods:
             rows.append(
                 {
@@ -59,11 +62,15 @@ def export_cross_domain_latex(scifact_results_path: str, fiqa_results_path: str,
     export_latex_table(pd.DataFrame(rows), output_path, index=False, float_format="%s")
 
 
-def export_cross_domain_precision_latex(scifact_results_path: str, fiqa_results_path: str, output_path: str) -> None:
+def export_cross_domain_latex(scifact_results_path: str, fiqa_results_path: str, output_path: str) -> None:
+    export_domain_latex([("SciFact", scifact_results_path), ("FiQA", fiqa_results_path)], output_path)
+
+
+def export_domain_precision_latex(domain_results_paths: list[tuple[str, str]], output_path: str) -> None:
     rows = []
-    for domain, path in [("SciFact", scifact_results_path), ("FiQA", fiqa_results_path)]:
+    for domain, path in domain_results_paths:
         runs = read_json_rows(path)
-        methods = [key for key in ["oracle", "fixed", "plain", "hybrid", "covariance"] if key in runs[0]]
+        methods = [key for key in DEFAULT_METHODS if key in runs[0]]
         for method in methods:
             rows.append(
                 {
@@ -74,9 +81,53 @@ def export_cross_domain_precision_latex(scifact_results_path: str, fiqa_results_
                     ),
                     "P@5": _mean_std([float(run[f"{method}_precision_at_5"]) for run in runs]),
                     "Recall@5": _mean_std([float(run[f"{method}_recall_at_5"]) for run in runs]),
+                    "F1@returned": _mean_std([float(run[f"{method}_f1_returned"]) for run in runs]),
+                    "Avg returned": _mean_std([float(run[f"{method}_avg_num_returned_docs"]) for run in runs]),
                 }
             )
     export_latex_table(pd.DataFrame(rows), output_path, index=False, float_format="%s")
+
+
+def export_cross_domain_precision_latex(scifact_results_path: str, fiqa_results_path: str, output_path: str) -> None:
+    export_domain_precision_latex([("SciFact", scifact_results_path), ("FiQA", fiqa_results_path)], output_path)
+
+
+def export_bootstrap_latex(bootstrap_summary_path: str, output_path: str) -> None:
+    rows = read_json_rows(bootstrap_summary_path)
+    table_rows = []
+    for row in rows:
+        method = row["method"]
+        ndcg = row["ndcg_at_10"]
+        precision = row["precision_returned"]
+        f1 = row["f1_returned"]
+        out = {
+            "domain": row["domain"],
+            "method": method,
+            "n_queries": row.get("n_queries", row.get("n", 0)),
+            "nDCG@10 95% CI": f"{ndcg['mean']:.3f} [{ndcg['ci_low']:.3f}, {ndcg['ci_high']:.3f}]",
+            "precision@returned 95% CI": (
+                f"{precision['mean']:.3f} [{precision['ci_low']:.3f}, {precision['ci_high']:.3f}]"
+            ),
+            "F1@returned 95% CI": f"{f1['mean']:.3f} [{f1['ci_low']:.3f}, {f1['ci_high']:.3f}]",
+        }
+        if method != "fixed":
+            ndcg_diff = row["ndcg_at_10_diff_vs_fixed"]
+            precision_diff = row["precision_returned_diff_vs_fixed"]
+            out["ΔnDCG vs fixed"] = (
+                f"{ndcg_diff['mean_diff']:+.3f} "
+                f"[{ndcg_diff['ci_low']:+.3f}, {ndcg_diff['ci_high']:+.3f}], "
+                f"p={ndcg_diff['p_two_sided']:.3f}"
+            )
+            out["Δprecision vs fixed"] = (
+                f"{precision_diff['mean_diff']:+.3f} "
+                f"[{precision_diff['ci_low']:+.3f}, {precision_diff['ci_high']:+.3f}], "
+                f"p={precision_diff['p_two_sided']:.3f}"
+            )
+        else:
+            out["ΔnDCG vs fixed"] = "--"
+            out["Δprecision vs fixed"] = "--"
+        table_rows.append(out)
+    export_latex_table(pd.DataFrame(table_rows), output_path, index=False, float_format="%s")
 
 
 def export_kshot_latex(result_path: str, output_path: str) -> None:
