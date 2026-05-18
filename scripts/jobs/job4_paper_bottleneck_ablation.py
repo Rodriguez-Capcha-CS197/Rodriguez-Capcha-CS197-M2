@@ -7,6 +7,7 @@ import copy
 import json
 import logging
 import os
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
 import numpy as np
 import torch
@@ -31,6 +32,11 @@ from ska_agent.core.structures import Segment
 
 
 LOGGER = logging.getLogger(__name__)
+
+
+_FINEWEB_LABEL_ENGINES = None
+_FINEWEB_LABEL_SEG_TO_DOC = None
+_FINEWEB_LABEL_QUERY_EMBEDDINGS = None
 
 
 # Download SciFact when requested.
@@ -111,6 +117,50 @@ def _best_lambda_for_query(
                 best_lambda = lam
                 best_k = k
     return float(best_lambda if best_lambda is not None else 1.0)
+
+
+def _init_fineweb_label_worker(segments, segment_to_doc_id, query_embedding_cache, lambda_grid):
+    global _FINEWEB_LABEL_ENGINES
+    global _FINEWEB_LABEL_SEG_TO_DOC
+    global _FINEWEB_LABEL_QUERY_EMBEDDINGS
+
+    _FINEWEB_LABEL_SEG_TO_DOC = segment_to_doc_id
+    _FINEWEB_LABEL_QUERY_EMBEDDINGS = query_embedding_cache
+
+    def cached_embed_fn(text):
+        return _FINEWEB_LABEL_QUERY_EMBEDDINGS[text]
+
+    _FINEWEB_LABEL_ENGINES = {
+        lam: PricingEngine(
+            segments=segments,
+            embed_fn=cached_embed_fn,
+            lambda_sparsity=float(lam),
+            eta_redundancy=0.0,
+            max_segments=5,
+        )
+        for lam in lambda_grid
+    }
+
+
+def _fineweb_label_one(query_index: int, ex: QueryExample):
+    best_lam = _best_lambda_for_query(
+        ex.query,
+        ex.relevant_doc_ids,
+        _FINEWEB_LABEL_ENGINES,
+        _FINEWEB_LABEL_SEG_TO_DOC,
+    )
+    query_emb = ensure_1d(_FINEWEB_LABEL_QUERY_EMBEDDINGS[ex.query]).astype(np.float32)
+    return query_index, query_emb, best_lam
+
+
+def _fineweb_label_chunk(chunk):
+    return [_fineweb_label_one(query_index, ex) for query_index, ex in chunk]
+
+
+def _chunk_examples(examples: list[QueryExample], num_workers: int):
+    chunk_size = max(1, min(64, (len(examples) + (num_workers * 8) - 1) // (num_workers * 8)))
+    indexed = list(enumerate(examples))
+    return [indexed[i : i + chunk_size] for i in range(0, len(indexed), chunk_size)]
 
 
 # Train a predictor in log-lambda space and keep best validation checkpoint.
@@ -350,6 +400,7 @@ def _build_fineweb_labels(
     embedder: MiniLMEmbedder,
     lambda_grid: list[float],
     segment_config: SegmentBuildConfig,
+    num_workers: int,
 ) -> tuple[np.ndarray, np.ndarray]:
     doc_ids, doc_texts, examples = _load_fineweb_queries(fineweb_queries_path, max_fineweb_queries)
     segments, seg_to_doc = build_segments_from_docs(
@@ -358,24 +409,33 @@ def _build_fineweb_labels(
         embedder,
         config=segment_config,
     )
-    engines = {
-        lam: PricingEngine(
-            segments=segments,
-            embed_fn=embedder.embed_single,
-            lambda_sparsity=float(lam),
-            eta_redundancy=0.0,
-            max_segments=5,
-        )
-        for lam in lambda_grid
-    }
-    X = []
-    y = []
-    for i, ex in enumerate(examples, start=1):
-        best_lam = _best_lambda_for_query(ex.query, ex.relevant_doc_ids, engines, seg_to_doc)
-        X.append(ensure_1d(embedder.embed_single(ex.query)).astype(np.float32))
-        y.append(best_lam)
-        if i % 200 == 0:
-            print(f"fineweb labels: {i}/{len(examples)}")
+    query_embedding_cache = {ex.query: ensure_1d(embedder.embed_single(ex.query)) for ex in examples}
+    worker_count = max(1, int(num_workers))
+    init_args = (segments, seg_to_doc, query_embedding_cache, lambda_grid)
+
+    if worker_count == 1 or len(examples) <= 1:
+        _init_fineweb_label_worker(*init_args)
+        ordered = []
+        for i, ex in enumerate(examples, start=1):
+            ordered.append(_fineweb_label_one(i - 1, ex))
+            if i % 200 == 0:
+                print(f"fineweb labels: {i}/{len(examples)}", flush=True)
+    else:
+        chunks = _chunk_examples(examples, worker_count)
+        ordered = []
+        completed = 0
+        LOGGER.info("fineweb labels: sweeping with %d workers over %d chunks", worker_count, len(chunks))
+        with ProcessPoolExecutor(max_workers=worker_count, initializer=_init_fineweb_label_worker, initargs=init_args) as pool:
+            futures = [pool.submit(_fineweb_label_chunk, chunk) for chunk in chunks]
+            for future in as_completed(futures):
+                chunk_rows = future.result()
+                ordered.extend(chunk_rows)
+                completed += len(chunk_rows)
+                print(f"fineweb labels: {completed}/{len(examples)}", flush=True)
+
+    ordered.sort(key=lambda item: item[0])
+    X = [query_emb for _, query_emb, _ in ordered]
+    y = [best_lam for _, _, best_lam in ordered]
     return np.asarray(X, dtype=np.float32), np.asarray(y, dtype=np.float32)
 
 
@@ -398,6 +458,7 @@ def main() -> None:
     parser.add_argument("--lookback-k", type=int, default=50)
     parser.add_argument("--segment-strategy", default="geometry_sentence")
     parser.add_argument("--output-path", default="outputs/paper_bottleneck_ablation_scifact.json")
+    parser.add_argument("--num-workers", type=int, default=1)
     args = parser.parse_args()
 
     os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
@@ -418,6 +479,7 @@ def main() -> None:
         embedder,
         lambda_grid,
         segment_config=segment_config,
+        num_workers=args.num_workers,
     )
     LOGGER.info("fineweb training pairs: %d", len(X_train))
 

@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from typing import Dict, List, Sequence
 
 import numpy as np
@@ -26,6 +27,17 @@ from ska_agent.core.pricing import PricingEngine
 LOGGER = logging.getLogger(__name__)
 
 
+_SWEEP_DATASET_NAME = ""
+_SWEEP_SEGMENTS = None
+_SWEEP_SEGMENT_TO_DOC_ID = None
+_SWEEP_QUERY_EMBEDDINGS = None
+_SWEEP_CORPUS_EMBS = None
+_SWEEP_CORPUS_NORMS = None
+_SWEEP_SEGMENT_CONFIG_DICT = None
+_SWEEP_SEGMENT_STRATEGY = ""
+_SWEEP_ENGINES = None
+
+
 def _score_retrieval(retrieved_doc_ids: Sequence[str], relevant_doc_ids: Sequence[str]):
     retrieved = set(retrieved_doc_ids)
     relevant = set(relevant_doc_ids)
@@ -39,27 +51,42 @@ def _score_retrieval(retrieved_doc_ids: Sequence[str], relevant_doc_ids: Sequenc
     return float(precision), float(recall), float(f1)
 
 
-def _sweep_records(
-    dataset_name: str,
+def _init_sweep_worker(
+    dataset_name,
     segments,
-    query_examples: List[QueryExample],
-    segment_to_doc_id: Dict[int, str],
-    embedder: MiniLMEmbedder,
-    segment_config: SegmentBuildConfig,
+    segment_to_doc_id,
+    query_embedding_cache,
+    corpus_embs,
+    corpus_norms,
+    segment_config_dict,
+    segment_strategy,
+    lambda_grid,
 ):
-    lambda_grid = list(LAMBDA_GRID)
-    query_embedding_cache = {ex.query: ensure_1d(embedder.embed_single(ex.query)) for ex in query_examples}
-    corpus_embs = np.asarray([seg.vector for seg in segments], dtype=np.float32)
-    corpus_norms = np.linalg.norm(corpus_embs, axis=1)
+    global _SWEEP_DATASET_NAME
+    global _SWEEP_SEGMENTS
+    global _SWEEP_SEGMENT_TO_DOC_ID
+    global _SWEEP_QUERY_EMBEDDINGS
+    global _SWEEP_CORPUS_EMBS
+    global _SWEEP_CORPUS_NORMS
+    global _SWEEP_SEGMENT_CONFIG_DICT
+    global _SWEEP_SEGMENT_STRATEGY
+    global _SWEEP_ENGINES
+
+    _SWEEP_DATASET_NAME = dataset_name
+    _SWEEP_SEGMENTS = segments
+    _SWEEP_SEGMENT_TO_DOC_ID = segment_to_doc_id
+    _SWEEP_QUERY_EMBEDDINGS = query_embedding_cache
+    _SWEEP_CORPUS_EMBS = corpus_embs
+    _SWEEP_CORPUS_NORMS = corpus_norms
+    _SWEEP_SEGMENT_CONFIG_DICT = segment_config_dict
+    _SWEEP_SEGMENT_STRATEGY = segment_strategy
 
     def cached_embed_fn(text):
-        if text in query_embedding_cache:
-            return query_embedding_cache[text]
-        return ensure_1d(embedder.embed_single(text))
+        return _SWEEP_QUERY_EMBEDDINGS[text]
 
-    engines = {
+    _SWEEP_ENGINES = {
         lam: PricingEngine(
-            segments=segments,
+            segments=_SWEEP_SEGMENTS,
             embed_fn=cached_embed_fn,
             lambda_sparsity=float(lam),
             eta_redundancy=ETA_REDUNDANCY,
@@ -68,54 +95,112 @@ def _sweep_records(
         for lam in lambda_grid
     }
 
+
+def _sweep_single_query(query_index: int, ex: QueryExample):
+    per_query = []
+    best = BestSweepChoice()
+
+    for lam in sorted(_SWEEP_ENGINES.keys()):
+        result = _SWEEP_ENGINES[lam].retrieve(ex.query, verbose=False)
+        retrieved_doc_ids = [
+            _SWEEP_SEGMENT_TO_DOC_ID[int(seg.start_idx)]
+            for seg in result.segments
+            if int(seg.start_idx) in _SWEEP_SEGMENT_TO_DOC_ID
+        ]
+        precision, recall, f1 = _score_retrieval(retrieved_doc_ids, ex.relevant_doc_ids)
+
+        row = {
+            "dataset": _SWEEP_DATASET_NAME,
+            "question_id": ex.qid,
+            "query": ex.query,
+            "lambda": float(lam),
+            "retrieval_precision": precision,
+            "retrieval_recall": recall,
+            "retrieval_f1": f1,
+            "num_segments": int(len(result.segments)),
+            "relevant_doc_ids": list(ex.relevant_doc_ids),
+            "retrieved_doc_ids": retrieved_doc_ids,
+            "segment_strategy": _SWEEP_SEGMENT_STRATEGY,
+            "segment_config": _SWEEP_SEGMENT_CONFIG_DICT,
+            "num_corpus_segments": int(len(_SWEEP_SEGMENTS)),
+            "is_optimal": False,
+        }
+        per_query.append(row)
+
+        k = len(result.segments)
+        if is_better_sweep_choice(f1, k, float(lam), best):
+            best = BestSweepChoice(
+                score=f1,
+                row_index=len(per_query) - 1,
+                num_segments=k,
+                lambda_value=float(lam),
+            )
+
+    per_query[best.row_index]["is_optimal"] = True
+    query_emb = ensure_1d(_SWEEP_QUERY_EMBEDDINGS[ex.query]).astype(np.float32)
+    per_query[best.row_index].update(
+        build_training_feature_record(query_emb, _SWEEP_CORPUS_EMBS, _SWEEP_CORPUS_NORMS)
+    )
+    return query_index, per_query
+
+
+def _sweep_query_chunk(chunk):
+    return [_sweep_single_query(query_index, ex) for query_index, ex in chunk]
+
+
+def _chunk_query_examples(query_examples: List[QueryExample], num_workers: int):
+    chunk_size = max(1, min(64, (len(query_examples) + (num_workers * 8) - 1) // (num_workers * 8)))
+    indexed = list(enumerate(query_examples))
+    return [indexed[i : i + chunk_size] for i in range(0, len(indexed), chunk_size)]
+
+
+def _sweep_records(
+    dataset_name: str,
+    segments,
+    query_examples: List[QueryExample],
+    segment_to_doc_id: Dict[int, str],
+    embedder: MiniLMEmbedder,
+    segment_config: SegmentBuildConfig,
+    num_workers: int = 1,
+):
+    lambda_grid = list(LAMBDA_GRID)
+    query_embedding_cache = {ex.query: ensure_1d(embedder.embed_single(ex.query)) for ex in query_examples}
+    corpus_embs = np.asarray([seg.vector for seg in segments], dtype=np.float32)
+    corpus_norms = np.linalg.norm(corpus_embs, axis=1)
+
+    worker_count = max(1, int(num_workers))
+    init_args = (
+        dataset_name,
+        segments,
+        segment_to_doc_id,
+        query_embedding_cache,
+        corpus_embs,
+        corpus_norms,
+        segment_config.to_dict(),
+        segment_config.strategy,
+        lambda_grid,
+    )
+    if worker_count == 1 or len(query_examples) <= 1:
+        _init_sweep_worker(*init_args)
+        ordered = [_sweep_single_query(i, ex) for i, ex in enumerate(query_examples)]
+        for processed in range(100, len(query_examples) + 1, 100):
+            LOGGER.info("%s: processed %d/%d queries", dataset_name, processed, len(query_examples))
+    else:
+        chunks = _chunk_query_examples(query_examples, worker_count)
+        ordered = []
+        completed = 0
+        LOGGER.info("%s: sweeping with %d workers over %d chunks", dataset_name, worker_count, len(chunks))
+        with ProcessPoolExecutor(max_workers=worker_count, initializer=_init_sweep_worker, initargs=init_args) as pool:
+            futures = [pool.submit(_sweep_query_chunk, chunk) for chunk in chunks]
+            for future in as_completed(futures):
+                chunk_rows = future.result()
+                ordered.extend(chunk_rows)
+                completed += len(chunk_rows)
+                LOGGER.info("%s: processed %d/%d queries", dataset_name, completed, len(query_examples))
+
     records = []
-    for idx, ex in enumerate(query_examples, start=1):
-        per_query = []
-        best = BestSweepChoice()
-
-        for lam in lambda_grid:
-            result = engines[lam].retrieve(ex.query, verbose=False)
-            retrieved_doc_ids = [
-                segment_to_doc_id[int(seg.start_idx)]
-                for seg in result.segments
-                if int(seg.start_idx) in segment_to_doc_id
-            ]
-            precision, recall, f1 = _score_retrieval(retrieved_doc_ids, ex.relevant_doc_ids)
-
-            row = {
-                "dataset": dataset_name,
-                "question_id": ex.qid,
-                "query": ex.query,
-                "lambda": float(lam),
-                "retrieval_precision": precision,
-                "retrieval_recall": recall,
-                "retrieval_f1": f1,
-                "num_segments": int(len(result.segments)),
-                "relevant_doc_ids": list(ex.relevant_doc_ids),
-                "retrieved_doc_ids": retrieved_doc_ids,
-                "segment_strategy": segment_config.strategy,
-                "segment_config": segment_config.to_dict(),
-                "num_corpus_segments": int(len(segments)),
-                "is_optimal": False,
-            }
-            per_query.append(row)
-
-            k = len(result.segments)
-            if is_better_sweep_choice(f1, k, float(lam), best):
-                best = BestSweepChoice(
-                    score=f1,
-                    row_index=len(per_query) - 1,
-                    num_segments=k,
-                    lambda_value=float(lam),
-                )
-
-        per_query[best.row_index]["is_optimal"] = True
-        query_emb = ensure_1d(query_embedding_cache[ex.query]).astype(np.float32)
-        per_query[best.row_index].update(build_training_feature_record(query_emb, corpus_embs, corpus_norms))
+    for _, per_query in sorted(ordered, key=lambda item: item[0]):
         records.extend(per_query)
-
-        if idx % 100 == 0:
-            LOGGER.info("%s: processed %d/%d queries", dataset_name, idx, len(query_examples))
     return records
 
 
@@ -183,6 +268,7 @@ def main():
     parser.add_argument("--min-segment-size", type=int, default=2)
     parser.add_argument("--max-segment-size", type=int, default=15)
     parser.add_argument("--lookback-k", type=int, default=50)
+    parser.add_argument("--num-workers", type=int, default=1)
     args = parser.parse_args()
 
     embedder = MiniLMEmbedder(args.embed_model)
@@ -213,6 +299,7 @@ def main():
         fw_segment_to_doc_id,
         embedder,
         segment_config,
+        num_workers=args.num_workers,
     )
     save_records(fw_records, args.fineweb_output_path)
     save_run_metadata(
@@ -239,6 +326,7 @@ def main():
         mr_segment_to_doc_id,
         embedder,
         segment_config,
+        num_workers=args.num_workers,
     )
     save_records(mr_records, args.marco_output_path)
     save_run_metadata(
