@@ -109,9 +109,17 @@ def main():
         os.makedirs(out, exist_ok=True)
         _run_week9_eval(out, size, common)
 
-        sf = _read_mean(os.path.join(out, "scifact_results.json"), "plain")
-        fq = _read_mean(os.path.join(out, "fiqa_results.json"), "plain")
-        row = {"n_train": size, "scifact_plain_ndcg@10": sf, "fiqa_plain_ndcg@10": fq}
+        scifact_path = os.path.join(out, "scifact_results.json")
+        fiqa_path = os.path.join(out, "fiqa_results.json")
+        row = {
+            "n_train": size,
+            "scifact_plain_ndcg@10": _read_mean(scifact_path, "plain"),
+            "fiqa_plain_ndcg@10": _read_mean(fiqa_path, "plain"),
+            "scifact_plain_precision@returned": _read_mean(scifact_path, "plain_precision_returned"),
+            "fiqa_plain_precision@returned": _read_mean(fiqa_path, "plain_precision_returned"),
+            "scifact_plain_p@5": _read_mean(scifact_path, "plain_precision_at_5"),
+            "fiqa_plain_p@5": _read_mean(fiqa_path, "plain_precision_at_5"),
+        }
         summary.append(row)
         print(row)
 

@@ -59,6 +59,26 @@ def export_cross_domain_latex(scifact_results_path: str, fiqa_results_path: str,
     export_latex_table(pd.DataFrame(rows), output_path, index=False, float_format="%s")
 
 
+def export_cross_domain_precision_latex(scifact_results_path: str, fiqa_results_path: str, output_path: str) -> None:
+    rows = []
+    for domain, path in [("SciFact", scifact_results_path), ("FiQA", fiqa_results_path)]:
+        runs = read_json_rows(path)
+        methods = [key for key in ["oracle", "fixed", "plain", "hybrid", "covariance"] if key in runs[0]]
+        for method in methods:
+            rows.append(
+                {
+                    "domain": domain,
+                    "method": method,
+                    "precision@returned": _mean_std(
+                        [float(run[f"{method}_precision_returned"]) for run in runs]
+                    ),
+                    "P@5": _mean_std([float(run[f"{method}_precision_at_5"]) for run in runs]),
+                    "Recall@5": _mean_std([float(run[f"{method}_recall_at_5"]) for run in runs]),
+                }
+            )
+    export_latex_table(pd.DataFrame(rows), output_path, index=False, float_format="%s")
+
+
 def export_kshot_latex(result_path: str, output_path: str) -> None:
     rows = read_json_rows(result_path)
     columns = [

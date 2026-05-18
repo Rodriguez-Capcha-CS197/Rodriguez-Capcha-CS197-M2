@@ -17,6 +17,7 @@ from beir.datasets.data_loader import GenericDataLoader
 from configs.metadata import save_run_metadata
 from scripts.reporting import (
     export_cross_domain_latex,
+    export_cross_domain_precision_latex,
     plot_feature_ablation,
     plot_lambda_distribution_shift,
     plot_tsne_lambda,
@@ -90,13 +91,37 @@ def _group_by_query(records):
 
 
 def _evaluate_policy(records_by_query, policy_fn):
-    scores = []
+    ndcg_scores = []
+    precision_returned_scores = []
+    precision_at_5_scores = []
+    recall_at_5_scores = []
     for qid, rows in records_by_query.items():
         query = rows[0]["query"]
         chosen_lambda = float(policy_fn(qid, query, rows))
         best_row = min(rows, key=lambda r: abs(float(r["lambda"]) - chosen_lambda))
-        scores.append(float(best_row["ndcg_at_10"]))
-    return float(np.mean(scores)) if scores else 0.0
+        retrieved_doc_ids = list(dict.fromkeys(str(doc_id) for doc_id in best_row.get("retrieved_doc_ids", [])))
+        relevant_doc_ids = {str(doc_id) for doc_id in best_row.get("relevant_doc_ids", [])}
+        retrieved_at_5 = retrieved_doc_ids[:5]
+        hit_count = sum(1 for doc_id in retrieved_at_5 if doc_id in relevant_doc_ids)
+
+        ndcg_scores.append(float(best_row["ndcg_at_10"]))
+        precision_returned_scores.append(hit_count / len(retrieved_at_5) if retrieved_at_5 else 0.0)
+        precision_at_5_scores.append(hit_count / 5.0)
+        recall_at_5_scores.append(hit_count / len(relevant_doc_ids) if relevant_doc_ids else 0.0)
+
+    if not ndcg_scores:
+        return {
+            "ndcg_at_10": 0.0,
+            "precision_returned": 0.0,
+            "precision_at_5": 0.0,
+            "recall_at_5": 0.0,
+        }
+    return {
+        "ndcg_at_10": float(np.mean(ndcg_scores)),
+        "precision_returned": float(np.mean(precision_returned_scores)),
+        "precision_at_5": float(np.mean(precision_at_5_scores)),
+        "recall_at_5": float(np.mean(recall_at_5_scores)),
+    }
 
 
 def _oracle_policy(_qid, _query, rows):
@@ -188,14 +213,20 @@ def _eval_domain(
     def cov_policy(_qid, query, _rows):
         return predict_covariance_lambda(cov_model, query, embedder.embed_single, corpus_embs, corpus_norms)
 
-    return {
-        "domain": domain_name,
+    policy_metrics = {
         "oracle": _evaluate_policy(records_by_query, _oracle_policy),
         "fixed": _evaluate_policy(records_by_query, _fixed_policy(fixed_lambda)),
         "plain": _evaluate_policy(records_by_query, plain_policy),
         "hybrid": _evaluate_policy(records_by_query, hybrid_policy),
         "covariance": _evaluate_policy(records_by_query, cov_policy),
     }
+    row = {"domain": domain_name}
+    for method, metrics in policy_metrics.items():
+        row[method] = metrics["ndcg_at_10"]
+        row[f"{method}_precision_returned"] = metrics["precision_returned"]
+        row[f"{method}_precision_at_5"] = metrics["precision_at_5"]
+        row[f"{method}_recall_at_5"] = metrics["recall_at_5"]
+    return row
 
 
 def _plot_summary(scifact_runs, fiqa_runs, out_png, out_pdf):
@@ -328,6 +359,11 @@ def main():
         os.path.join(args.output_dir, "scifact_results.json"),
         os.path.join(args.output_dir, "fiqa_results.json"),
         os.path.join(args.output_dir, "cross_domain_ndcg_table.tex"),
+    )
+    export_cross_domain_precision_latex(
+        os.path.join(args.output_dir, "scifact_results.json"),
+        os.path.join(args.output_dir, "fiqa_results.json"),
+        os.path.join(args.output_dir, "cross_domain_precision_table.tex"),
     )
     plot_feature_ablation(
         scifact_runs,
