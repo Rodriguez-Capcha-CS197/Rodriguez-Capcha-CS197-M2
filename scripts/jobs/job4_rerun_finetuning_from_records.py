@@ -249,7 +249,7 @@ def main() -> None:
     parser.add_argument("--hidden-dim", type=int, default=64)
     parser.add_argument("--train-epochs", type=int, default=200)
     parser.add_argument("--train-lr", type=float, default=1e-3)
-    parser.add_argument("--ft-epochs", type=int, default=80)
+    parser.add_argument("--ft-epochs", type=int, default=5)
     parser.add_argument("--ft-lr", type=float, default=5e-4)
     parser.add_argument("--output-path", default="outputs/job4_finetune_rerun_from_records.json")
     args = parser.parse_args()
