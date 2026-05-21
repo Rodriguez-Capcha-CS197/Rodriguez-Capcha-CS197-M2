@@ -221,7 +221,9 @@ def _evaluate_policy(records_by_query: dict[str, list[dict]], policy_fn):
 
 
 def _oracle_policy(_qid, _query, rows):
-    return max(rows, key=lambda r: float(r["ndcg_at_10"]))
+    # nDCG ties are broken toward fewer admitted segments to avoid treating
+    # equally ranked but more permissive retrieval as oracle-superior.
+    return max(rows, key=lambda row: (float(row["ndcg_at_10"]), -int(row.get("num_segments", 0))))
 
 
 def _precision_oracle_policy(_qid, _query, rows):
@@ -229,8 +231,8 @@ def _precision_oracle_policy(_qid, _query, rows):
         rows,
         key=lambda r: (
             _row_score(r, "precision_returned"),
-            _row_score(r, "precision_at_5"),
             float(r["ndcg_at_10"]),
+            -int(r.get("num_segments", _row_score(r, "num_returned_docs"))),
         ),
     )
 
@@ -241,7 +243,7 @@ def _f1_oracle_policy(_qid, _query, rows):
         key=lambda r: (
             _row_score(r, "f1_returned"),
             float(r["ndcg_at_10"]),
-            -_row_score(r, "num_returned_docs"),
+            -int(r.get("num_segments", _row_score(r, "num_returned_docs"))),
         ),
     )
 

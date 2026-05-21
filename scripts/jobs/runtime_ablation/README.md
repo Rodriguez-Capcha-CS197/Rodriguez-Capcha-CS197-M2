@@ -160,3 +160,35 @@ outputs/runtime_ablation/learned_runtime_feature/learned_runtime_ndcg_by_domain.
 outputs/runtime_ablation/learned_runtime_feature/learned_runtime_precision_by_domain.png
 outputs/runtime_ablation/learned_runtime_feature/learned_runtime_avg_returned_by_domain.png
 ```
+
+## Final Consistent Evaluation Tables
+
+`job6_final_consistent_eval.py` regenerates corrected paper tables without
+running Job 1, Job 2, sweep construction, or model training.
+
+It standardizes oracle selection:
+
+- nDCG oracle breaks ties toward fewer admitted segments;
+- precision oracle breaks ties by precision, nDCG, then fewer admitted segments;
+- score-gap nDCG uses the shared `beir_ndcg(...)` scorer.
+
+It consumes saved sweep records and, when available, existing policy-query
+metric files for Plain/Hybrid/Covariance MLP chosen lambdas.
+
+Default output directory:
+
+```bash
+outputs/runtime_ablation/final_consistent_eval
+```
+
+Key outputs:
+
+```bash
+outputs/runtime_ablation/final_consistent_eval/final_consistent_runs.json
+outputs/runtime_ablation/final_consistent_eval/final_consistent_query_metrics.jsonl
+outputs/runtime_ablation/final_consistent_eval/final_consistent_bootstrap_summary.json
+outputs/runtime_ablation/final_consistent_eval/final_consistent_paper_table.csv
+outputs/runtime_ablation/final_consistent_eval/final_consistent_paper_table.tex
+outputs/runtime_ablation/final_consistent_eval/sanity_checks.json
+outputs/runtime_ablation/final_consistent_eval/metadata.json
+```

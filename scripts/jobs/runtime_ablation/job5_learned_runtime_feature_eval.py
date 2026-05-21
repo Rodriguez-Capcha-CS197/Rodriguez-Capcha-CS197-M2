@@ -34,7 +34,7 @@ from shared.embedding import MiniLMEmbedder
 from shared.lambda_inference import build_covariance_features
 from shared.predictor import LambdaPredictor
 from shared.segments import SegmentBuildConfig
-from shared.beir_scoring import build_beir_segments
+from shared.beir_scoring import beir_ndcg, build_beir_segments
 from shared.logging_utils import configure_logging
 
 
@@ -239,25 +239,6 @@ def _dedupe_doc_ids(doc_ids) -> list[str]:
     return list(dict.fromkeys(str(doc_id) for doc_id in doc_ids))
 
 
-def _ndcg_from_doc_ids(retrieved_doc_ids, query_id: str, qrels: dict[str, dict[str, int]], k: int = 10) -> float:
-    rels = qrels.get(str(query_id), {})
-    if not rels:
-        return 0.0
-    retrieved = _dedupe_doc_ids(retrieved_doc_ids)[:k]
-
-    def gain(rel):
-        return (2.0 ** float(rel) - 1.0)
-
-    dcg = 0.0
-    for rank, doc_id in enumerate(retrieved, start=1):
-        rel = float(rels.get(str(doc_id), 0.0))
-        dcg += gain(rel) / np.log2(rank + 1.0)
-
-    ideal_rels = sorted((float(v) for v in rels.values()), reverse=True)[:k]
-    idcg = sum(gain(rel) / np.log2(rank + 1.0) for rank, rel in enumerate(ideal_rels, start=1))
-    return float(dcg / idcg) if idcg > 0.0 else 0.0
-
-
 def _metrics_from_doc_ids(ndcg_at_10: float, retrieved_doc_ids, relevant_doc_ids) -> dict:
     retrieved_doc_ids = _dedupe_doc_ids(retrieved_doc_ids)
     relevant_doc_ids = {str(doc_id) for doc_id in relevant_doc_ids}
@@ -298,7 +279,7 @@ def _precision_score(row: dict) -> tuple[float, float, float]:
     return (
         float(metrics["precision_returned"]),
         float(row["ndcg_at_10"]),
-        -float(metrics["num_returned_docs"]),
+        -int(row.get("num_segments", metrics["num_returned_docs"])),
     )
 
 
@@ -416,7 +397,13 @@ def _build_domain_bundle(
                 "runtime_score_gap_k": int(len(selected_segments)),
                 "runtime_candidate_k": int(min(candidate_k, len(scores))),
                 **_metrics_from_doc_ids(
-                    ndcg_at_10=_ndcg_from_doc_ids(retrieved_doc_ids, qid, qrels, k=10),
+                    ndcg_at_10=beir_ndcg(
+                        retrieved_segments=selected_segments,
+                        query_id=qid,
+                        qrels=qrels,
+                        segment_to_doc_id=segment_to_doc_id,
+                        k=10,
+                    ),
                     retrieved_doc_ids=retrieved_doc_ids,
                     relevant_doc_ids=records_by_query[qid][0].get("relevant_doc_ids", []),
                 ),
@@ -452,6 +439,8 @@ def _evaluate_oracles(records_by_query: dict[str, list[dict]]) -> tuple[list[dic
     precision_rows = []
     for qid, sweep_rows in records_by_query.items():
         query = sweep_rows[0]["query"]
+        # nDCG ties are broken toward fewer admitted segments to avoid treating
+        # equally ranked but more permissive retrieval as oracle-superior.
         ndcg_best = max(sweep_rows, key=lambda row: (float(row["ndcg_at_10"]), -int(row.get("num_segments", 0))))
         precision_best = max(sweep_rows, key=_precision_score)
         ndcg_rows.append(_policy_row_from_sweep(qid, query, "ndcg_oracle", ndcg_best, float(ndcg_best["lambda"])))
