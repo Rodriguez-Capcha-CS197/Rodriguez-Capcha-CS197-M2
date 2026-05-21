@@ -1,9 +1,14 @@
 # Runtime Score-Gap Ablation
 
-This folder contains an isolated Option A ablation job. It does not modify the
-existing Week 9 evaluator or reporting files.
+This folder contains isolated runtime-aware ablation jobs. They do not modify
+the existing Week 9 evaluator or reporting files.
 
-The job writes all new artifacts under:
+## Existing Two-Domain Runtime+MLP Comparison
+
+`job3_runtime_score_gap_eval.py` reuses the Week 9 MLP policies and adds the
+runtime score-gap policy in a separate output directory.
+
+It writes all new artifacts under:
 
 ```bash
 outputs/runtime_score_gap_ablation
@@ -54,4 +59,104 @@ outputs/runtime_score_gap_ablation/runtime_score_gap_metadata.json
 
 ```bash
 tar -czf runtime_score_gap_ablation_outputs.tar.gz -C outputs runtime_score_gap_ablation
+```
+
+## Five-Domain Score-Gap-Only Evaluation
+
+`job4_five_domain_score_gap_eval.py` evaluates only:
+
+- fixed lambda;
+- runtime score-gap.
+
+It runs on:
+
+- SciFact;
+- FiQA;
+- NFCorpus;
+- ArguAna;
+- TREC-COVID.
+
+It does not train or evaluate MLP policies.
+
+Required restored inputs:
+
+```bash
+outputs/fineweb_labeled.json
+outputs/marco_labeled.json
+outputs/scifact_sweep_records.json
+outputs/fiqa_sweep_records.json
+outputs/nfcorpus_sweep_records.json
+outputs/arguana_sweep_records.json
+outputs/trec-covid_sweep_records.json
+outputs/beir_data/scifact
+outputs/beir_data/fiqa
+outputs/beir_data/nfcorpus
+outputs/beir_data/arguana
+outputs/beir_data/trec-covid
+```
+
+Default output directory:
+
+```bash
+outputs/runtime_ablation/five_domain_score_gap
+```
+
+Key outputs:
+
+```bash
+outputs/runtime_ablation/five_domain_score_gap/five_domain_score_gap_runs.json
+outputs/runtime_ablation/five_domain_score_gap/five_domain_score_gap_query_metrics.jsonl
+outputs/runtime_ablation/five_domain_score_gap/five_domain_score_gap_bootstrap_summary.json
+outputs/runtime_ablation/five_domain_score_gap/five_domain_score_gap_paper_table.csv
+outputs/runtime_ablation/five_domain_score_gap/five_domain_score_gap_paper_table.tex
+outputs/runtime_ablation/five_domain_score_gap/five_domain_score_gap_metadata.json
+```
+
+## Learned Runtime Feature Evaluation
+
+`job5_learned_runtime_feature_eval.py` trains a small ridge regressor on
+candidate-side score features from each query's preliminary top-50 list.
+
+Features include:
+
+- top scores;
+- adjacent score gaps;
+- score mean, standard deviation, min, max, median, and percentiles;
+- entropy of normalized scores;
+- score-decay slope;
+- max adjacent gap and its position;
+- counts above fixed score thresholds.
+
+The model predicts `log(lambda)` and evaluates by selecting the nearest saved
+lambda sweep row. By default, runtime model training is leave-domain-out: for
+each held-out BEIR domain, the runtime regressor is trained on the other four
+domains.
+
+Compared methods:
+
+- fixed lambda;
+- covariance MLP;
+- score-gap heuristic;
+- learned runtime feature ridge model;
+- nDCG oracle;
+- precision oracle.
+
+Default output directory:
+
+```bash
+outputs/runtime_ablation/learned_runtime_feature
+```
+
+Key outputs:
+
+```bash
+outputs/runtime_ablation/learned_runtime_feature/learned_runtime_feature_runs.json
+outputs/runtime_ablation/learned_runtime_feature/learned_runtime_feature_query_metrics.jsonl
+outputs/runtime_ablation/learned_runtime_feature/learned_runtime_feature_bootstrap_summary.json
+outputs/runtime_ablation/learned_runtime_feature/learned_runtime_feature_paper_table.csv
+outputs/runtime_ablation/learned_runtime_feature/learned_runtime_feature_paper_table.tex
+outputs/runtime_ablation/learned_runtime_feature/learned_runtime_feature_metadata.json
+outputs/runtime_ablation/learned_runtime_feature/learned_runtime_ndcg_by_domain.png
+outputs/runtime_ablation/learned_runtime_feature/learned_runtime_precision_by_domain.png
+outputs/runtime_ablation/learned_runtime_feature/learned_runtime_avg_returned_by_domain.png
 ```
